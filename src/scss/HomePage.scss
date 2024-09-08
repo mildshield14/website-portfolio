@@ -1,0 +1,239 @@
+@import "App.scss";
+
+.homepage {
+  position: relative;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: var(--background-color);
+    color: #333;
+    font-family: "Raleway", sans-serif;
+    padding: 20px;
+  }
+
+  &__intro-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    border: solid 1px black;
+    border-radius: 20px;
+    background: aliceblue;
+    width: 100%;
+    height: 500px;
+
+    .small & {
+      height: 450px;
+    }
+
+    &__title {
+      font-size: 2rem;
+      color: #333;
+      margin: 20px 0;
+    }
+
+    &__content {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: #555;
+      margin-bottom: 20px;
+
+      .small & {
+        text-align: justify;
+      }
+
+      &__header {
+        font-size: 1.6rem;
+        font-weight: 900;
+      }
+
+      &__link {
+        color: #555;
+        text-decoration: none;
+
+        &:first-child {
+          padding-left: 0;
+        }
+      }
+
+      &__description {
+        text-align: justify;
+
+        .small & {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    &__image {
+      &:hover {
+        animation: scaleUpAnim 0.8s ease-out;
+      }
+
+      &__container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 50px;
+        align-items: center;
+        width: 70%;
+
+        .small & {
+          width: 100%;
+        }
+      }
+
+      &__udem {
+        width: 30%;
+      }
+    }
+  }
+
+    &__slide {
+      display: flex;
+      flex-direction: column;
+      &__container {
+        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        padding-bottom: 20px;
+
+        .small,
+        .medium & {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      &__skills {
+        display: flex;
+        flex-direction: row;
+        padding: 0 10px;
+        align-items: center;
+
+        &__name {
+          padding: 5px;
+          font-size: 0.8rem;
+
+          .small & {
+            display: none;
+          }
+        }
+
+        &__image {
+          width: 50px;
+          padding: 5px;
+
+          &:hover {
+            animation: scaleUpAnim 0.8s ease-out;
+          }
+
+          .small & {
+            width: 40px;
+          }
+        }
+    }
+  }
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  &__header, &__content {
+    text-align: center;
+  }
+
+  &__header {
+    h2 {
+      color: #000;
+      font-size: 24px;
+    }
+    span {
+      display: block;
+      margin-top: 8px;
+      font-size: 16px;
+      color: #666;
+    }
+  }
+
+  &__content {
+    margin-top: 20px;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.6;
+
+    a {
+      color: #0277bd;
+      text-decoration: none;
+    }
+  }
+
+  &__logos {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    &__udem {
+      padding-top: 10px;
+      width: 40%;
+    }
+
+    img {
+      width: 80%;
+      transition: opacity 0.3s ease;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+.slideBanner {
+  width: 75%;
+  height: 100%;
+  background: url('https://i.ibb.co/9qZH8qF/imagee.webp') no-repeat left;
+  opacity: 0;
+  animation: slideFadeIn 1.5s ease-out forwards;
+  background-size: contain;
+
+  &__container {
+    flex: 110;
+    width: 50%;
+    height: 70%;
+    align-content: center;
+  }
+}
+
+@keyframes slideFadeIn {
+  0% {
+    background-position: 100% 0;
+    opacity: 0;
+  }
+  100% {
+    background-position: 90% 0;
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUpAnim {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
