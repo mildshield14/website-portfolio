@@ -1,11 +1,12 @@
 import React from "react";
 import "../scss/HomePage.scss";
-import {Breakpoint} from "./types.ts";
 import Slide from "./Slide.tsx";
 
-let HomePage: React.FC;
+type HomePageProps = {
+    size: any;
+};
 
-HomePage = (size: Breakpoint) => {
+const HomePage: React.FC<HomePageProps> = ({ size }) => {
   return (
     <section className={size.size}>
       <Slide />
