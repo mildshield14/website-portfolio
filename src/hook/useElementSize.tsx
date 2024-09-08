@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 
-const useElementSize = (ref, breakpoints) => {
-    const [sizeLabel, setSizeLabel] = useState(null);
+const useElementSize = (ref: any, breakpoints: any) => {
+    const [sizeLabel, setSizeLabel] = useState<string | null>(null);
+
 
     useEffect(() => {
         const calculateSize = () => {

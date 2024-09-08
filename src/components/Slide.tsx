@@ -1,4 +1,3 @@
-import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -158,7 +157,7 @@ const Slide = () => {
   );
 
   const skills_slide = (array: { image: string; name: string }[]) => {
-    return array.map((array, index) => (
+    return array.map((array) => (
       <div className={"homepage__slide__skills"}>
         <h3 className={"homepage__slide__skills__name"}>{array.name}</h3>
         <img
@@ -179,7 +178,7 @@ const Slide = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    appendDots: (dots) => {
+    appendDots: (dots:any) => {
       return <MagicSliderDots dots={dots} numDotsToShow={4} dotWidth={30} />;
     },
   };
@@ -204,7 +203,7 @@ const Slide = () => {
                 I'm currently looking for new grad opportunities for 2025.
               </p>
             </div>
-            <div class="slideBanner__container">
+            <div className="slideBanner__container">
               <div className="slideBanner"></div>
             </div>
 

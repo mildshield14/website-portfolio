@@ -1,9 +1,12 @@
 import React, { useRef } from "react";
 import "../scss/Projects.scss";
-import { Breakpoint } from "./types";
 import { projects } from "./projects";
 
-let Projects: React.FC<{ size: Breakpoint }> = ({ size }) => {
+type ProjectsProps = {
+    size: any;
+};
+
+const Projects: React.FC<ProjectsProps> = ({ size }) => {
   const sliderRef = useRef<HTMLUListElement>(null);
   const scrollAmount = 100;
 
