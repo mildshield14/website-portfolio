@@ -1,0 +1,66 @@
+@import "App.scss";
+
+.projects {
+  position: relative;
+
+  &__title{
+    color: var(--text-color);
+    margin-bottom: 15px;
+    margin-top: 50px;
+    margin-left: 40px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    width: calc(100% - 80px);
+    max-width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
+
+  &__items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    transition:
+      transform 250ms,
+      opacity 400ms;
+    &:hover {
+      transform: scale(1.09);
+    }
+
+    &__images {
+      min-width: 110px;
+      max-width: 150px;
+      height: 200px;
+    }
+
+    &__titles {
+      color: var(--text-color);
+    }
+  }
+}
+
+.nav-btn {
+  bottom: 15%;
+  position: absolute;
+  transform: translateY(-50%);
+  border: none;
+  background-color: var(--background-color);
+  color: white;
+  font-size: 1.5rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  &:first-child {
+    left: 10px;
+  }
+  &:last-child {
+    right: 10px;
+  }
+
+  .extra & {
+    display: none;
+  }
+}
