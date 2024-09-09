@@ -42,8 +42,7 @@ function App() {
                  onError={(e) => console.log('Video Error:', e)}>
               <source src={videoSrc} type="video/mp4"/>
           </video>
-
-          <Header changeSource={changeVideoSource}/>
+          <Header size={size} changeSource={changeVideoSource}/>
           <HomePage size={size}/>
           <Projects size={size}/>
           <Socials size={size}/>

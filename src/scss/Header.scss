@@ -10,9 +10,25 @@
     flex-direction: row;
     align-items: center;
     color: var(--selected-text-color);
+
+    .small & {
+        &.open {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          height: 100%;
+          z-index: 100;
+          color: var(--selected-text-color);
+        }
+        &.close{
+          display: none;
+        }
+
+    }
   }
   &__items{
     padding-right: 20px;
+    margin: 5px 0;
     transition: transform 0.3s ease-in-out;
     font-weight: 400;
     color: var(--header-text-color);
@@ -32,6 +48,15 @@
     &:hover{
       transform: scale(1.08);
       font-weight: 900;
+    }
+
+    &__label{
+      font-weight: 300;
+      margin: 0 5px;
+    }
+
+    &__mode {
+      margin-left: auto;
     }
 
     &__toggle {
@@ -79,3 +104,22 @@
     }
 
 }}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+
+  .small & {
+    display: block;
+  }
+  span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--selected-button-color);
+    margin: 5px 0;
+    transition: 0.3s;
+  }
+}
+
+
