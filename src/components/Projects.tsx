@@ -5,7 +5,7 @@ import getTranslation from "../getTranslation.ts";
 
 type ProjectsProps = {
     size: any;
-    lang: string
+    lang: any;
 };
 
 const Projects: React.FC<ProjectsProps> = ({ size, lang }) => {
@@ -27,14 +27,14 @@ const Projects: React.FC<ProjectsProps> = ({ size, lang }) => {
         >
           «
         </button>
-        {projects.map((project, index) => (
+        {projects.map((project: any, index) => (
           <li className="projects__items" key={index}>
             <img
               className="projects__items__images"
               src={project.image}
-              alt={project.title}
+              alt={project.title[lang]}
             />
-            <h3 className="projects__items__titles">{project.title}</h3>
+            <h3 className="projects__items__titles">{project.title[lang]}</h3>
           </li>
         ))}
         <button
