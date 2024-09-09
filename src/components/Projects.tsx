@@ -27,7 +27,7 @@ const Projects: React.FC<ProjectsProps> = ({ size, lang }) => {
         >
           «
         </button>
-        {projects.map((project, index) => (
+        {projects.map((project: any, index) => (
           <li className="projects__items" key={index}>
             <img
               className="projects__items__images"
