@@ -9,7 +9,6 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    background-color: var(--background-color);
     color: #333;
     padding: 20px;
   }
@@ -98,48 +97,56 @@
     }
   }
 
-    &__slide {
-      display: flex;
-      flex-direction: column;
-      &__container {
-        align-items: center;
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        padding-bottom: 20px;
+  &__slide {
+    display: flex;
+    flex-direction: column;
+    &__container {
+      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      padding-bottom: 20px;
 
-        .small,
-        .medium & {
-          grid-template-columns: repeat(3, 1fr);
+      .small,
+      .medium & {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    &__skills {
+      display: flex;
+      flex-direction: row;
+      padding: 0 10px;
+      align-items: center;
+
+      &__title {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        text-decoration: underline;
+        margin-top: 10px;
+      }
+
+      &__name {
+        padding: 5px;
+        font-weight: 500;
+        font-size: 1rem;
+
+        .small & {
+          display: none;
         }
       }
 
-      &__skills {
-        display: flex;
-        flex-direction: row;
-        padding: 0 10px;
-        align-items: center;
+      &__image {
+        width: 50px;
+        padding: 5px;
 
-        &__name {
-          padding: 5px;
-          font-size: 0.8rem;
-
-          .small & {
-            display: none;
-          }
+        &:hover {
+          animation: scaleUpAnim 0.8s ease-out;
         }
 
-        &__image {
-          width: 50px;
-          padding: 5px;
-
-          &:hover {
-            animation: scaleUpAnim 0.8s ease-out;
-          }
-
-          .small & {
-            width: 40px;
-          }
+        .small & {
+          width: 40px;
         }
+      }
     }
   }
 }
@@ -153,14 +160,24 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  &__header, &__content {
+  &__header,
+  &__content {
     text-align: center;
+
+    &__para {
+      margin-bottom: 10px;
+      text-align: justify;
+      &:before {
+        content: "- ";
+      }
+    }
   }
 
   &__header {
     h2 {
       color: #000;
       font-size: 24px;
+      font-weight: 500;
     }
     span {
       display: block;
@@ -206,13 +223,14 @@
 .slideBanner {
   width: 75%;
   height: 100%;
-  background: url('https://i.ibb.co/9qZH8qF/imagee.webp') no-repeat left;
+  background: url("https://i.ibb.co/9qZH8qF/imagee.webp") no-repeat left;
   opacity: 0;
   animation: slideFadeIn 1.5s ease-out forwards;
   background-size: contain;
 
   .small & {
     gap: 0;
+    display: none;
   }
 
   &__container {
@@ -220,6 +238,10 @@
     width: 50%;
     height: 70%;
     align-content: center;
+
+    .small & {
+      flex: 0;
+    }
   }
 }
 
@@ -235,7 +257,8 @@
 }
 
 @keyframes scaleUpAnim {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
     opacity: 1;
   }

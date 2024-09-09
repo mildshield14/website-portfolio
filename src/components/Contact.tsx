@@ -9,19 +9,22 @@ const Contact: React.FC<ContactProps> = ({ size }) => {
   return (
       <section className={size.size}>
           <h2 id="contact" className="page__title"> Contact </h2>
-          <form className="contact__form" action={`https://formspree.io/f/${import.meta.env.VITE_APP_FORM_KEY}`} method="POST">
-              <label className="contact__form__label" htmlFor="name">Name:</label>
-              <input type="text" id="name" name="name" required/>
+          <div className="contact__form__container">
+              <form className="contact__form" action={`https://formspree.io/f/${import.meta.env.VITE_APP_FORM_KEY}`}
+                    method="POST">
+                  <label className="contact__form__label" htmlFor="name">Name:</label>
+                  <input className="contact__form__input" type="text" id="name" name="name" required/>
 
-              <label className="contact__form__label" htmlFor="email">Email:</label>
-              <input type="email" id="email" name="email" required/>
+                  <label className="contact__form__label" htmlFor="email">Email:</label>
+                  <input className="contact__form__input" type="email" id="email" name="email" required/>
 
-              <label className="contact__form__label" htmlFor="message">Message:</label>
-              <textarea id="message" name="message" rows={6} required></textarea>
+                  <label className="contact__form__label" htmlFor="message">Message:</label>
+                  <textarea className="contact__form__input" id="message" name="message" rows={6} required></textarea>
 
-              <input className="contact__form__send" type="submit" value="Send"/>
-              <p id="form-status"></p>
-          </form>
+                  <input className="contact__form__send contact__form__input" type="submit" value="Send"/>
+                  <p id="form-status"></p>
+              </form>
+          </div>
       </section>
   );
 };

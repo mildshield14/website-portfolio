@@ -1,7 +1,6 @@
 @import "App.scss";
 
 .header {
-  font-family: var(--font-family-headers), sans-serif;
   font-weight: 700;
   &__container{
     width: 100%;
@@ -10,7 +9,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: var(--header-color);
     color: var(--text-color);
   }
   &__items{
