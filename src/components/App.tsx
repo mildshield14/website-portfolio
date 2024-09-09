@@ -31,12 +31,8 @@ function App() {
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.load();
-      videoRef.current
-        .play()
-        .catch((error: any) =>
-          console.error("Error playing the video:", error),
-        );
+      // @ts-ignore
+        videoRef.current.load();
     }
   }, [videoSrc]);
 
@@ -47,7 +43,7 @@ function App() {
               <source src={videoSrc} type="video/mp4"/>
           </video>
 
-          <Header changeSource={changeVideoSource} size={size}/>
+          <Header changeSource={changeVideoSource}/>
           <HomePage size={size}/>
           <Projects size={size}/>
           <Socials size={size}/>
