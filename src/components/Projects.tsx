@@ -12,7 +12,7 @@ const Projects: React.FC<ProjectsProps> = ({ size }) => {
 
   return (
     <section className={size.size}>
-      <h2 id="projects" className="projects__title"> Projects</h2>
+      <h2 id="projects" className="page__title"> Projects</h2>
       <ul className="projects__container" ref={sliderRef}>
         <button
           className="nav-btn"

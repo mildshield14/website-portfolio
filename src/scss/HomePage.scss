@@ -2,6 +2,7 @@
 
 .homepage {
   position: relative;
+  font-family: var(--font-family-headers), sans-serif;
 
   &__container {
     display: flex;
@@ -10,7 +11,6 @@
     width: 100%;
     background-color: var(--background-color);
     color: #333;
-    font-family: "Raleway", sans-serif;
     padding: 20px;
   }
 
@@ -38,12 +38,17 @@
       margin: 20px 0;
     }
 
+    &__description {
+      flex: 60%;
+      animation: slideFadeIn 1.5s ease-out forwards;
+    }
+
     &__content {
       font-size: 1.2rem;
       line-height: 1.5;
       color: #555;
       margin-bottom: 20px;
-
+      font-family: var(--font-family-headers), sans-serif;
       .small & {
         text-align: justify;
       }
@@ -64,7 +69,6 @@
 
       &__description {
         text-align: justify;
-
         .small & {
           font-size: 0.8rem;
         }
@@ -149,7 +153,6 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-
   &__header, &__content {
     text-align: center;
   }
@@ -172,7 +175,7 @@
     color: #333;
     font-size: 14px;
     line-height: 1.6;
-
+    font-family: var(--font-family-headers), sans-serif;
     a {
       color: #0277bd;
       text-decoration: none;
@@ -208,8 +211,12 @@
   animation: slideFadeIn 1.5s ease-out forwards;
   background-size: contain;
 
+  .small & {
+    gap: 0;
+  }
+
   &__container {
-    flex: 110;
+    flex: 40%;
     width: 50%;
     height: 70%;
     align-content: center;

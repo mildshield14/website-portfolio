@@ -173,7 +173,7 @@ const Slide = () => {
   // TODO: basicall add css for points at th botto and the arrow left and right
   const settings = {
     dots: true,
-    arrows: true,
+    arrows: false,
     infinite: false,
     speed: 500,
     slidesToShow: 1,
@@ -193,7 +193,7 @@ const Slide = () => {
             {/*</div>*/}
             <div className="homepage__intro-section__description">
               <h1 className="homepage__intro-section__title">
-                Hey, I'm Vennila
+                Hey, I'm Vennila!
               </h1>
               <p className="homepage__intro-section__content">
                 I'm a fullstack developer specialised in Frontend technologies.

@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Raleway:wght@400;700&display=swap');
 
 :root {
-  --header-color: #142850;
+  --header-color: #14143c;
   --text-color: #ffffff;
   --background-color: #14143c;
   --accent-color: #efece6;
   --font-family-headers: 'Raleway';
-  --font-family-content: 'Lora';
 }
 
 //#f9f4f4
@@ -14,11 +13,11 @@
 body {
   position: relative;
   background: var(--background-color);
-  font-family: 'Lora', serif;
   font-size: 16px;
   line-height: 1.6;
   color: #000;
   min-width: 330px;
+  font-family: var(--font-family-headers), sans-serif;
 }
 
 h1, h2, h3 {
@@ -28,7 +27,6 @@ h1, h2, h3 {
 }
 
 p {
-  font-family: 'Lora', serif;
   font-weight: 400;
   color: #000;
 }
@@ -101,3 +99,12 @@ p, h1, h2, h3, h4, h5, h6 {
 /*.read-the-docs {*/
 /*  color: #888;*/
 /*}*/
+
+.page {
+  &__title{
+      color: var(--text-color);
+      margin-bottom: 15px;
+      margin-top: 50px;
+      margin-left: 40px;
+  }
+}
