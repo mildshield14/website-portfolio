@@ -1,6 +1,4 @@
-@import "App.scss";
-
-.projects {
+.socials {
   position: relative;
   font-family: var(--font-family-headers), sans-serif;
 
@@ -17,44 +15,33 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    padding-left: 30px;
+    margin-left: 30px;
     transition:
-      transform 250ms,
-      opacity 400ms;
-    &:hover {
-      transform: scale(1.09);
-    }
+            transform 250ms,
+            opacity 400ms;
 
     &__images {
       min-width: 110px;
       max-width: 150px;
       height: 200px;
+      padding: 0.4rem;
+      &:hover {
+        border: var(--text-color) 1px solid;
+      }
+    }
+
+    &__links {
+      text-decoration: none;
+      &:visited{
+        color: var(--text-color);
+      }
+      &:link{
+        color: var(--text-color);
+      }
     }
 
     &__titles {
       color: var(--text-color);
     }
-  }
-}
-
-.nav-btn {
-  margin-top: calc(100% / 10);
-  position: absolute;
-  border: none;
-  background: transparent;
-  font-weight: 900;
-  color: white;
-  font-size: 1.5rem;
-  padding: 10px 15px;
-  cursor: pointer;
-  &:first-child {
-    left: 10px;
-  }
-  &:last-child {
-    right: 10px;
-  }
-
-  .extra & {
-    display: none;
   }
 }

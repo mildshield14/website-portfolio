@@ -16,7 +16,6 @@
   &__items{
     padding-right: 20px;
     transition: transform 0.3s ease-in-out;
-    font-family: 'Lora', serif;
     font-weight: 400;
     color: var(--header-text-color);
     &__link{
@@ -34,6 +33,7 @@
     }
     &:hover{
       transform: scale(1.08);
+      font-weight: 900;
     }
   }
 }

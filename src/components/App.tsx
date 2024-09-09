@@ -4,6 +4,8 @@ import Projects from "./Projects.tsx";
 import "../scss/App.scss";
 import useElementSize from "../hook/useElementSize.tsx";
 import HomePage from "./HomePage.tsx";
+import Contact from "./Contact.tsx";
+import Socials from "./Socials.tsx";
 
 function App() {
     const ref = useRef(null);
@@ -23,7 +25,8 @@ function App() {
             <Header />
             <HomePage size={size}/>
             <Projects size={size}/>
-            <p>Current Breakpoint: {size}</p>
+            <Socials size={size}/>
+            <Contact size={size}/>
         </div>
     );
 }

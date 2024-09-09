@@ -12,6 +12,7 @@ type Project = {
     technologies: string[];
     description: string;
     period: string;
+    url?:string;
     details: string[];
 };
 

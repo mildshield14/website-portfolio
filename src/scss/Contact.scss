@@ -1,0 +1,33 @@
+@import "App.scss";
+
+.contact__form {
+  color : var(--text-color);
+  font-family: var(--font-family-headers), sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding-left: 70px;
+
+  &__label{
+    margin: 10px 0px;
+  }
+
+  &__send {
+    cursor: pointer;;
+    margin-top: 20px;
+    width: 15%;
+    align-self: center;
+
+    .small & {
+      width: 50%;
+    }
+
+    .medium & {
+      width: 30%;
+    }
+
+    &:hover {
+     background: #ced2da;
+    }
+  }
+}
