@@ -37,10 +37,10 @@
     &__links {
       text-decoration: none;
       &:visited{
-        color: var(--text-color);
+        color: var(--selected-text-color);
       }
       &:link{
-        color: var(--text-color);
+        color: var(--selected-text-color);
       }
     }
 

@@ -1,8 +1,8 @@
 @import "App.scss";
 
 .contact__form {
-  color: var(--text-color);
   font-family: var(--font-family-headers), sans-serif;
+  color: var(--selected-text-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,5 +38,9 @@
     &:hover {
       background: #ced2da;
     }
+  }
+
+  &__resume{
+    margin-top: 30px;
   }
 }
