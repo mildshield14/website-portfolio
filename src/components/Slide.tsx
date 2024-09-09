@@ -200,7 +200,7 @@ const Slide = () => {
   // TODO: basicall add css for points at th botto and the arrow left and right
   const settings = {
     dots: true,
-    arrows: false,
+    arrows: true,
     infinite: false,
     speed: 500,
     slidesToShow: 1,

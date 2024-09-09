@@ -1,16 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Raleway:wght@400;700&display=swap");
 
 :root {
-  --secondary-color: #24243a;
+  --secondary-color: #ccdadc;
   --text-color: #ffffff;
   --background-color: #14143c;
-  --light--secondary-color: #24243a;
+  --button-color: #223eea;
+  --light--button-color: #a48374;
+  --light--secondary-color: #ebe3db;
   --light--text-color: #000;
   --light--background-color: #14143c;
   --font-family-headers: "Raleway";
   --selected-background-color: var(--background-color);
-  --selected-secondary-color: #24243a;
+  --selected-secondary-color: var(--secondary-color);
   --selected-text-color: var(--text-color);
+  --selected-button-color: var(--button-color)
 }
 
 //#f9f4f4
@@ -138,4 +141,8 @@ h6 {
       margin-bottom:40px;
     }
   }
+}
+
+.magic-dots.slick-dots li.slick-active button:before {
+  color: var(--selected-button-color) !important;
 }
