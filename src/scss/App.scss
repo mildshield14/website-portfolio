@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Raleway:wght@400;700&display=swap');
 
 :root {
-  --header-color: #14143c;
+  --secondary-color: #24243a;
   --text-color: #ffffff;
   --background-color: #14143c;
   --accent-color: #efece6;
@@ -12,7 +12,7 @@
 
 body {
   position: relative;
-  background: var(--background-color);
+  height: 100vh; /* Adjust the height as needed */
   font-size: 16px;
   line-height: 1.6;
   color: #000;
@@ -57,12 +57,12 @@ p, h1, h2, h3, h4, h5, h6 {
 
 
 
-//#root {
-//  max-width: 1280px;
-//  margin: 0 auto;
-//  padding: 2rem;
-//  text-align: center;
-//}
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(to bottom, var(--background-color), var(--secondary-color));
+}
 
 /*.logo {*/
 /*  height: 6em;*/
@@ -105,6 +105,5 @@ p, h1, h2, h3, h4, h5, h6 {
       color: var(--text-color);
       margin-bottom: 15px;
       margin-top: 50px;
-      margin-left: 40px;
   }
 }

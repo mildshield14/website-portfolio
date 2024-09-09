@@ -98,21 +98,22 @@ const Slide = () => {
   const internDescription = (
     <>
       <div className="slide">
+        <h2 className={"homepage__title"}>Experience</h2>
         <div className="slide__header">
           <h2>Software Development Internship</h2>
           <span>May 2024 - Aug 2024 at Bell Média</span>
         </div>
         <div className="slide__content">
-          <p>
-            Focused on dynamic web widgets using Vue3 for various media
+          <p className="slide__content__para">
+            Focused on dynamic web widgets using <strong>Vue3</strong> for various media
             platforms including <a href="https://www.tsn.ca/">TSN</a>,{" "}
             <a href="https://www.rds.ca/">RDS</a>, and more.
           </p>
-          <p>
+          <p className="slide__content__para">
             Contributed to tools enhancing project workflows and data
             visualization, significantly improving internal operations.
           </p>
-          <p>
+          <p className="slide__content__para">
             <strong>Tech Stack:</strong> Vue3, TypeScript, SCSS
           </p>
         </div>
@@ -129,20 +130,21 @@ const Slide = () => {
   const teachingAssistantDescription = (
     <>
       <div className="slide">
+        <h2 className={"homepage__title"}>Experience</h2>
         <div className="slide__header">
           <h2>Teaching Assistant</h2>
           <span>Jan 2024 - Present at UdeM</span>
         </div>
         <div className="slide__content">
-          <p>
-            Taught HTML, CSS, JavaScript, and more, enhancing student
+          <p className="slide__content__para">
+            Taught <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, and more, enhancing student
             understanding of web technologies.
           </p>
-          <p>
+          <p className="slide__content__para">
             Conducted live demonstrations and helped students set up their
             development environments.
           </p>
-          <p>
+          <p className="slide__content__para">
             Graded assignments, provided feedback, and responded to student
             inquiries via email and Discord.
           </p>
@@ -154,6 +156,31 @@ const Slide = () => {
         />
       </div>
     </>
+  );
+
+  const studentDescription = (
+      <>
+        <div className="slide">
+          <h2 className={"homepage__title"}>Education</h2>
+          <div className="slide__header">
+            <h2>BSc in Computer Science</h2>
+            <span>Sep 2022 - Present at UdeM (expected Dec 2024)</span>
+          </div>
+          <div className="slide__content">
+            <p className="slide__content__para">
+              Focused on <strong>Software Engineering Practices</strong>, <strong>Software Development</strong>, <strong>AI</strong>, <strong>Networks</strong> and <strong>Data Science</strong>.
+            </p>
+            <p className="slide__content__para">
+              Recipient of a scholarship offered to international students valued at more than 30,000$.
+            </p>
+          </div>
+          <img
+              className="slide__logo slide__logos__udem"
+              src="https://www.umontreal.ca/public/www/images/millenium/logo-partenaires_UdeM.jpg"
+              alt="Université de Montréal Logo"
+          />
+        </div>
+      </>
   );
 
   const skills_slide = (array: { image: string; name: string }[]) => {
@@ -214,15 +241,16 @@ const Slide = () => {
         <div className="homepage__container">
           <div className="homepage__intro-section">
             <div className={"homepage__slide"}>
-              <span className={"homepage__skills__title"}>Languages</span>
+              <h2 className={"homepage__title"}>Technical Skills</h2>
+              <span className={"homepage__slide__skills__title"}>Languages</span>
               <div className={"homepage__slide__container"}>
                 {skills_slide(languages)}
               </div>
-              <span className={"homepage__skills__title"}>Frameworks</span>
+              <span className={"homepage__slide__skills__title"}>Frameworks</span>
               <div className={"homepage__slide__container"}>
                 {skills_slide(frameworks)}
               </div>
-              <span className={"homepage__skills__title"}>Tools</span>
+              <span className={"homepage__slide__skills__title"}>Tools</span>
               <div className={"homepage__slide__container"}>
                 {skills_slide(tools)}
               </div>
@@ -235,6 +263,11 @@ const Slide = () => {
         <div className="homepage__container">
           <div className="homepage__intro-section">
             {teachingAssistantDescription}
+          </div>
+        </div>
+        <div className="homepage__container">
+          <div className="homepage__intro-section">
+            {studentDescription}
           </div>
         </div>
       </Slider>
