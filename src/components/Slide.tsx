@@ -6,7 +6,7 @@ import MagicSliderDots from "react-magic-slider-dots";
 import "react-magic-slider-dots/dist/magic-dots.css";
 import getTranslation from "../getTranslation.ts";
 
-const Slide = (lang: string) => {
+const Slide = (lang: any) => {
   const languages = [
     {
       name: "Typescript",
