@@ -7,7 +7,7 @@ import chainon from "../assets/chainon.png"
 import internship from "../assets/internship.png"
 
 type Project = {
-    title: string;
+    title: Object;
     image: string;
     technologies: string[];
     description: string;
@@ -18,7 +18,7 @@ type Project = {
 
 export const projects: Project[] = [
     {
-        title: "Internship Projects",
+        title: {en: "Internship Projects", fr: "Projets de Stage"},
         image: intern,
         technologies: ["Vue3", "TypeScript", "SCSS", "JIRA"],
         description: "Engineered dynamic weather and sports widgets for major news and sports platforms.",
@@ -28,7 +28,7 @@ export const projects: Project[] = [
         ]
     },
     {
-        title: "Le Chainon",
+        title:  {en: "Le Chainon", fr: "Le Chainon"},
         image: chainon,
         technologies: ["React", "Figma", "Lucidchart", "Notion"],
         description: "A website for Le Chainon to help women in need.",
@@ -38,7 +38,7 @@ export const projects: Project[] = [
         ]
     },
     {
-        title: "Robotix",
+        title:  {en: "Robotix", fr: "Robotix"},
         image: robots,
         technologies: ["Java", "Swing"],
         description: "Robots management system called Robotix.",
@@ -49,7 +49,7 @@ export const projects: Project[] = [
         ]
     },
     {
-        title: "Pantry Tracker",
+        title:  {en: "Pantry Tracker", fr: "Bouffe Traqueur"},
         image: pantry,
         technologies: ["Python", "tkinter", "sqlite3"],
         description: "Created a pantry tracker to be able to track items bought and used.",
@@ -59,7 +59,7 @@ export const projects: Project[] = [
         ]
     },
     {
-        title: "Weather Interface",
+        title:  {en: "Weather-Email", fr: "Météo-Courriel"},
         image: weather_email,
         technologies: ["Python", "flask"],
         description: "Designed a simple weather interface to work on APIs.",
@@ -69,7 +69,7 @@ export const projects: Project[] = [
         ]
     },
     {
-        title: "Client-Server System",
+        title:  {en: "Moodle 2.0", fr: "Moodle 2.0"},
         image: course,
         technologies: ["Java", "JavaFX"],
         description: "Designed a GUI using the MVC model.",
@@ -80,7 +80,7 @@ export const projects: Project[] = [
         ]
     },
     {
-        title: "Internship Tracker",
+        title:  {en: "Internship Tracker", fr: "Traqueur de Stage"},
         image: internship,
         technologies: ["Python", "sqlite3", "flask", "HTML", "BootStrap", "JavaScript"],
         description: "Designed a sample internship tracker to be able to visualize information on each application.",
