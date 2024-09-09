@@ -4,10 +4,9 @@ import "../scss/Header.scss";
 // @ts-ignore
 interface HeaderProps {
   changeSource?: (newSrc: any) => void;
-  size: any;
 }
 
-const Header: React.FC<HeaderProps> = ({ changeSource }, { size } ) => {
+const Header: React.FC<HeaderProps> = ({ changeSource } ) => {
   const [isChecked, setIsChecked] = useState(true); // Default checked state
 
   const handleToggle = () => {
