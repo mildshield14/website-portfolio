@@ -21,12 +21,16 @@
             opacity 400ms;
 
     &__images {
-      min-width: 110px;
-      max-width: 150px;
-      height: 200px;
-      padding: 0.4rem;
+      min-width: 50px;
+      max-width: 90px;
+      margin-bottom:10px;
+      clip-path: circle();
       &:hover {
-        border: var(--text-color) 1px solid;
+        scale: 1.01;
+      }
+
+      .small & {
+        width: 60px;
       }
     }
 
@@ -42,6 +46,7 @@
 
     &__titles {
       color: var(--text-color);
+      text-align: center;
     }
   }
 }
