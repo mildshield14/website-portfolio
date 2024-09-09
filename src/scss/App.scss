@@ -1,11 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Raleway:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Raleway:wght@400;700&display=swap");
 
 :root {
   --secondary-color: #24243a;
   --text-color: #ffffff;
   --background-color: #14143c;
-  --accent-color: #efece6;
-  --font-family-headers: 'Raleway';
+  --light--secondary-color: #24243a;
+  --light--text-color: #000;
+  --light--background-color: #14143c;
+  --font-family-headers: "Raleway";
+  --selected-background-color: var(--background-color);
+  --selected-secondary-color: #24243a;
+  --selected-text-color: var(--text-color);
 }
 
 //#f9f4f4
@@ -20,8 +25,10 @@ body {
   font-family: var(--font-family-headers), sans-serif;
 }
 
-h1, h2, h3 {
-  font-family: 'Raleway', sans-serif;
+h1,
+h2,
+h3 {
+  font-family: var(--font-family-headers), sans-serif;
   font-weight: 700;
   color: #000;
 }
@@ -31,7 +38,9 @@ p {
   color: #000;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 * {
@@ -41,27 +50,43 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
 }
-
-
 
 #root {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background: linear-gradient(to bottom, var(--background-color), var(--secondary-color));
+  background: linear-gradient(
+    to bottom,
+    var(--selected-background-color),
+    var(--selected-secondary-color)
+  );
 }
 
 /*.logo {*/
@@ -101,9 +126,10 @@ p, h1, h2, h3, h4, h5, h6 {
 /*}*/
 
 .page {
-  &__title{
-      color: var(--text-color);
-      margin-bottom: 15px;
-      margin-top: 50px;
+  &__title {
+    color: var(--selected-text-color);
+    margin: 40px 0;
+    border-top: 2px solid var(--selected-text-color);
+    padding-top: 30px;
   }
 }
