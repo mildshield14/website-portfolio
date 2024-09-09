@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import "../scss/Header.scss";
 
 // @ts-ignore
-interface HeaderProps {
+type HeaderProps = {
   changeSource?: (newSrc: any) => void;
-}
+  size: any;
+};
 
-const Header: React.FC<HeaderProps> = ({ changeSource } ) => {
+const Header: React.FC<HeaderProps> = ({ size, changeSource }) => {
   const [isChecked, setIsChecked] = useState(true); // Default checked state
 
   const handleToggle = () => {
@@ -25,11 +26,13 @@ const Header: React.FC<HeaderProps> = ({ changeSource } ) => {
         "var(--light--secondary-color)",
       );
       document.documentElement.style.setProperty(
-          "--selected-button-color",
-          "var(--light--button-color)",
+        "--selected-button-color",
+        "var(--light--button-color)",
       );
       if (changeSource) {
-        changeSource("https://videos.pexels.com/video-files/6907162/6907162-hd_1080_1920_30fps.mp4");
+        changeSource(
+          "https://videos.pexels.com/video-files/6907162/6907162-hd_1080_1920_30fps.mp4",
+        );
       }
     } else {
       document.documentElement.style.setProperty(
@@ -45,21 +48,33 @@ const Header: React.FC<HeaderProps> = ({ changeSource } ) => {
         "var(--secondary-color)",
       );
       document.documentElement.style.setProperty(
-          "--selected-button-color",
-          "var(--button-color)",
+        "--selected-button-color",
+        "var(--button-color)",
       );
       if (changeSource) {
         changeSource(
-            "https://videos.pexels.com/video-files/13936805/13936805-uhd_2560_1440_24fps.mp4",
+          "https://videos.pexels.com/video-files/13936805/13936805-uhd_2560_1440_24fps.mp4",
         );
       }
     }
   };
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <header className="header">
+    <header className= {size}>
+      <div className="hamburger" onClick={toggleMenu}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <nav>
-        <ul className="header__container">
+        <ul className={`header__container ${isMenuOpen && size === 'small' ? 'open' : size === 'small' ? 'close' : ''}`}
+        >
           <li className="header__items">
             <a className="header__items__link" href="#home">
               Home
@@ -85,13 +100,14 @@ const Header: React.FC<HeaderProps> = ({ changeSource } ) => {
               Resume
             </a>
           </li>
-          <li className="header__items">
+          <li className="header__items header__items__mode">
+            <span className="header__items__label"> {isChecked ? 'Light' : 'Dark'} </span>
             <label className="header__items__toggle">
               <input
-                checked={isChecked}
-                onChange={handleToggle}
-                type="checkbox"
-                className="header__items__toggle__switch"
+                  checked={isChecked}
+                  onChange={handleToggle}
+                  type="checkbox"
+                  className="header__items__toggle__switch"
               />
               <span className="header__items__toggle__slider"></span>
             </label>
