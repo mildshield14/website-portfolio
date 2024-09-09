@@ -2,7 +2,6 @@ import React from "react";
 import "../scss/Socials.scss";
 import github from "../assets/github.png";
 import linkedin from "../assets/linkedin.png";
-import { projects } from "./projects.ts";
 
 type SocialsProps = {
   size: any;
