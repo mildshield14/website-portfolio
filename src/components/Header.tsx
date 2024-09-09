@@ -1,18 +1,25 @@
 import React, { useState } from "react";
 import "../scss/Header.scss";
+import getTranslation from "../getTranslation.ts";
 
 // @ts-ignore
 type HeaderProps = {
+  changeLang?: (lang: any) => void;
   changeSource?: (newSrc: any) => void;
   size: any;
 };
 
-const Header: React.FC<HeaderProps> = ({ size, changeSource }) => {
-  const [isChecked, setIsChecked] = useState(true); // Default checked state
+const Header: React.FC<HeaderProps> = ({
+  size,
+  changeSource,
+  changeLang
+}) => {
+  const [isCheckedMode, setIsCheckedMode] = useState(true); // Default checked state
+  const [lang, setLanguage] = useState("en");
 
   const handleToggle = () => {
-    setIsChecked(!isChecked);
-    if (isChecked) {
+    setIsCheckedMode(!isCheckedMode);
+    if (isCheckedMode) {
       document.documentElement.style.setProperty(
         "--selected-background-color",
         "var(--light-background-color)",
@@ -59,6 +66,12 @@ const Header: React.FC<HeaderProps> = ({ size, changeSource }) => {
     }
   };
 
+  const handleToggleLang = () => {
+    setLanguage(lang === "en" ? "fr" : "en");
+    // @ts-ignore
+    changeLang(lang === "en" ? "fr" : "en");
+  };
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -66,52 +79,75 @@ const Header: React.FC<HeaderProps> = ({ size, changeSource }) => {
   };
 
   return (
-    <header className= {size}>
+    <header className={size}>
       <div className="hamburger" onClick={toggleMenu}>
         <span></span>
         <span></span>
         <span></span>
       </div>
       <nav>
-        <ul className={`header__container ${isMenuOpen && size === 'small' ? 'open' : size === 'small' ? 'close' : ''}`}
+        <ul
+          className={`header__container ${isMenuOpen && size === "small" ? "open" : size === "small" ? "close" : ""}`}
         >
           <li className="header__items">
             <a className="header__items__link" href="#home">
-              Home
+              {getTranslation(lang, "home")}
             </a>
           </li>
           <li className="header__items">
             <a className="header__items__link" href="#projects">
-              Projects
+              {getTranslation(lang, "projects")}
             </a>
           </li>
           <li className="header__items">
             <a className="header__items__link" href="#socials">
-              Socials
+              {getTranslation(lang, "socials")}
             </a>
           </li>
           <li className="header__items">
             <a className="header__items__link" href="#contact">
-              Contact
+              {getTranslation(lang, "contact")}
             </a>
           </li>
           <li className="header__items">
             <a className="header__items__link" href="#resume">
-              Resume
+              {getTranslation(lang, "resume")}
             </a>
           </li>
-          <li className="header__items header__items__mode">
-            <span className="header__items__label"> {isChecked ? 'Light' : 'Dark'} </span>
-            <label className="header__items__toggle">
-              <input
-                  checked={isChecked}
-                  onChange={handleToggle}
-                  type="checkbox"
-                  className="header__items__toggle__switch"
-              />
-              <span className="header__items__toggle__slider"></span>
-            </label>
-          </li>
+          <div className="header__items__mode__group">
+            <li className="header__items header__items__mode">
+            <span className="header__items__label">
+              {" "}
+              {isCheckedMode
+                  ? getTranslation(lang, "dark")
+                  : getTranslation(lang, "light")}
+            </span>
+              <label className="header__items__toggle">
+                <input
+                    checked={isCheckedMode}
+                    onChange={handleToggle}
+                    type="checkbox"
+                    className="header__items__toggle__switch"
+                />
+                <span className="header__items__toggle__slider"></span>
+              </label>
+            </li>
+            <li className={`header__items header__items__mode ${isCheckedMode ? 'lang-dark' : 'lang'}`}>
+            <span className="header__items__label">
+              {lang === "en" ? "EN" : "FR"}{" "}
+            </span>
+              <label className="header__items__toggle">
+                <input
+                    checked={lang === "en"}
+                    onChange={handleToggleLang}
+                    type="checkbox"
+                    className="header__items__toggle__switch"
+                />
+                <span className="header__items__toggle__slider"></span>
+              </label>
+            </li>
+          </div>
+
         </ul>
       </nav>
     </header>

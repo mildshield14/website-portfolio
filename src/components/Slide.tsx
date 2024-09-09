@@ -4,8 +4,9 @@ import "slick-carousel/slick/slick-theme.css";
 
 import MagicSliderDots from "react-magic-slider-dots";
 import "react-magic-slider-dots/dist/magic-dots.css";
+import getTranslation from "../getTranslation.ts";
 
-const Slide = () => {
+const Slide = (lang: string) => {
   const languages = [
     {
       name: "Typescript",
@@ -48,6 +49,11 @@ const Slide = () => {
       name: "PostgreSQL",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg",
+    },
+    {
+      name: "PHP",
+      image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXalRyF7J7QRLkJfMwCMqA47UUDCFdHJ-dFQ&s",
     },
   ];
 
@@ -98,20 +104,27 @@ const Slide = () => {
   const internDescription = (
     <>
       <div className="slide">
-        <h2 className={"homepage__title"}>Experience</h2>
+        <h2 className={"homepage__title"}>{getTranslation(lang.lang, "experience")}</h2>
         <div className="slide__header">
-          <h2>Software Development Internship</h2>
-          <span>May 2024 - Aug 2024 at Bell Média</span>
+          <h2>{getTranslation(lang.lang, 'softwareIntern')}</h2>
+          <span>{lang.lang==="en" ? `May 2024 - Aug 2024 at Bell Média` : `Mai 2024 - Août 2024 chez Bell Média`}</span>
         </div>
         <div className="slide__content">
           <p className="slide__content__para">
-            Focused on dynamic web widgets using <strong>Vue3</strong> for various media
-            platforms including <a href="https://www.tsn.ca/">TSN</a>,{" "}
-            <a href="https://www.rds.ca/">RDS</a>, and more.
+            {lang.lang === "en" ?
+                <span>Focused on dynamic web widgets using <strong>Vue3</strong> for various media
+            platforms including <a href="https://www.tsn.ca/">TSN</a>, <a href="https://www.rds.ca/">RDS</a>, and more.</span>
+                :
+                <span>Conception des widgets web dynamiques utilisant <strong>Vue3</strong> pour diverses plateformes
+            médiatiques incluant <a href="https://www.tsn.ca/">TSN</a>, <a href="https://www.rds.ca/">RDS</a>, et plus encore.</span>
+            }
           </p>
           <p className="slide__content__para">
-            Contributed to tools enhancing project workflows and data
-            visualization, significantly improving internal operations.
+            {lang.lang === "en"
+                ? `Contributed to tools enhancing project workflows and data
+               visualization, significantly improving internal operations.`
+                : `Contribution aux outils améliorant les flux de travail des projets et
+               la visualisation des données, améliorant considérablement les opérations internes.`}
           </p>
           <p className="slide__content__para">
             <strong>Tech Stack:</strong> Vue3, TypeScript, SCSS
@@ -130,23 +143,41 @@ const Slide = () => {
   const teachingAssistantDescription = (
     <>
       <div className="slide">
-        <h2 className={"homepage__title"}>Experience</h2>
+        <h2 className={"homepage__title"}>
+          {getTranslation(lang.lang, "experience")}
+        </h2>
         <div className="slide__header">
-          <h2>Teaching Assistant</h2>
-          <span>Jan 2024 - Present at UdeM</span>
+          <h2>{getTranslation(lang.lang, "ta")}</h2>
+          <span>
+            Jan 2024 -{" "}
+            {lang.lang === "en" ? `Present at UdeM` : `Présent à UdeM`}
+          </span>
         </div>
         <div className="slide__content">
           <p className="slide__content__para">
-            Taught <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, and more, enhancing student
-            understanding of web technologies.
+            {lang.lang === "en" ? (
+              <span>
+                Taught <strong>HTML</strong>, <strong>CSS</strong>,{" "}
+                <strong>JavaScript</strong>, and more, enhancing student
+                understanding of web technologies.
+              </span>
+            ) : (
+              <span>
+                Enseignement de <strong>HTML</strong>, <strong>CSS</strong>,{" "}
+                <strong>JavaScript</strong>, et plus, améliorant la
+                compréhension des technologies web par les étudiants.
+              </span>
+            )}
           </p>
           <p className="slide__content__para">
-            Conducted live demonstrations and helped students set up their
-            development environments.
+            {lang.lang === "en"
+              ? "Conducted live demonstrations and helped students set up their development environments."
+              : "Réalisation de démonstrations en direct et aide aux étudiants à configurer leurs environnements de développement."}
           </p>
           <p className="slide__content__para">
-            Graded assignments, provided feedback, and responded to student
-            inquiries via email and Discord.
+            {lang.lang === "en"
+              ? "Graded assignments, provided feedback, and responded to student inquiries via email and Discord."
+              : "Correction des devoirs avec des retours constructifs, et réponse aux questions des étudiants par courriel et Discord."}
           </p>
         </div>
         <img
@@ -159,28 +190,40 @@ const Slide = () => {
   );
 
   const studentDescription = (
-      <>
-        <div className="slide">
-          <h2 className={"homepage__title"}>Education</h2>
-          <div className="slide__header">
-            <h2>BSc in Computer Science</h2>
-            <span>Sep 2022 - Present at UdeM (expected Dec 2024)</span>
-          </div>
-          <div className="slide__content">
-            <p className="slide__content__para">
-              Focused on <strong>Software Engineering Practices</strong>, <strong>Software Development</strong>, <strong>AI</strong>, <strong>Networks</strong> and <strong>Data Science</strong>.
-            </p>
-            <p className="slide__content__para">
-              Recipient of a scholarship offered to international students valued at more than 30,000$.
-            </p>
-          </div>
-          <img
-              className="slide__logo slide__logos__udem"
-              src="https://www.umontreal.ca/public/www/images/millenium/logo-partenaires_UdeM.jpg"
-              alt="Université de Montréal Logo"
-          />
+    <>
+      <div className="slide">
+        <h2 className={"homepage__title"}>
+          {getTranslation(lang.lang, "education")}
+        </h2>
+        <div className="slide__header">
+          <h2>
+            {lang.lang === "en"
+              ? `BSc in Computer Science`
+              : `BSc en Informatique`}
+          </h2>
+          <span>Sep 2022 - Present at UdeM (expected Dec 2024)</span>
         </div>
-      </>
+        <div className="slide__content">
+          <p className="slide__content__para">
+            {lang.lang === "en" ? (
+                <span>Focused on <strong>Software Engineering Practices</strong>, <strong>Software Development</strong>, <strong>AI</strong>, <strong>Networks</strong>, and <strong>Data Science</strong>.</span>
+            ) : (
+                <span>Concentration sur les <strong>pratiques d'ingénierie logicielle</strong>, le <strong>développement logiciel</strong>, l'<strong>intelligence artificielle</strong>, les <strong>réseaux</strong> et la <strong>science des données</strong>.</span>
+            )}
+          </p>
+          <p className="slide__content__para">
+            {lang.lang === "en"
+              ? `Recipient of a scholarship based on school grades offered to international students valued at more than 30,000$.`
+              : `Reçu une bourse pour étudiants internationaux sur niveau scolaire à hauteur de plus de 30000$.`}
+          </p>
+        </div>
+        <img
+          className="slide__logo slide__logos__udem"
+          src="https://www.umontreal.ca/public/www/images/millenium/logo-partenaires_UdeM.jpg"
+          alt="Université de Montréal Logo"
+        />
+      </div>
+    </>
   );
 
   const skills_slide = (array: { image: string; name: string }[]) => {
@@ -220,14 +263,14 @@ const Slide = () => {
             {/*</div>*/}
             <div className="homepage__intro-section__description">
               <h1 className="homepage__intro-section__title">
-                Hey, I'm Vennila!
+                {lang.lang==="en" ? `Hey, I'm Vennila!` : `Salut, c'est Vennila!`}
               </h1>
               <p className="homepage__intro-section__content">
-                I'm a fullstack developer specialised in Frontend technologies.
+                {lang.lang==="en" ? `I'm a fullstack developer specialised in Frontend technologies.` : `Je suis une développeuse fullstack spécialisée en Frontend`}
               </p>
 
               <p className="homepage__intro-section__content">
-                I'm currently looking for new grad opportunities for 2025.
+                {lang.lang==="en" ? `I'm currently looking for new grad opportunities for 2025.` : `Je suis actuellement à la recherche d'opportunités pour nouveaux diplômés 2025`}
               </p>
             </div>
             <div className="slideBanner__container">
@@ -241,8 +284,8 @@ const Slide = () => {
         <div className="homepage__container">
           <div className="homepage__intro-section">
             <div className={"homepage__slide"}>
-              <h2 className={"homepage__title"}>Technical Skills</h2>
-              <span className={"homepage__slide__skills__title"}>Languages</span>
+              <h2 className={"homepage__title"}>{getTranslation(lang.lang, "techSkills")}</h2>
+              <span className={"homepage__slide__skills__title"}>{getTranslation(lang.lang , "languages")}</span>
               <div className={"homepage__slide__container"}>
                 {skills_slide(languages)}
               </div>
@@ -250,7 +293,7 @@ const Slide = () => {
               <div className={"homepage__slide__container"}>
                 {skills_slide(frameworks)}
               </div>
-              <span className={"homepage__slide__skills__title"}>Tools</span>
+              <span className={"homepage__slide__skills__title"}>{getTranslation(lang.lang, "tools")}</span>
               <div className={"homepage__slide__container"}>
                 {skills_slide(tools)}
               </div>

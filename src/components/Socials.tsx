@@ -2,9 +2,11 @@ import React from "react";
 import "../scss/Socials.scss";
 import github from "../assets/github.png";
 import linkedin from "../assets/linkedin.png";
+import getTranslation from "../getTranslation.ts";
 
 type SocialsProps = {
   size: any;
+  lang: string
 };
 
 type Socials = {
@@ -26,10 +28,10 @@ export const socials: Socials[] = [
   },
 ];
 
-const Socials: React.FC<SocialsProps> = ({ size }) => {
+const Socials: React.FC<SocialsProps> = ({ size, lang }) => {
   return (
       <section className={size.size}>
-          <h2 id="socials" className="page__title"> Socials
+          <h2 id="socials" className="page__title"> {getTranslation(lang ? lang : "en", "socials")}
           </h2>
           <ul className="socials__container">
               {socials.map((social, index) => (
