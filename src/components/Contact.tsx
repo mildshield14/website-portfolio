@@ -13,7 +13,7 @@ const Contact: React.FC<ContactProps> = ({ size }) => {
               <label className="contact__form__label" htmlFor="name">Name:</label>
               <input type="text" id="name" name="name" required/>
 
-              <label className="contact__form__label" htmlForgit add="email">Email:</label>
+              <label className="contact__form__label" htmlFor="email">Email:</label>
               <input type="email" id="email" name="email" required/>
 
               <label className="contact__form__label" htmlFor="message">Message:</label>
