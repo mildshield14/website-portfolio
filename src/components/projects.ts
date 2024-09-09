@@ -1,10 +1,10 @@
-import weather from "../assets/weather.webp"
-import weather_email from "../assets/weather_email.webp"
-import robots from "../assets/robots.webp"
-import pantry from "../assets/pantry.webp"
-import course from "../assets/course.webp"
-import chainon from "../assets/chainon.webp"
-import internship from "../assets/internship.webp"
+import intern from "../assets/intern.png"
+import weather_email from "../assets/weather_email.png"
+import robots from "../assets/robotix.png"
+import pantry from "../assets/pantry.png"
+import course from "../assets/course.png"
+import chainon from "../assets/chainon.png"
+import internship from "../assets/internship.png"
 
 type Project = {
     title: string;
@@ -19,7 +19,7 @@ type Project = {
 export const projects: Project[] = [
     {
         title: "Internship Projects",
-        image: weather,
+        image: intern,
         technologies: ["Vue3", "TypeScript", "SCSS", "JIRA"],
         description: "Engineered dynamic weather and sports widgets for major news and sports platforms.",
         period: "Summer 2024",
