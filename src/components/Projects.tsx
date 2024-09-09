@@ -1,18 +1,20 @@
 import React, { useRef } from "react";
 import "../scss/Projects.scss";
 import { projects } from "./projects";
+import getTranslation from "../getTranslation.ts";
 
 type ProjectsProps = {
     size: any;
+    lang: string
 };
 
-const Projects: React.FC<ProjectsProps> = ({ size }) => {
+const Projects: React.FC<ProjectsProps> = ({ size, lang }) => {
   const sliderRef = useRef<HTMLUListElement>(null);
   const scrollAmount = 100;
 
   return (
     <section className={size.size}>
-      <h2 id="projects" className="page__title"> Projects</h2>
+      <h2 id="projects" className="page__title"> {getTranslation(lang ? lang : "en", "projects")}</h2>
       <ul className="projects__container" ref={sliderRef}>
         <button
           className="nav-btn"

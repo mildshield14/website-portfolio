@@ -56,7 +56,15 @@
     }
 
     &__mode {
-      margin-left: auto;
+
+      &__group{
+        margin-left: auto;
+        display: flex;
+      }
+
+      .small & {
+        margin-left: 0;
+      }
     }
 
     &__toggle {
@@ -65,6 +73,7 @@
       height: 24px;
       position: relative;
       display: inline-block;
+      margin-left: 5px;
 
       &__switch {
         opacity: 0;
@@ -96,6 +105,14 @@
       }
       &__switch:checked + &__slider {
         background-color: #1a1a6c;
+
+        .lang & {
+          background-color: var(--selected-secondary-color);
+        }
+
+        .lang-dark & {
+          background-color: #1a1a6c;
+        }
 
         &:before {
           transform: translateX(26px);

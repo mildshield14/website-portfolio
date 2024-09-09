@@ -12,8 +12,8 @@ function App() {
 
   // Define breakpoints
   const breakpoints = {
-    small: { min: 300, max: 499 },
-    medium: { min: 500, max: 899 },
+    small: { min: 300, max: 599 },
+    medium: { min: 600, max: 899 },
     large: { min: 900, max: 1399 },
     extra: { min: 1400, max: Infinity },
   };
@@ -29,7 +29,15 @@ function App() {
       setVideoSrc(newSrc);
   };
 
-  useEffect(() => {
+    const [lang, setLang] = useState("en");
+
+    // Function to update the video source
+    const changeLang = (langReceived: any) => {
+        console.log("reciebes + "+ langReceived)
+        setLang(langReceived);
+    };
+
+    useEffect(() => {
     if (videoRef.current) {
       // @ts-ignore
         videoRef.current.load();
@@ -42,11 +50,11 @@ function App() {
                  onError={(e) => console.log('Video Error:', e)}>
               <source src={videoSrc} type="video/mp4"/>
           </video>
-          <Header size={size} changeSource={changeVideoSource}/>
-          <HomePage size={size}/>
-          <Projects size={size}/>
-          <Socials size={size}/>
-          <Contact size={size}/>
+          <Header size={size} changeSource={changeVideoSource} changeLang={changeLang}/>
+          <HomePage size={size} lang={lang}/>
+          <Projects size={size} lang={lang}/>
+          <Socials size={size} lang={lang}/>
+          <Contact size={size} lang={lang}/>
       </div>
   );
 }
