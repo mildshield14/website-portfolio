@@ -65,12 +65,12 @@
           height: 26px;
           width: 26px;
           right: 18px;
-          background-color: var(--background-color);
+          background-color: var(--selected-button-color);
           transition: .4s;
         }
       }
       &__switch:checked + &__slider {
-        background-color: #32328a;
+        background-color: #1a1a6c;
 
         &:before {
           transform: translateX(26px);
