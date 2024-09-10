@@ -26,36 +26,47 @@ function App() {
 
   // Function to update the video source
   const changeVideoSource = (newSrc: any) => {
-      setVideoSrc(newSrc);
+    setVideoSrc(newSrc);
   };
 
-    const [lang, setLang] = useState("en");
+  const [lang, setLang] = useState("en");
 
-    // Function to update the video source
-    const changeLang = (langReceived: any) => {
-        console.log("reciebes + "+ langReceived)
-        setLang(langReceived);
-    };
+  // Function to update the video source
+  const changeLang = (langReceived: any) => {
+    console.log("reciebes + " + langReceived);
+    setLang(langReceived);
+  };
 
-    useEffect(() => {
+  useEffect(() => {
     if (videoRef.current) {
       // @ts-ignore
-        videoRef.current.load();
+      videoRef.current.load();
     }
   }, [videoSrc]);
 
   return (
-      <div className={size} ref={ref}>
-          <video id="background-video" ref={videoRef} autoPlay loop muted
-                 onError={(e) => console.log('Video Error:', e)}>
-              <source src={videoSrc} type="video/mp4"/>
-          </video>
-          <Header size={size} changeSource={changeVideoSource} changeLang={changeLang}/>
-          <HomePage size={size} lang={lang}/>
-          <Projects size={size} lang={lang}/>
-          <Socials size={size} lang={lang}/>
-          <Contact size={size} lang={lang}/>
-      </div>
+    <div className={size} ref={ref}>
+      <video
+        id="background-video"
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        onError={(e) => console.log("Video Error:", e)}
+      >
+        <source src={videoSrc} type="video/mp4" />
+      </video>
+      <Header
+        size={size}
+        changeSource={changeVideoSource}
+        changeLang={changeLang}
+      />
+      <HomePage size={size} lang={lang} />
+      <Projects size={size} lang={lang} />
+      <Socials size={size} lang={lang} />
+      <Contact size={size} lang={lang} />
+      <footer><div>Vennila Sooben &copy;2024</div><div>Made with React, Typescript, SCSS</div></footer>
+    </div>
   );
 }
 
