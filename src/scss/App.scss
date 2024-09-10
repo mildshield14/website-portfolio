@@ -23,7 +23,7 @@ body {
   height: 100vh; /* Adjust the height as needed */
   font-size: 16px;
   line-height: 1.6;
-  color: #000;
+  color: var(--selected-text-color);
   min-width: 330px;
   font-family: var(--font-family-headers), sans-serif;
 }

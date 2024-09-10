@@ -4,19 +4,11 @@
   position: relative;
   font-family: var(--font-family-headers), sans-serif;
 
-  &__container {
-    display: flex;
-    flex-direction: row;
-    width: calc(100% - 80px);
-    max-width: 100%;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-  }
-
   &__items {
     list-style: none;
-    display: flex;
+    display: inline-flex !important;
     flex-direction: column;
+    align-items: center;
     padding-left: 30px;
     padding-bottom: 15px;
     transition:
