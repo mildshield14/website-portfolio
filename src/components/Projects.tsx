@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "../scss/Projects.scss";
-import { projects } from "./projects";
+import {Project, projects} from "./projects";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -28,17 +28,19 @@ const Projects: React.FC<ProjectsProps> = ({ size, lang }) => {
         },
     };
 
-    const [selectedProject, setSelectedProject] = useState(null);
+    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-    const showProjectDetails = (project: any) => {
-        console.log(project)
+    const showProjectDetails = (project: Project) => {
         setSelectedProject(project);
     };
 
     const hideProjectDetails = () => {
+        // @ts-ignore
         setSelectedProject(null);
     };
-  return (
+  // @ts-ignore
+    // @ts-ignore
+    return (
     <section className={size.size}>
       <h2 id="projects" className="page__title">
         {" "}
@@ -70,15 +72,15 @@ const Projects: React.FC<ProjectsProps> = ({ size, lang }) => {
               ×
             </button>
             <h2 className="project-detail-content__items project-detail-content__items-title">
-              {selectedProject.title[lang]}
+              {selectedProject.title['lang']}
             </h2>
             <img
               className="projects__items__images"
               src={selectedProject.image}
-              alt={selectedProject.title[lang]}
+              alt={selectedProject.title.lang}
             />
             <p className="project-detail-content__items">
-              {selectedProject.description}
+              {selectedProject.description[lang]}
             </p>
             <p className="project-detail-content__items">
               <strong>{getTranslation(lang, "technologies")}</strong>: {" "}
@@ -86,7 +88,7 @@ const Projects: React.FC<ProjectsProps> = ({ size, lang }) => {
             </p>
             <p className="project-detail-content__items">
               <strong>{getTranslation(lang, "period")}</strong>: {" "}
-              {selectedProject.period}
+              {selectedProject.period[lang]}
             </p>
             {selectedProject.pdf && (
               <a
@@ -109,11 +111,13 @@ const Projects: React.FC<ProjectsProps> = ({ size, lang }) => {
                 Visit Website
               </a>
             )}
-            <ul className="project-detail-content__items">
-              {selectedProject.details.map((detail: any, index: any) => (
-                <li key={index}>{detail}</li>
-              ))}
-            </ul>
+
+              <div className="project-detail-content__items project-detail-content__items-para">
+                  {selectedProject.details[lang].map((detail: any, index: any) => (
+                      <p className={"project-detail-para"} key={index}>{detail}</p>
+                  ))}
+              </div>
+
           </div>
         </div>
       )}
