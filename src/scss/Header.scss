@@ -60,6 +60,11 @@
       &__group{
         margin-left: auto;
         display: flex;
+
+        .small & {
+         flex-direction: column;
+          margin-left: 0;
+        }
       }
 
       .small & {

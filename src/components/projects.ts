@@ -3,6 +3,7 @@ import weather_email from "../assets/weather_email.png"
 import robots from "../assets/robotix.png"
 import pantry from "../assets/pantry.png"
 import course from "../assets/course.png"
+import concept from "../assets/concept.png"
 import chainon from "../assets/chainon.png"
 import internship from "../assets/internship.png"
 
@@ -49,14 +50,12 @@ export const projects: Project[] = [
         ]
     },
     {
-        title:  {en: "Pantry Tracker", fr: "Bouffe Traqueur"},
-        image: pantry,
-        technologies: ["Python", "tkinter", "sqlite3"],
-        description: "Created a pantry tracker to be able to track items bought and used.",
-        period: "May 2023",
-        details: [
-            "Processed data in the back-end and inserting them in a database and using tkinter to display the data. SQL queries are used to add, delete, sort data."
-        ]
+        title:  {en: "ConceptNet Explorer", fr: "ConceptNet Explorer"},
+        image: concept,
+        technologies: ["PHP", "Javascript", "MariaDB"],
+        description: "Designed a guessing game - both backend and frontend",
+        period: "April 2024",
+        details: ["Designed a game using ConceptNet API to guess answers according to themes. Several types of games are available with timers and rankings are updated in real-time. A database in MariaDB is used to store data of users. ",]
     },
     {
         title:  {en: "Weather-Email", fr: "Météo-Courriel"},
@@ -66,6 +65,16 @@ export const projects: Project[] = [
         period: "March 2023",
         details: [
             "Openweather API was used to retrieve current weather data from all cities. SMTP was used to implement the email sending feature using sendinblue. User inputs a city’s name (or geolocation is used) and an email is sent with all information on the weather there."
+        ]
+    },
+    {
+        title:  {en: "Pantry Tracker", fr: "Bouffe Traqueur"},
+        image: pantry,
+        technologies: ["Python", "tkinter", "sqlite3"],
+        description: "Created a pantry tracker to be able to track items bought and used.",
+        period: "May 2023",
+        details: [
+            "Processed data in the back-end and inserting them in a database and using tkinter to display the data. SQL queries are used to add, delete, sort data."
         ]
     },
     {
@@ -83,8 +92,8 @@ export const projects: Project[] = [
         title:  {en: "Internship Tracker", fr: "Traqueur de Stage"},
         image: internship,
         technologies: ["Python", "sqlite3", "flask", "HTML", "BootStrap", "JavaScript"],
-        description: "Designed a sample internship tracker to be able to visualize information on each application.",
+        description: "Designed a sample internship tracker",
         period: "February 2023",
-        details: []
+        details: ["Designed a sample internship tracker to be able to visualize information on each application.",]
     }
 ];
