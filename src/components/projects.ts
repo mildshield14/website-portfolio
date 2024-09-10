@@ -7,93 +7,162 @@ import concept from "../assets/concept.png"
 import chainon from "../assets/chainon.png"
 import internship from "../assets/internship.png"
 
-type Project = {
-    title: Object;
-    image: string;
+export type Project = {
+    id: number,
+    title: any,
+    image: string,
     technologies: string[];
-    description: string;
-    period: string;
+    description: any;
+    period: any;
+    pdf?: string;
+    video?: string;
     url?:string;
-    details: string[];
+    details: any;
 };
 
 export const projects: Project[] = [
     {
-        title: {en: "Internship Projects", fr: "Projets de Stage"},
+        id: 1,
+        title: { en: "Internship Projects", fr: "Projets de Stage" },
         image: intern,
         technologies: ["Vue3", "TypeScript", "SCSS", "JIRA"],
-        description: "Engineered dynamic weather and sports widgets for major news and sports platforms.",
-        period: "Summer 2024",
-        details: [
-            "Improving user engagement and accessibility for TSN & RDS."
-        ]
+        description: {
+            en: "Developed dynamic widgets for major sports and news platforms, focusing on user engagement and accessibility.",
+            fr: "Développement de widgets dynamiques pour d'importants plateformes de sport et de nouvelles, axés sur l'engagement des utilisateurs et l'accessibilité."
+        },
+        period: { en: "Summer 2024", fr: "Été 2024" },
+        details: {
+            en: ["Enhanced user interface for TSN & RDS.", "Implemented accessibility features to comply with WCAG 2.1."],
+            fr: ["Amélioration de l'interface utilisateur pour TSN & RDS.", "Mise en œuvre de fonctionnalités d'accessibilité conformes à la WCAG 2.1."]
+        }
     },
     {
-        title:  {en: "Le Chainon", fr: "Le Chainon"},
+        id: 2,
+        title: { en: "Le Chainon", fr: "Le Chainon" },
         image: chainon,
         technologies: ["React", "Figma", "Lucidchart", "Notion"],
-        description: "A website for Le Chainon to help women in need.",
-        period: "March 2024",
-        details: [
-            "Focused on UX/UI aspects and did a prototype using React and Figma with the help of seniors at Morgan Stanley during the hackathon - Code to Give."
-        ]
+        description: {
+            en: "Collaborated on a website redesign for Le Chainon, enhancing online resources for women in need.",
+            fr: "Collaboration sur la refonte d'un site web pour Le Chainon, améliorant les ressources en ligne pour les femmes en difficulté."
+        },
+        period: { en: "March 2024", fr: "Mars 2024" },
+        details: {
+            en: ["Focused on UX/UI improvements and prototype creation.", "Facilitated design workshops with senior developers at Morgan Stanley during a hackathon."],
+            fr: ["Concentration sur les améliorations UX/UI et la création de prototypes.", "Animation d'ateliers de conception avec des développeurs seniors de Morgan Stanley lors d'un hackathon."]
+        }
     },
     {
-        title:  {en: "Robotix", fr: "Robotix"},
+        id: 3,
+        title: { en: "Robotix", fr: "Robotix" },
         image: robots,
         technologies: ["Java", "Swing"],
-        description: "Robots management system called Robotix.",
-        period: "August 2023",
-        details: [
-            "Its goal is to give clients access to their robots, and give access to suppliers an interface to deal with clients.",
-            "Use of techniques learnt in course IFT2255 - Software Engineering like Planning, Analysis, Design, Implementation and Testing."
-        ]
+        description: {
+            en: "Engineered a comprehensive management system for robotics integration, improving operational efficiency.",
+            fr: "Conçu un système de gestion complet pour l'intégration robotique, améliorant l'efficacité opérationnelle."
+        },
+        period: { en: "August 2023", fr: "Août 2023" },
+        details: {
+            en: ["Provided robust client and supplier interfaces.", "Applied software engineering methodologies from IFT2255 course to optimize system design."],
+            fr: ["Fourniture d'interfaces robustes pour clients et fournisseurs.", "Application des méthodologies d'ingénierie logicielle du cours IFT2255 pour optimiser la conception du système."]
+        }
     },
     {
-        title:  {en: "ConceptNet Explorer", fr: "ConceptNet Explorer"},
+        id: 4,
+        title: { en: "ConceptNet Explorer", fr: "Explorateur ConceptNet" },
         image: concept,
-        technologies: ["PHP", "Javascript", "MariaDB"],
-        description: "Designed a guessing game - both backend and frontend",
-        period: "April 2024",
-        details: ["Designed a game using ConceptNet API to guess answers according to themes. Several types of games are available with timers and rankings are updated in real-time. A database in MariaDB is used to store data of users. ",]
+        technologies: ["PHP", "JavaScript", "MariaDB"],
+        description: {
+            en: "Developed an interactive guessing game using the ConceptNet API, featuring real-time user interaction.",
+            fr: "Développé un jeu de devinettes interactif utilisant l'API ConceptNet, avec interaction utilisateur en temps réel."
+        },
+        period: { en: "April 2024", fr: "Avril 2024" },
+        details: {
+            en: ["Designed various game modes with scoring and timing features.", "Implemented real-time database updates to handle user data and rankings."],
+            fr: ["Conception de différents modes de jeu avec des fonctionnalités de scoring et de chronométrage.", "Mise en œuvre de mises à jour de la base de données en temps réel pour gérer les données des utilisateurs et les classements."]
+        }
     },
     {
-        title:  {en: "Weather-Email", fr: "Météo-Courriel"},
+        id: 5,
+        title: { en: "Weather-Email Integration", fr: "Intégration Météo-Courriel" },
         image: weather_email,
-        technologies: ["Python", "flask"],
-        description: "Designed a simple weather interface to work on APIs.",
-        period: "March 2023",
-        details: [
-            "Openweather API was used to retrieve current weather data from all cities. SMTP was used to implement the email sending feature using sendinblue. User inputs a city’s name (or geolocation is used) and an email is sent with all information on the weather there."
-        ]
+        technologies: ["Python", "Flask"],
+        description: {
+            en: "Developed a service to fetch and email weather updates, enhancing user interaction through automated processes.",
+            fr: "Développé un service pour récupérer et envoyer par courriel les mises à jour météorologiques, améliorant l'interaction utilisateur grâce à des processus automatisés."
+        },
+        period: { en: "March 2023", fr: "Mars 2023" },
+        details: {
+            en: [
+                "Utilized the OpenWeather API for real-time weather data.",
+                "Integrated SMTP with SendinBlue for reliable email dispatch."
+            ],
+            fr: [
+                "Utilisation de l'API OpenWeather pour les données météorologiques en temps réel.",
+                "Intégration de SMTP avec SendinBlue pour l'envoi fiable d'emails."
+            ]
+        }
     },
     {
-        title:  {en: "Pantry Tracker", fr: "Bouffe Traqueur"},
+        id: 6,
+        title: { en: "Pantry Tracker System", fr: "Système de Suivi de Garde-Manger" },
         image: pantry,
-        technologies: ["Python", "tkinter", "sqlite3"],
-        description: "Created a pantry tracker to be able to track items bought and used.",
-        period: "May 2023",
-        details: [
-            "Processed data in the back-end and inserting them in a database and using tkinter to display the data. SQL queries are used to add, delete, sort data."
-        ]
+        technologies: ["Python", "Tkinter", "SQLite3"],
+        description: {
+            en: "Created a desktop application to manage pantry inventory effectively, with features to add, remove, and categorize items.",
+            fr: "Créé une application de bureau pour gérer efficacement l'inventaire du garde-manger, avec des fonctionnalités pour ajouter, supprimer et catégoriser les articles."
+        },
+        period: { en: "May 2023", fr: "Mai 2023" },
+        details: {
+            en: [
+                "Designed the backend logic to process and store data in SQLite3.",
+                "Developed a user-friendly interface using Tkinter."
+            ],
+            fr: [
+                "Conception de la logique backend pour traiter et stocker les données dans SQLite3.",
+                "Développement d'une interface utilisateur conviviale avec Tkinter."
+            ]
+        }
     },
     {
-        title:  {en: "Moodle 2.0", fr: "Moodle 2.0"},
+        id: 7,
+        title: { en: "Educational Platform - Moodle 2.0", fr: "Plateforme Éducative - Moodle 2.0" },
         image: course,
         technologies: ["Java", "JavaFX"],
-        description: "Designed a GUI using the MVC model.",
-        period: "March 2023",
-        details: [
-            "Client-Server architecture was implemented on a local host. Object-Oriented Programming concepts were used. Implemented for IFT1025 - Programming 2 course.",
-            "Used JavaFX to create the GUI that supports actions such as choosing a session, selecting a course and inputting data for the registration."
-        ]
+        description: {
+            en: "Engineered an enhanced version of Moodle with advanced features for educational management and online learning.",
+            fr: "Conçu une version améliorée de Moodle avec des fonctionnalités avancées pour la gestion éducative et l'apprentissage en ligne."
+        },
+        period: { en: "March 2023", fr: "Mars 2023" },
+        details: {
+            en: [
+                "Implemented client-server architecture for effective data handling.",
+                "Utilized JavaFX for dynamic and responsive user interfaces."
+            ],
+            fr: [
+                "Mise en œuvre de l'architecture client-serveur pour une gestion efficace des données.",
+                "Utilisation de JavaFX pour des interfaces utilisateur dynamiques et réactives."
+            ]
+        }
     },
     {
-        title:  {en: "Internship Tracker", fr: "Traqueur de Stage"},
+        id: 8,
+        title: { en: "Internship Application Tracker", fr: "Suivi des Candidatures de Stage" },
         image: internship,
-        technologies: ["Python", "sqlite3", "flask", "HTML", "BootStrap", "JavaScript"],
-        description: "Designed a sample internship tracker",
-        period: "February 2023",
-        details: ["Designed a sample internship tracker to be able to visualize information on each application.",]
+        technologies: ["Python", "SQLite3", "Flask", "HTML", "Bootstrap", "JavaScript"],
+        description: {
+            en: "Developed a web application to track internship applications and manage applicant data seamlessly.",
+            fr: "Développé une application web pour suivre les candidatures de stage et gérer les données des candidats de manière fluide."
+        },
+        period: { en: "February 2023", fr: "Février 2023" },
+        details: {
+            en: [
+                "Designed to offer real-time insights into application statuses.",
+                "Integrated with databases to store and retrieve application data effectively."
+            ],
+            fr: [
+                "Conçu pour offrir des informations en temps réel sur les statuts des candidatures.",
+                "Intégré avec des bases de données pour stocker et récupérer efficacement les données des candidatures."
+            ]
+        }
     }
 ];
