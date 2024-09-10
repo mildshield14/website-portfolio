@@ -8,17 +8,21 @@ import chainon from "../assets/chainon.png"
 import internship from "../assets/internship.png"
 
 type Project = {
+    id: number,
     title: Object;
     image: string;
     technologies: string[];
     description: string;
     period: string;
+    pdf?: string;
+    video?: string;
     url?:string;
     details: string[];
 };
 
 export const projects: Project[] = [
     {
+        id: 1,
         title: {en: "Internship Projects", fr: "Projets de Stage"},
         image: intern,
         technologies: ["Vue3", "TypeScript", "SCSS", "JIRA"],
@@ -29,6 +33,7 @@ export const projects: Project[] = [
         ]
     },
     {
+        id: 2,
         title:  {en: "Le Chainon", fr: "Le Chainon"},
         image: chainon,
         technologies: ["React", "Figma", "Lucidchart", "Notion"],
@@ -39,6 +44,7 @@ export const projects: Project[] = [
         ]
     },
     {
+        id: 3,
         title:  {en: "Robotix", fr: "Robotix"},
         image: robots,
         technologies: ["Java", "Swing"],
@@ -50,6 +56,7 @@ export const projects: Project[] = [
         ]
     },
     {
+        id: 4,
         title:  {en: "ConceptNet Explorer", fr: "ConceptNet Explorer"},
         image: concept,
         technologies: ["PHP", "Javascript", "MariaDB"],
@@ -58,6 +65,7 @@ export const projects: Project[] = [
         details: ["Designed a game using ConceptNet API to guess answers according to themes. Several types of games are available with timers and rankings are updated in real-time. A database in MariaDB is used to store data of users. ",]
     },
     {
+        id: 5,
         title:  {en: "Weather-Email", fr: "Météo-Courriel"},
         image: weather_email,
         technologies: ["Python", "flask"],
@@ -68,6 +76,7 @@ export const projects: Project[] = [
         ]
     },
     {
+        id: 6,
         title:  {en: "Pantry Tracker", fr: "Bouffe Traqueur"},
         image: pantry,
         technologies: ["Python", "tkinter", "sqlite3"],
@@ -78,6 +87,7 @@ export const projects: Project[] = [
         ]
     },
     {
+        id: 7,
         title:  {en: "Moodle 2.0", fr: "Moodle 2.0"},
         image: course,
         technologies: ["Java", "JavaFX"],
@@ -89,6 +99,7 @@ export const projects: Project[] = [
         ]
     },
     {
+        id: 8,
         title:  {en: "Internship Tracker", fr: "Traqueur de Stage"},
         image: internship,
         technologies: ["Python", "sqlite3", "flask", "HTML", "BootStrap", "JavaScript"],
