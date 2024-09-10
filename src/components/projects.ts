@@ -17,7 +17,7 @@ export type Project = {
     pdf?: string;
     video?: string;
     url?:string;
-    details: any[];
+    details: any;
 };
 
 export const projects: Project[] = [
