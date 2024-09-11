@@ -2,7 +2,6 @@ import {useCallback, useEffect, useRef, useState} from "react";
 import Header from "./Header.tsx";
 import Projects from "./Projects.tsx";
 import "../scss/App.scss";
-import useElementSize from "../hook/useElementSize.tsx";
 import HomePage from "./HomePage.tsx";
 import Contact from "./Contact.tsx";
 import Socials from "./Socials.tsx";
@@ -75,6 +74,7 @@ function App() {
       // @ts-ignore
       videoRef.current.load();
       if (size === "small") {
+          // @ts-ignore
         videoRef.current.pause();
       }
     }
