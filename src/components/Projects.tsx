@@ -22,7 +22,7 @@ const Projects: React.FC<ProjectsProps> = ({ size, lang }) => {
         infinite: false,
         speed: 500,
         slidesToShow: size==="small" ? 2 : size==="medium" ? 4 : size==="large" ? 6 : 8,
-        slidesToScroll: 3,
+        slidesToScroll: size==="small" ? 1 : 3,
         appendDots: (dots:any) => {
             return <MagicSliderDots dots={dots} numDotsToShow={4} dotWidth={30} />;
         },
