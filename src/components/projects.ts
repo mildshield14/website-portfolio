@@ -25,7 +25,7 @@ export const projects: Project[] = [
         id: 1,
         title: { en: "Internship Projects", fr: "Projets de Stage" },
         image: intern,
-        technologies: ["Vue3", "TypeScript", "SCSS", "JIRA"],
+        technologies: ["Vue3", "TypeScript", "SCSS"],
         description: {
             en: "Developed dynamic widgets for major sports and news platforms, focusing on user engagement and accessibility.",
             fr: "Développement de widgets dynamiques pour d'importants plateformes de sport et de nouvelles, axés sur l'engagement des utilisateurs et l'accessibilité."
@@ -40,7 +40,7 @@ export const projects: Project[] = [
         id: 2,
         title: { en: "Le Chainon", fr: "Le Chainon" },
         image: chainon,
-        technologies: ["React", "Figma", "Lucidchart", "Notion"],
+        technologies: ["React", "Figma", "Lucidchart"],
         description: {
             en: "Collaborated on a website redesign for Le Chainon, enhancing online resources for women in need.",
             fr: "Collaboration sur la refonte d'un site web pour Le Chainon, améliorant les ressources en ligne pour les femmes en difficulté."
