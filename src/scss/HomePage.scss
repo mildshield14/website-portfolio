@@ -4,6 +4,10 @@
   position: relative;
   font-family: var(--font-family-headers), sans-serif;
 
+  .small & {
+    margin-top: 20px;
+  }
+
   &__container {
     display: flex;
     flex-direction: column;
@@ -27,6 +31,7 @@
     opacity: 0.3;
   }
 
+
   &__intro-section {
     display: flex;
     flex-direction: column;
@@ -38,6 +43,7 @@
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     animation: fadeInUp 1.5s ease-out forwards;
+
 
     &__title {
       font-size: 3rem;
@@ -69,6 +75,10 @@ margin-bottom: 50px;
       opacity: 0;
       transform: translateY(20px);
       animation: fadeSlideIn 1s ease forwards;
+
+      .small & {
+        font-size: 1.35rem;
+      }
 
       &.delay-1 {
         animation-delay: 0.5s;
@@ -175,9 +185,6 @@ margin-bottom: 50px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 
-  .small & {
-    scale: 0.8;
-  }
   &__header,
   &__content {
     text-align: center;
