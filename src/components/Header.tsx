@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({
     if (isCheckedMode) {
       document.documentElement.style.setProperty(
         "--selected-background-color",
-        "var(--light-background-color)",
+        "var(--light--background-color)",
       );
       document.documentElement.style.setProperty(
         "--selected-text-color",

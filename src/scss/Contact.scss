@@ -27,7 +27,8 @@
     width: 10%;
     align-self: center;
     border-radius: 20px;
-    background: var(--selected-secondary-color);
+    background: var(--selected-background-color);
+    color: white;
     .small & {
       width: 50%;
     }
@@ -37,7 +38,8 @@
     }
 
     &:hover {
-      background: #ced2da;
+      background: var(--selected-secondary-color);
+      color: black;
     }
   }
 

@@ -25,35 +25,34 @@ const Slide = (lang: any) => {
     {
       name: "Python",
       image:
-        "https://banner2.cleanpng.com/20190623/yp/kisspng-python-computer-icons-programming-language-executa-1713885634631.webp",
+        "https://cdn.freebiesupply.com/logos/large/2x/python-5-logo-png-transparent.png",
     },
     {
       name: "C",
-      image: "https://banner2.cleanpng.com/20171217/033/av2bv0zlf.webp",
-    },
+      image: "https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png" },
     {
       name: "SCSS",
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ803r_FTGrMlWpKJqOWmQgwv0BkQaDWy8q1Q&s",
+        "https://cdn.freebiesupply.com/logos/large/2x/sass-1-logo-png-transparent.png",
     },
     {
       name: "VB.NET",
       image:
-        "https://deepinthecode.com/wp-content/uploads/2012/08/visual-basic-net.jpg",
+        "https://e7.pngegg.com/pngimages/789/452/png-clipart-microsoft-visual-studio-express-visual-basic-visual-programming-language-microsoft-purple-blue.png",
     },
     {
       name: "MySQL",
-      image: "https://banner2.cleanpng.com/20180614/bgj/aa7ffc9id.webp",
+      image: "https://pngimg.com/d/mysql_PNG29.png",
     },
     {
       name: "PostgreSQL",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg",
+        "https://download.logo.wine/logo/PostgreSQL/PostgreSQL-Logo.wine.png",
     },
     {
       name: "PHP",
       image:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXalRyF7J7QRLkJfMwCMqA47UUDCFdHJ-dFQ&s",
+          "https://pngimg.com/uploads/php/php_PNG43.png",
     },
   ];
 
@@ -61,12 +60,12 @@ const Slide = (lang: any) => {
     {
       name: "React",
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOxiFZo8hp7oqoftdM8UCkftr2ZDLY0C25LA&s",
+        "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png",
     },
     {
       name: "Vue3",
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZQDzc6Oa8RidACamYSovP7GobW1G4-RBzUw&s",
+        "https://chatkitty.com/assets/images/feature-cbeb779dc53b732d404ab5c3d4c54940.png",
     },
   ];
 
@@ -74,30 +73,30 @@ const Slide = (lang: any) => {
     {
       name: "Figma",
       image:
-        "https://w7.pngwing.com/pngs/54/524/png-transparent-figma-app-logo-tech-companies.png",
+        "https://cdn.freebiesupply.com/logos/large/2x/figma-1-logo-png-transparent.png",
     },
     {
       name: "Github",
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5i4JeVcOzQvFkVuMlN7RM62s298ar3Qv_vw&s",
+        "https://cdn-icons-png.flaticon.com/512/25/25231.png",
     },
     {
       name: "Gitlab",
-      image: "https://banner2.cleanpng.com/20180713/hfv/aawyt2x70.webp",
+      image: "https://cdn.iconscout.com/icon/free/png-256/free-gitlab-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-vol-3-pack-logos-icons-2944892.png?f=webp&w=256",
     },
     {
       name: "Jira",
-      image: "https://banner2.cleanpng.com/20180526/lbx/avqyu5lq4.webp",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Jira_Logo.svg/2560px-Jira_Logo.svg.png",
     },
     {
       name: "Bitbucket",
       image:
-        "https://w7.pngwing.com/pngs/404/31/png-transparent-bitbucket-icon-hd-logo.png",
+        "https://www.logo.wine/a/logo/Bitbucket/Bitbucket-Blue-Logo.wine.svg",
     },
     {
       name: "Miro",
       image:
-        "https://e7.pngegg.com/pngimages/441/29/png-clipart-miro-logo-landscape-tech-companies.png",
+        "https://seeklogo.com/images/M/miro-logo-4F00416377-seeklogo.com.png",
     },
   ];
 
@@ -121,10 +120,8 @@ const Slide = (lang: any) => {
           </p>
           <p className="slide__content__para">
             {lang.lang === "en"
-                ? `Contributed to tools enhancing project workflows and data
-               visualization, significantly improving internal operations.`
-                : `Contribution aux outils améliorant les flux de travail des projets et
-               la visualisation des données, améliorant considérablement les opérations internes.`}
+                ? `Designed and implemented an intern ticket management tool to streamline the creation and tracking processes of JIRA tickets using JIRA’s API V2.`
+                : `Conception et mise en œuvre d'un outil de gestion des tickets interne pour simplifier les processus de création et de suivi des tickets JIRA, en utilisant l'API V2 de JIRA.`}
           </p>
           <p className="slide__content__para">
             <strong>Tech Stack:</strong> Vue3, TypeScript, SCSS
@@ -154,6 +151,7 @@ const Slide = (lang: any) => {
           </span>
         </div>
         <div className="slide__content">
+          <p className="slide__content__para">IFT1005 : {lang.lang === "en" ? "Web design and development" : " Design et développement web"}</p>
           <p className="slide__content__para">
             {lang.lang === "en" ? (
               <span>
@@ -205,10 +203,26 @@ const Slide = (lang: any) => {
         </div>
         <div className="slide__content">
           <p className="slide__content__para">
+            {lang.lang === "en"
+              ? `Degree completed at 86%.`
+              : `Bac complété à 86%`}
+          </p>
+          <p className="slide__content__para">
             {lang.lang === "en" ? (
-                <span>Focused on <strong>Software Engineering Practices</strong>, <strong>Software Development</strong>, <strong>AI</strong>, <strong>Networks</strong>, and <strong>Data Science</strong>.</span>
+              <span>
+                Focused on <strong>Software Engineering Practices</strong>,{" "}
+                <strong>Software Development</strong>, <strong>AI</strong>,{" "}
+                <strong>Networks</strong>, and <strong>Data Science</strong>.
+              </span>
             ) : (
-                <span>Concentration sur les <strong>pratiques d'ingénierie logicielle</strong>, le <strong>développement logiciel</strong>, l'<strong>intelligence artificielle</strong>, les <strong>réseaux</strong> et la <strong>science des données</strong>.</span>
+              <span>
+                Concentration sur les{" "}
+                <strong>pratiques d'ingénierie logicielle</strong>, le{" "}
+                <strong>développement logiciel</strong>, l'
+                <strong>intelligence artificielle</strong>, les{" "}
+                <strong>réseaux</strong> et la{" "}
+                <strong>science des données</strong>.
+              </span>
             )}
           </p>
           <p className="slide__content__para">
@@ -216,6 +230,12 @@ const Slide = (lang: any) => {
               ? `Recipient of a scholarship based on school grades offered to international students valued at more than 30,000$.`
               : `Reçu une bourse pour étudiants internationaux sur niveau scolaire à hauteur de plus de 30000$.`}
           </p>
+          {/*<p className="slide__content__para">*/}
+          {/*  {lang.lang === "en"*/}
+          {/*    ? `Credited projec: Calque.`*/}
+          {/*    : `Projet crédité: Calque - Création de cartes multicouches qui offrent la possibilité de modéliser des étages ou d'abstraire des informations pour une visualisation plus complexe et organisée. `}*/}
+          {/*  <br/>*/}
+          {/*</p>*/}
         </div>
         <img
           className="slide__logo slide__logos__udem"
@@ -258,34 +278,36 @@ const Slide = (lang: any) => {
     <div id="home" className="homepage">
       <Slider {...settings}>
         <div className="homepage__container">
+          <div className="homepage__background-animation"></div>
+
           <div className="homepage__intro-section">
-            {/*<div className="homepage__animation-block">*/}
-            {/*</div>*/}
             <div className="homepage__intro-section__description">
               <h1 className="homepage__intro-section__title">
-                {lang.lang==="en" ? `Hey, I'm Vennila!` : `Salut, c'est Vennila!`}
+                {lang.lang === "en" ? `Hey, I'm Vennila!` : `Salut, c'est Vennila!`}
               </h1>
-              <p className="homepage__intro-section__content">
-                {lang.lang==="en" ? `I'm a fullstack developer specialised in Frontend technologies.` : `Je suis une développeuse fullstack spécialisée en Frontend`}
+
+              <p className="homepage__intro-section__content fade-slide-in">
+                {lang.lang === "en"
+                    ? `I'm a fullstack developer specialized in frontend technologies.`
+                    : `Je suis une développeuse fullstack spécialisée en frontend.`}
               </p>
 
-              <p className="homepage__intro-section__content">
-                {lang.lang==="en" ? `I'm currently looking for new grad opportunities for 2025.` : `Je suis actuellement à la recherche d'opportunités pour nouveaux diplômés 2025`}
+              <p className="homepage__intro-section__content fade-slide-in delay-1">
+                {lang.lang === "en"
+                    ? `I'm currently looking for new grad opportunities for 2025.`
+                    : `Je suis actuellement à la recherche d'opportunités pour nouveaux diplômés 2025.`}
               </p>
-            </div>
-            <div className="slideBanner__container">
-              <div className="slideBanner"></div>
-            </div>
 
-            {/*<div className="homepage__animation-block">*/}
-            {/*</div>*/}
+              <a href="#contact" className="homepage__cta-button"> {lang.lang === "en" ? `Let's Connect!` : `Connectons-nous!`}</a>
+            </div>
           </div>
         </div>
+
         <div className="homepage__container">
           <div className="homepage__intro-section">
             <div className={"homepage__slide"}>
               <h2 className={"homepage__title"}>{getTranslation(lang.lang, "techSkills")}</h2>
-              <span className={"homepage__slide__skills__title"}>{getTranslation(lang.lang , "languages")}</span>
+              <span className={"homepage__slide__skills__title"}>{getTranslation(lang.lang, "languages")}</span>
               <div className={"homepage__slide__container"}>
                 {skills_slide(languages)}
               </div>

@@ -5,10 +5,10 @@
   --text-color: #ffffff;
   --background-color: #14143c;
   --button-color: #c0c2d5;
-  --light--button-color: #a48374;
+  --light--button-color: #ebe3db;
   --light--secondary-color: #ebe3db;
   --light--text-color: #000;
-  --light--background-color: #14143c;
+  --light--background-color: #a48374;
   --font-family-headers: "Raleway";
   --selected-background-color: var(--background-color);
   --selected-secondary-color: var(--secondary-color);
@@ -145,4 +145,16 @@ h6 {
 
 .magic-dots.slick-dots li.slick-active button:before {
   color: var(--selected-button-color) !important;
+}
+
+/* SCSS for slide-in animation */
+.slide-in {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-in.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
