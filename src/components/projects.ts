@@ -32,9 +32,13 @@ export const projects: Project[] = [
         },
         period: { en: "Summer 2024", fr: "Été 2024" },
         details: {
-            en: ["Enhanced user interface for TSN & RDS.", "Implemented accessibility features to comply with WCAG 2.1."],
-            fr: ["Amélioration de l'interface utilisateur pour TSN & RDS.", "Mise en œuvre de fonctionnalités d'accessibilité conformes à la WCAG 2.1."]
-        }
+            en: ["Developed widgets for TSN, RDS, CTV News, and BNN Bloomberg websites using Vue 3, SCSS, and Typescript to enhance page interactivity and performance.",
+                "Designed and implemented an intern ticket management tool to streamline the creation of JIRA tickets using JIRA’s API V2.",
+                "Enhanced accessibility to ensure an inclusive and global user experience."],
+                fr: [ "Développement de widgets pour les sites web de TSN, RDS, CTV News et BNN Bloomberg, en utilisant Vue 3 et l'API Composition, SCSS et Typescript pour améliorer l'interactivité et la performance des pages.",
+                    "Conception et mise en œuvre d'un outil de gestion des tickets interne pour simplifier la création de tickets JIRA, en utilisant l'API V2 de JIRA.",
+                    "Amélioration de l'accessibilité (spécification WAI-ARIA) pour assurer une expérience utilisateur inclusive et globale.",
+                ] }
     },
     {
         id: 2,
@@ -47,8 +51,8 @@ export const projects: Project[] = [
         },
         period: { en: "March 2024", fr: "Mars 2024" },
         details: {
-            en: ["Focused on UX/UI improvements and prototype creation.", "Facilitated design workshops with senior developers at Morgan Stanley during a hackathon."],
-            fr: ["Concentration sur les améliorations UX/UI et la création de prototypes.", "Animation d'ateliers de conception avec des développeurs seniors de Morgan Stanley lors d'un hackathon."]
+            en: ["Focused on UX/UI improvements and prototype creation.", "Worked on designs and code with senior developers at Morgan Stanley during a hackathon."],
+            fr: ["Concentration sur les améliorations UX/UI et la création de prototypes.", "Conception avec des développeurs seniors de Morgan Stanley lors d'un hackathon."]
         }
     },
     {
@@ -77,8 +81,8 @@ export const projects: Project[] = [
         },
         period: { en: "April 2024", fr: "Avril 2024" },
         details: {
-            en: ["Designed various game modes with scoring and timing features.", "Implemented real-time database updates to handle user data and rankings."],
-            fr: ["Conception de différents modes de jeu avec des fonctionnalités de scoring et de chronométrage.", "Mise en œuvre de mises à jour de la base de données en temps réel pour gérer les données des utilisateurs et les classements."]
+            en: ["Designed various game modes with scoring and timing features.", "Implemented real-time database updates to handle user data and rankings.", "Sign up and Login are available for the users authentication."],
+            fr: ["Conception de différents modes de jeu avec des fonctionnalités de scoring et de chronométrage.", "Mise en œuvre de mises à jour de la base de données en temps réel pour gérer les données des utilisateurs et les classements.", "Inscription et Connexion pour l'authentification des utilisateurs"]
         }
     },
     {
@@ -129,8 +133,8 @@ export const projects: Project[] = [
         image: course,
         technologies: ["Java", "JavaFX"],
         description: {
-            en: "Engineered an enhanced version of Moodle with advanced features for educational management and online learning.",
-            fr: "Conçu une version améliorée de Moodle avec des fonctionnalités avancées pour la gestion éducative et l'apprentissage en ligne."
+            en: "Engineered an interface for course registration with advanced features for educational management and online learning.",
+            fr: "Conçu une interface d'inscription aux cours avec des fonctionnalités avancées pour la gestion éducative et l'apprentissage en ligne."
         },
         period: { en: "March 2023", fr: "Mars 2023" },
         details: {

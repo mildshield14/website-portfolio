@@ -64,6 +64,8 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  width: 100%;
+  height: 100%;
 }
 
 .project-detail-content {
@@ -78,6 +80,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .small & {
+    scale: 0.65;
+  }
 
   &__items {
     margin-top: 20px;
