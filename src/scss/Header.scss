@@ -104,20 +104,12 @@
           height: 26px;
           width: 26px;
           right: 18px;
-          background-color: var(--selected-button-color);
+          background-color: var(--selected-background-color);
           transition: .4s;
         }
       }
       &__switch:checked + &__slider {
-        background-color: #1a1a6c;
-
-        .lang & {
-          background-color: var(--selected-secondary-color);
-        }
-
-        .lang-dark & {
-          background-color: #1a1a6c;
-        }
+        background-color: var(--selected-secondary-color);
 
         &:before {
           transform: translateX(26px);

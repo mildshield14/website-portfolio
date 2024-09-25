@@ -16,7 +16,7 @@
   &__input {
     width: calc(100% / 2);
     height: 100%;
-    &:not(:nth-child(6)){
+    &:not(:nth-child(6)) {
       height: 50px;
     }
   }
@@ -26,6 +26,7 @@
     margin-top: 20px;
     width: 10%;
     align-self: center;
+    border: 0px;
     border-radius: 20px;
     background: var(--selected-background-color);
     color: white;
@@ -38,13 +39,14 @@
     }
 
     &:hover {
-      background: var(--selected-secondary-color);
+      background: var(--selected-button-color);
       color: black;
     }
   }
 
-  &__resume{
+  &__resume {
     margin-top: 30px;
+    margin-bottom: 30px;
     width: 100%;
     scale: 0.85;
   }

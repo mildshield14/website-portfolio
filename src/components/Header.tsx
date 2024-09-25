@@ -9,11 +9,7 @@ type HeaderProps = {
   size: any;
 };
 
-const Header: React.FC<HeaderProps> = ({
-  size,
-  changeSource,
-  changeLang
-}) => {
+const Header: React.FC<HeaderProps> = ({ size, changeSource, changeLang }) => {
   const [isCheckedMode, setIsCheckedMode] = useState(true); // Default checked state
   const [lang, setLanguage] = useState("en");
 
@@ -116,38 +112,39 @@ const Header: React.FC<HeaderProps> = ({
           </li>
           <div className="header__items__mode__group">
             <li className="header__items header__items__mode">
-            <span className="header__items__label">
-              {" "}
-              {isCheckedMode
+              <span className="header__items__label">
+                {" "}
+                {isCheckedMode
                   ? getTranslation(lang, "dark")
                   : getTranslation(lang, "light")}
-            </span>
+              </span>
               <label className="header__items__toggle">
                 <input
-                    checked={isCheckedMode}
-                    onChange={handleToggle}
-                    type="checkbox"
-                    className="header__items__toggle__switch"
+                  checked={isCheckedMode}
+                  onChange={handleToggle}
+                  type="checkbox"
+                  className="header__items__toggle__switch"
                 />
                 <span className="header__items__toggle__slider"></span>
               </label>
             </li>
-            <li className={`header__items header__items__mode ${isCheckedMode ? 'lang-dark' : 'lang'}`}>
-            <span className="header__items__label">
-              {lang === "en" ? "EN" : "FR"}{" "}
-            </span>
+            <li
+              className={`header__items header__items__mode ${isCheckedMode ? "lang-dark" : "lang"}`}
+            >
+              <span className="header__items__label">
+                {lang === "en" ? "EN" : "FR"}{" "}
+              </span>
               <label className="header__items__toggle">
                 <input
-                    checked={lang === "en"}
-                    onChange={handleToggleLang}
-                    type="checkbox"
-                    className="header__items__toggle__switch"
+                  checked={lang === "en"}
+                  onChange={handleToggleLang}
+                  type="checkbox"
+                  className="header__items__toggle__switch"
                 />
                 <span className="header__items__toggle__slider"></span>
               </label>
             </li>
           </div>
-
         </ul>
       </nav>
     </header>

@@ -63,15 +63,10 @@ const Contact: React.FC<ContactProps> = ({ size, lang }) => {
       <h2 id="resume" className="page__title">
         {getTranslation(lang ? lang : "en", "resume")}
       </h2>
-      <iframe
-        className="contact__form__resume"
-        src={
-          lang === "en"
-            ? `https://drive.google.com/file/d/1uNkLtCkvEB6hdj_iJltY78x_Ig4k9olO/preview`
-            : `https://drive.google.com/file/d/1Rn9KYOX5eUQdaYQ360QUvM1Z-yG3XetW/preview`
-        }
+      <iframe className="contact__form__resume"
+        src="https://drive.google.com/file/d/1viJJYfjR-g-NVHutJOLDXFJlSXM995i2/preview"
         width="640"
-        height="500"
+        height="480"
         allow="autoplay"
       ></iframe>
     </section>

@@ -3,8 +3,8 @@ import "../scss/HomePage.scss";
 import Slide from "./Slide.tsx";
 
 type HomePageProps = {
-    size: any;
-    lang: any;
+  size: any;
+  lang: any;
 };
 
 const HomePage: React.FC<HomePageProps> = ({ size, lang }) => {
