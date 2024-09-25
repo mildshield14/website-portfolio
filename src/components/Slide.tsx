@@ -29,7 +29,8 @@ const Slide = (lang: any) => {
     },
     {
       name: "C",
-      image: "https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png" },
+      image: "https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png",
+    },
     {
       name: "SCSS",
       image:
@@ -51,8 +52,7 @@ const Slide = (lang: any) => {
     },
     {
       name: "PHP",
-      image:
-          "https://pngimg.com/uploads/php/php_PNG43.png",
+      image: "https://pngimg.com/uploads/php/php_PNG43.png",
     },
   ];
 
@@ -77,16 +77,17 @@ const Slide = (lang: any) => {
     },
     {
       name: "Github",
-      image:
-        "https://cdn-icons-png.flaticon.com/512/25/25231.png",
+      image: "https://cdn-icons-png.flaticon.com/512/25/25231.png",
     },
     {
       name: "Gitlab",
-      image: "https://cdn.iconscout.com/icon/free/png-256/free-gitlab-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-vol-3-pack-logos-icons-2944892.png?f=webp&w=256",
+      image:
+        "https://cdn.iconscout.com/icon/free/png-256/free-gitlab-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-vol-3-pack-logos-icons-2944892.png?f=webp&w=256",
     },
     {
       name: "Jira",
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Jira_Logo.svg/2560px-Jira_Logo.svg.png",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Jira_Logo.svg/2560px-Jira_Logo.svg.png",
     },
     {
       name: "Bitbucket",
@@ -103,25 +104,39 @@ const Slide = (lang: any) => {
   const internDescription = (
     <>
       <div className="slide">
-        <h2 className={"homepage__title"}>{getTranslation(lang.lang, "experience")}</h2>
+        <h2 className={"homepage__title"}>
+          {getTranslation(lang.lang, "experience")}
+        </h2>
         <div className="slide__header">
-          <h2>{getTranslation(lang.lang, 'softwareIntern')}</h2>
-          <span>{lang.lang==="en" ? `May 2024 - Aug 2024 at Bell Média` : `Mai 2024 - Août 2024 chez Bell Média`}</span>
+          <h2>{getTranslation(lang.lang, "softwareIntern")}</h2>
+          <span>
+            {lang.lang === "en"
+              ? `May 2024 - Aug 2024 at Bell Média`
+              : `Mai 2024 - Août 2024 chez Bell Média`}
+          </span>
         </div>
         <div className="slide__content">
           <p className="slide__content__para">
-            {lang.lang === "en" ?
-                <span>Focused on dynamic web widgets using <strong>Vue3</strong> for various media
-            platforms including <a href="https://www.tsn.ca/">TSN</a>, <a href="https://www.rds.ca/">RDS</a>, and more.</span>
-                :
-                <span>Conception des widgets web dynamiques utilisant <strong>Vue3</strong> pour diverses plateformes
-            médiatiques incluant <a href="https://www.tsn.ca/">TSN</a>, <a href="https://www.rds.ca/">RDS</a>, et plus encore.</span>
-            }
+            {lang.lang === "en" ? (
+              <span>
+                Focused on dynamic web widgets using <strong>Vue3</strong> for
+                various media platforms including{" "}
+                <a href="https://www.tsn.ca/">TSN</a>,{" "}
+                <a href="https://www.rds.ca/">RDS</a>, and more.
+              </span>
+            ) : (
+              <span>
+                Conception des widgets web dynamiques utilisant{" "}
+                <strong>Vue3</strong> pour diverses plateformes médiatiques
+                incluant <a href="https://www.tsn.ca/">TSN</a>,{" "}
+                <a href="https://www.rds.ca/">RDS</a>, et plus encore.
+              </span>
+            )}
           </p>
           <p className="slide__content__para">
             {lang.lang === "en"
-                ? `Designed and implemented an intern ticket management tool to streamline the creation and tracking processes of JIRA tickets using JIRA’s API V2.`
-                : `Conception et mise en œuvre d'un outil de gestion des tickets interne pour simplifier les processus de création et de suivi des tickets JIRA, en utilisant l'API V2 de JIRA.`}
+              ? `Designed and implemented an intern ticket management tool to streamline the creation and tracking processes of JIRA tickets using JIRA’s API V2.`
+              : `Conception et mise en œuvre d'un outil de gestion des tickets interne pour simplifier les processus de création et de suivi des tickets JIRA, en utilisant l'API V2 de JIRA.`}
           </p>
           <p className="slide__content__para">
             <strong>Tech Stack:</strong> Vue3, TypeScript, SCSS
@@ -151,7 +166,12 @@ const Slide = (lang: any) => {
           </span>
         </div>
         <div className="slide__content">
-          <p className="slide__content__para">IFT1005 : {lang.lang === "en" ? "Web design and development" : " Design et développement web"}</p>
+          <p className="slide__content__para">
+            IFT1005 :{" "}
+            {lang.lang === "en"
+              ? "Web design and development"
+              : " Design et développement web"}
+          </p>
           <p className="slide__content__para">
             {lang.lang === "en" ? (
               <span>
@@ -268,7 +288,7 @@ const Slide = (lang: any) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    appendDots: (dots:any) => {
+    appendDots: (dots: any) => {
       return <MagicSliderDots dots={dots} numDotsToShow={4} dotWidth={30} />;
     },
   };
@@ -283,22 +303,27 @@ const Slide = (lang: any) => {
           <div className="homepage__intro-section">
             <div className="homepage__intro-section__description">
               <h1 className="homepage__intro-section__title">
-                {lang.lang === "en" ? `Hey, I'm Vennila!` : `Salut, c'est Vennila!`}
+                {lang.lang === "en"
+                  ? `Hey, I'm Vennila!`
+                  : `Salut, c'est Vennila!`}
               </h1>
 
               <p className="homepage__intro-section__content fade-slide-in">
                 {lang.lang === "en"
-                    ? `I'm a fullstack developer specialized in frontend technologies.`
-                    : `Je suis une développeuse fullstack spécialisée en frontend.`}
+                  ? `I'm a fullstack developer specialized in frontend technologies.`
+                  : `Je suis une développeuse fullstack spécialisée en frontend.`}
               </p>
 
               <p className="homepage__intro-section__content fade-slide-in delay-1">
                 {lang.lang === "en"
-                    ? `I'm currently looking for new grad opportunities for 2025.`
-                    : `Je suis actuellement à la recherche d'opportunités pour nouveaux diplômés 2025.`}
+                  ? `I'm currently looking for new grad opportunities for 2025.`
+                  : `Je suis actuellement à la recherche d'opportunités pour nouveaux diplômés 2025.`}
               </p>
 
-              <a href="#contact" className="homepage__cta-button"> {lang.lang === "en" ? `Let's Connect!` : `Connectons-nous!`}</a>
+              <a href="#contact" className="homepage__cta-button">
+                {" "}
+                {lang.lang === "en" ? `Let's Connect!` : `Connectons-nous!`}
+              </a>
             </div>
           </div>
         </div>
@@ -306,16 +331,24 @@ const Slide = (lang: any) => {
         <div className="homepage__container">
           <div className="homepage__intro-section">
             <div className={"homepage__slide"}>
-              <h2 className={"homepage__title"}>{getTranslation(lang.lang, "techSkills")}</h2>
-              <span className={"homepage__slide__skills__title"}>{getTranslation(lang.lang, "languages")}</span>
+              <h2 className={"homepage__title"}>
+                {getTranslation(lang.lang, "techSkills")}
+              </h2>
+              <span className={"homepage__slide__skills__title"}>
+                {getTranslation(lang.lang, "languages")}
+              </span>
               <div className={"homepage__slide__container"}>
                 {skills_slide(languages)}
               </div>
-              <span className={"homepage__slide__skills__title"}>Frameworks</span>
+              <span className={"homepage__slide__skills__title"}>
+                Frameworks
+              </span>
               <div className={"homepage__slide__container"}>
                 {skills_slide(frameworks)}
               </div>
-              <span className={"homepage__slide__skills__title"}>{getTranslation(lang.lang, "tools")}</span>
+              <span className={"homepage__slide__skills__title"}>
+                {getTranslation(lang.lang, "tools")}
+              </span>
               <div className={"homepage__slide__container"}>
                 {skills_slide(tools)}
               </div>
@@ -331,9 +364,7 @@ const Slide = (lang: any) => {
           </div>
         </div>
         <div className="homepage__container">
-          <div className="homepage__intro-section">
-            {studentDescription}
-          </div>
+          <div className="homepage__intro-section">{studentDescription}</div>
         </div>
       </Slider>
     </div>

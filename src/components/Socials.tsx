@@ -6,7 +6,7 @@ import getTranslation from "../getTranslation.ts";
 
 type SocialsProps = {
   size: any;
-  lang: string
+  lang: string;
 };
 
 type Socials = {
@@ -30,24 +30,26 @@ export const socials: Socials[] = [
 
 const Socials: React.FC<SocialsProps> = ({ size, lang }) => {
   return (
-      <section className={size.size}>
-          <h2 id="socials" className="page__title"> {getTranslation(lang ? lang : "en", "socials")}
-          </h2>
-          <ul className="socials__container">
-              {socials.map((social, index) => (
-                  <li className="socials__items" key={index}>
-                      <a className="socials__items__links" href={social.url}>
-                          <img
-                              className="socials__items__images"
-                              src={social.image}
-                              alt={social.title}
-                          />
-                          <h3 className="socials__items__titles">{social.title}</h3>
-                      </a>
-                  </li>
-              ))}
-          </ul>
-      </section>
+    <section className={size.size}>
+      <h2 id="socials" className="page__title">
+        {" "}
+        {getTranslation(lang ? lang : "en", "socials")}
+      </h2>
+      <ul className="socials__container">
+        {socials.map((social, index) => (
+          <li className="socials__items" key={index}>
+            <a className="socials__items__links" href={social.url}>
+              <img
+                className="socials__items__images"
+                src={social.image}
+                alt={social.title}
+              />
+              <h3 className="socials__items__titles">{social.title}</h3>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 };
 

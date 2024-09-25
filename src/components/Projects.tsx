@@ -10,107 +10,123 @@ import "react-magic-slider-dots/dist/magic-dots.css";
 import getTranslation from "../getTranslation.ts";
 
 type ProjectsProps = {
-    size: any;
-    lang: any;
+  size: any;
+  lang: any;
 };
 
 const Projects: React.FC<ProjectsProps> = ({ size, lang }) => {
-    const settings = {
-        dots: true,
-        arrows: true,
-        infinite: false,
-        speed: 500,
-        slidesToShow:
-            size === "small" ? 2 : size === "medium" ? 4 : size === "large" ? 6 : 8,
-        slidesToScroll: size === "small" ? 1 : 3,
-        appendDots: (dots: any) => {
-            return <MagicSliderDots dots={dots} numDotsToShow={4} dotWidth={30} />;
-        },
-    };
+  const settings = {
+    dots: true,
+    arrows: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow:
+      size === "small" ? 2 : size === "medium" ? 4 : size === "large" ? 6 : 8,
+    slidesToScroll: size === "small" ? 1 : 3,
+    appendDots: (dots: any) => {
+      return <MagicSliderDots dots={dots} numDotsToShow={4} dotWidth={30} />;
+    },
+  };
 
-    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-    const showProjectDetails = (project: Project) => {
-        setSelectedProject(project);
-    };
+  const showProjectDetails = (project: Project) => {
+    setSelectedProject(project);
+  };
 
-    const hideProjectDetails = () => {
-        setSelectedProject(null);
-    };
+  const hideProjectDetails = () => {
+    setSelectedProject(null);
+  };
 
-    const overlay = selectedProject ? (
-        <div className={"project-detail-overlay"+ " " + size} onClick={hideProjectDetails}>
-            <div className="project-detail-content" onClick={(e) => e.stopPropagation()}>
-                <button className="close-button" onClick={hideProjectDetails}>
-                    ×
-                </button>
-                <h2 className="project-detail-content__items project-detail-content__items-title">
-                    {selectedProject.title[lang]}
-                </h2>
-                <img
-                    className="projects__items__images"
-                    src={selectedProject.image}
-                    alt={selectedProject.title[lang]}
-                />
-                <p className="project-detail-content__items">
-                    {selectedProject.description[lang]}
-                </p>
-                <p className="project-detail-content__items">
-                    <strong>{getTranslation(lang, "technologies")}</strong>:{" "}
-                    {selectedProject.technologies.join(", ")}
-                </p>
-                <p className="project-detail-content__items">
-                    <strong>{getTranslation(lang, "period")}</strong>:{" "}
-                    {selectedProject.period[lang]}
-                </p>
-                {selectedProject.pdf && (
-                    <a href={selectedProject.pdf} target="_blank" rel="noopener noreferrer">
-                        View PDF
-                    </a>
-                )}
-                {selectedProject.video && <video src={selectedProject.video} controls />}
-                {selectedProject.url && (
-                    <a href={selectedProject.url} target="_blank" rel="noopener noreferrer">
-                        Visit Website
-                    </a>
-                )}
-                <div className="project-detail-content__items project-detail-content__items-para">
-                    {selectedProject.details[lang].map((detail: any, index: any) => (
-                        <p className={"project-detail-para"} key={index}>
-                            {detail}
-                        </p>
-                    ))}
-                </div>
-            </div>
+  const overlay = selectedProject ? (
+    <div
+      className={"project-detail-overlay" + " " + size}
+      onClick={hideProjectDetails}
+    >
+      <div
+        className="project-detail-content"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button className="close-button" onClick={hideProjectDetails}>
+          ×
+        </button>
+        <h2 className="project-detail-content__items project-detail-content__items-title">
+          {selectedProject.title[lang]}
+        </h2>
+        <img
+          className="projects__items__images"
+          src={selectedProject.image}
+          alt={selectedProject.title[lang]}
+        />
+        <p className="project-detail-content__items">
+          {selectedProject.description[lang]}
+        </p>
+        <p className="project-detail-content__items">
+          <strong>{getTranslation(lang, "technologies")}</strong>:{" "}
+          {selectedProject.technologies.join(", ")}
+        </p>
+        <p className="project-detail-content__items">
+          <strong>{getTranslation(lang, "period")}</strong>:{" "}
+          {selectedProject.period[lang]}
+        </p>
+        {selectedProject.pdf && (
+          <a
+            href={selectedProject.pdf}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View PDF
+          </a>
+        )}
+        {selectedProject.video && (
+          <video src={selectedProject.video} controls />
+        )}
+        {selectedProject.url && (
+          <a
+            href={selectedProject.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit Website
+          </a>
+        )}
+        <div className="project-detail-content__items project-detail-content__items-para">
+          {selectedProject.details[lang].map((detail: any, index: any) => (
+            <p className={"project-detail-para"} key={index}>
+              {detail}
+            </p>
+          ))}
         </div>
-    ) : null;
+      </div>
+    </div>
+  ) : null;
 
-    return (
-        <section className={size.size}>
-            <h2 id="projects" className="page__title">
-                {getTranslation(lang ? lang : "en", "projects")}
-            </h2>
-            <Slider {...settings}>
-                {projects.map((project: any) => (
-                    <div
-                        key={project.id}
-                        className="projects__items"
-                        onClick={() => showProjectDetails(project)}
-                    >
-                        <img
-                            className="projects__items__images"
-                            src={project.image}
-                            alt={project.title[lang]}
-                        />
-                        <h3 className="projects__items__titles">{project.title[lang]}</h3>
-                    </div>
-                ))}
-            </Slider>
+  return (
+    <section className={size.size}>
+      <h2 id="projects" className="page__title">
+        {getTranslation(lang ? lang : "en", "projects")}
+      </h2>
+      <Slider {...settings}>
+        {projects.map((project: any) => (
+          <div
+            key={project.id}
+            className="projects__items"
+            onClick={() => showProjectDetails(project)}
+          >
+            <img
+              className="projects__items__images"
+              src={project.image}
+              alt={project.title[lang]}
+            />
+            <h3 className="projects__items__titles">{project.title[lang]}</h3>
+          </div>
+        ))}
+      </Slider>
 
-            {/* Render the overlay in a portal, outside the regular component tree */}
-            {selectedProject && ReactDOM.createPortal(overlay, document.body)}
-        </section>
-    );
+      {/* Render the overlay in a portal, outside the regular component tree */}
+      {selectedProject && ReactDOM.createPortal(overlay, document.body)}
+    </section>
+  );
 };
 
 export default Projects;
