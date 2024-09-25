@@ -80,6 +80,7 @@ function App() {
     }
   }, [videoSrc]);
 
+  // @ts-ignore
   const Section = ({ children }) => {
     const sectionRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -119,19 +120,6 @@ function App() {
     );
   };
 
-  const [isOverlayVisible, setIsOverlayVisible] = useState(false);
-  const [selectedProject, setSelectedProject] = useState(null);
-
-  const showOverlay = (project) => {
-    setSelectedProject(project);
-    setIsOverlayVisible(true);
-  };
-
-  const hideOverlay = () => {
-    setIsOverlayVisible(false);
-    setSelectedProject(null);
-  };
-
   return (
       <div className={size} ref={ref}>
         <video
@@ -153,7 +141,7 @@ function App() {
           <HomePage size={size} lang={lang} />
         </Section>
         <Section>
-          <Projects size={size} lang={lang} showOverlay={showOverlay} />
+          <Projects size={size} lang={lang} />
         </Section>
         <Section>
           <Socials size={size} lang={lang} />
@@ -161,20 +149,6 @@ function App() {
         <Section>
           <Contact size={size} lang={lang} />
         </Section>
-
-        {isOverlayVisible && selectedProject && (
-            <div className="project-detail-overlay" onClick={hideOverlay}>
-              <div className="project-detail-content" onClick={(e) => e.stopPropagation()}>
-                <button className="close-button" onClick={hideOverlay}>×</button>
-                <h2>{selectedProject.title[lang]}</h2>
-                <img src={selectedProject.image} alt={selectedProject.title[lang]} />
-                <p>{selectedProject.description[lang]}</p>
-                <a href={selectedProject.url} target="_blank" rel="noopener noreferrer">
-                  Visit Website
-                </a>
-              </div>
-            </div>
-        )}
 
         <footer>
           <div>Vennila Sooben &copy;2024</div>
