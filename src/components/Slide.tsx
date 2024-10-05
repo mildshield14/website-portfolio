@@ -303,11 +303,17 @@ const Slide = (lang: any) => {
           <div className="homepage__intro-section">
             <div className="homepage__intro-section__description">
               <h1 className="homepage__intro-section__title">
-                {lang.lang === "en"
-                  ? `Hey, I'm Vennila!`
-                  : `Salut, c'est Vennila!`}
+                {lang.lang === "en" ? (
+                  <span className="cool-name">
+                    Hey, I'm <span className="cool-name__name">Vennila</span>!
+                  </span>
+                ) : (
+                  <span className="cool-name">
+                    Salut, c'est{" "}
+                    <span className="cool-name__name">Vennila</span>!
+                  </span>
+                )}
               </h1>
-
               <p className="homepage__intro-section__content fade-slide-in">
                 {lang.lang === "en"
                   ? `I'm a fullstack developer specialized in frontend technologies.`
