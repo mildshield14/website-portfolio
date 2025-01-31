@@ -55,6 +55,7 @@
 
     &__title {
       font-size: 2rem;
+      display: inline-flex;
       color: #333;
       margin: 20px 0;
       .small & {
@@ -75,7 +76,6 @@
       font-family: var(--font-family-headers), sans-serif;
 
       .small & {
-        text-align: justify;
         font-size: 1.0rem;
       }
 
@@ -322,13 +322,34 @@
 }
 
 .cool-name {
+  display: block;
+  text-align: center;
+  position: relative;
+  margin-left: 20px;
+}
+
+.cool-name__name {
+  width: auto;
+  margin-left: 20px;
+}
+
+/* Force SVG containment */
+.cool-name__name svg {
+  display: block !important;
+  margin: 0 auto;
+  max-width: 140px !important;
+}
+
+
+.cool-name {
   font-size: 1.7rem;
   font-weight: bold;
   background-color: #333333;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
   animation: fadeInSlide 2s ease-out;
 
   &__name{
