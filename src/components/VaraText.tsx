@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Vara from "vara";
 
 type Props = {
@@ -6,45 +6,50 @@ type Props = {
     id: string;
 };
 
+interface VaraOnReadyEvent {
+    container: HTMLElement;
+}
+
 function VaraText({ text, id }: Props) {
     useEffect(() => {
-        const vara = new Vara(
+        new Vara(
             `#${id}`,
             "https://raw.githubusercontent.com/akzhy/Vara/master/fonts/Satisfy/SatisfySL.json",
             [
                 {
-                    text: text,
+                    text,
                     fontSize: 35,
-                    scale: 0.8,
                     strokeWidth: 0.7,
                 },
             ],
             {
-                forceWidth: true,
                 forceHeight: false,
-                onReady: ({ container }) => {
-                    const svg = container.querySelector("svg");
-                    const outerGroup = container.querySelector(".outer");
+                forceWidth: true,
+                onReady: ({ container }: VaraOnReadyEvent) => {
+                    const svg = container.querySelector("svg") as SVGSVGElement | null;
+                    const outerGroup = container.querySelector(".outer") as SVGGraphicsElement | null;
 
                     if (svg && outerGroup) {
-                        // Get actual rendered dimensions from the outer group
+                        // Get the bounding box of the outer group
                         const bbox = outerGroup.getBBox();
 
-                        // Set SVG dimensions to match actual content
+                        // Set the viewBox based on the actual rendered content
                         svg.setAttribute("viewBox", `${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+
+                        // Set the SVG's inline styles (width/height) to the content's size
                         svg.style.width = `${bbox.width}px`;
                         svg.style.height = `${bbox.height}px`;
 
-                        // Remove Vara's default size constraints
+                        // Remove any inline attributes that might force a different size
                         svg.removeAttribute("width");
                         svg.removeAttribute("height");
                     }
                 },
-            }
+            } as any
         );
     }, [id, text]);
 
-    return <div id={id} style={{ display: 'inline-block' }} />;
+    return <div id={id} style={{ display: "inline-block" }} />;
 }
 
 export default VaraText;

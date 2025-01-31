@@ -1,6 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+// @ts-ignore
 import VaraText from "./VaraText.tsx";
 import MagicSliderDots from "react-magic-slider-dots";
 import "react-magic-slider-dots/dist/magic-dots.css";
