@@ -55,6 +55,7 @@
 
     &__title {
       font-size: 2rem;
+      display: inline-flex;
       color: #333;
       margin: 20px 0;
       .small & {
@@ -75,7 +76,6 @@
       font-family: var(--font-family-headers), sans-serif;
 
       .small & {
-        text-align: justify;
         font-size: 1.0rem;
       }
 
@@ -319,4 +319,69 @@
   top: 0;
   bottom: 0;
   z-index: -1;
+}
+
+.cool-name {
+  display: block;
+  text-align: center;
+  position: relative;
+  margin-left: 20px;
+}
+
+.cool-name__name {
+  width: auto;
+  margin-left: 20px;
+}
+
+/* Force SVG containment */
+.cool-name__name svg {
+  display: block !important;
+  margin: 0 auto;
+  max-width: 140px !important;
+}
+
+
+.cool-name {
+  font-size: 1.7rem;
+  font-weight: bold;
+  background-color: #333333;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  animation: fadeInSlide 2s ease-out;
+
+  &__name{
+    background-color: var(--selected-background-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.cool-name::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: #feb47b;
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.cool-name:hover::after {
+  transform: scaleX(1);
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import VaraText from "./VaraText.tsx";
 import MagicSliderDots from "react-magic-slider-dots";
 import "react-magic-slider-dots/dist/magic-dots.css";
 import getTranslation from "../getTranslation.ts";
@@ -135,8 +135,8 @@ const Slide = (lang: any) => {
           </p>
           <p className="slide__content__para">
             {lang.lang === "en"
-              ? `Designed and implemented an intern ticket management tool to streamline the creation and tracking processes of JIRA tickets using JIRA’s API V2.`
-              : `Conception et mise en œuvre d'un outil de gestion des tickets interne pour simplifier les processus de création et de suivi des tickets JIRA, en utilisant l'API V2 de JIRA.`}
+              ? `Implemented an intern ticket management tool to streamline the creation and tracking processes of JIRA tickets.`
+              : `Mise en œuvre d'un outil de gestion des tickets interne pour simplifier les processus de création et de suivi des tickets JIRA.`}
           </p>
           <p className="slide__content__para">
             <strong>Tech Stack:</strong> Vue3, TypeScript, SCSS
@@ -161,8 +161,7 @@ const Slide = (lang: any) => {
         <div className="slide__header">
           <h2>{getTranslation(lang.lang, "ta")}</h2>
           <span>
-            Jan 2024 -{" "}
-            {lang.lang === "en" ? `Present at UdeM` : `Présent à UdeM`}
+            Jan 2024 - Jan 2025
           </span>
         </div>
         <div className="slide__content">
@@ -303,9 +302,21 @@ const Slide = (lang: any) => {
           <div className="homepage__intro-section">
             <div className="homepage__intro-section__description">
               <h1 className="homepage__intro-section__title">
-                {lang.lang === "en"
-                  ? `Hey, I'm Vennila!`
-                  : `Salut, c'est Vennila!`}
+                {lang.lang === "en" ? (
+                  <span className="cool-name">
+                    Hey, I'm{" "}
+                    <span className="cool-name__name">
+                      <VaraText text="Vennila"  id="en-name"/>
+                    </span>
+                  </span>
+                ) : (
+                  <span className="cool-name">
+                    Salut, c'est{" "}
+                    <span className="cool-name__name">
+                      <VaraText text="Vennila" id="fr-name" />
+                    </span>
+                  </span>
+                )}
               </h1>
 
               <p className="homepage__intro-section__content fade-slide-in">

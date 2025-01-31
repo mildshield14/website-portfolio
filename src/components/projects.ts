@@ -5,6 +5,7 @@ import pantry from "../assets/pantry.png";
 import course from "../assets/course.png";
 import concept from "../assets/concept.png";
 import chainon from "../assets/chainon.png";
+import calque from "../assets/calque.png";
 import internship from "../assets/internship.png";
 
 export type Project = {
@@ -67,6 +68,31 @@ export const projects: Project[] = [
   },
   {
     id: 3,
+    title: { "en": "Calque", "fr": "Calque" },
+    image: calque,
+    technologies: ["React", "TypeScript", "TailwindCSS", "MongoDB"],
+    description: {
+      en: "Frontend project to create a tool used to create an interactive map consisting of nodes and edges, done as part of the IFT3150 course at UdeM.",
+      fr: "Projet frontend pour créer un outil permettant de concevoir une carte interactive composée de nœuds et d’arêtes, réalisé dans le cadre du cours IFT3150 à l’UdeM."
+    },
+    period: { en: "September 2024 - December 2024", fr: "Septembre 2024 - Décembre 2024" },
+    details: {
+      en: [
+        "Developed an interactive map tool with layer management and import/export functionality.",
+        "Implemented abstraction features using a right sidebar and rectangle selection.",
+        "Conducted user testing and improved UI/UX based on feedback.",
+        "Worked with React and TypeScript to ensure scalability and maintainability."
+      ],
+      fr: [
+        "Développement d'un outil de carte interactive avec gestion des couches et fonctionnalités d’import/export.",
+        "Implémentation des fonctionnalités d’abstraction via la barre latérale droite et la sélection par rectangle.",
+        "Réalisation de tests utilisateurs et amélioration de l'interface utilisateur en fonction des retours.",
+        "Utilisation de React et TypeScript pour assurer l'évolutivité et la maintenabilité."
+      ]
+    }
+  },
+  {
+    id: 4,
     title: { en: "Robotix", fr: "Robotix" },
     image: robots,
     technologies: ["Java", "Swing"],
@@ -87,7 +113,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: 4,
+    id: 5,
     title: { en: "ConceptNet Explorer", fr: "Explorateur ConceptNet" },
     image: concept,
     technologies: ["PHP", "JavaScript", "MariaDB"],
@@ -110,7 +136,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: 5,
+    id: 6,
     title: {
       en: "Weather-Email Integration",
       fr: "Intégration Météo-Courriel",
@@ -134,7 +160,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: 6,
+    id: 7,
     title: {
       en: "Pantry Tracker System",
       fr: "Système de Suivi de Garde-Manger",
@@ -158,7 +184,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: 7,
+    id: 8,
     title: {
       en: "Educational Platform - Moodle 2.0",
       fr: "Plateforme Éducative - Moodle 2.0",
@@ -182,7 +208,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: 8,
+    id: 9,
     title: {
       en: "Internship Application Tracker",
       fr: "Suivi des Candidatures de Stage",
