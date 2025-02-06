@@ -219,14 +219,9 @@ const Slide = (lang: any) => {
               ? `BSc in Computer Science`
               : `BSc en Informatique`}
           </h2>
-          <span>Sep 2022 - Present at UdeM (expected Dec 2024)</span>
+          <span>Sep 2022 -  Dec 2024</span>
         </div>
         <div className="slide__content">
-          <p className="slide__content__para">
-            {lang.lang === "en"
-              ? `Degree completed at 86%.`
-              : `Bac complété à 86%`}
-          </p>
           <p className="slide__content__para">
             {lang.lang === "en" ? (
               <span>
