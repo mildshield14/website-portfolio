@@ -18,8 +18,8 @@ function VaraText({ text, id }: Props) {
             [
                 {
                     text,
-                    fontSize: 35,
-                    strokeWidth: 0.7,
+                    fontSize: 30,
+                    strokeWidth: 0.8,
                 },
             ],
             {
