@@ -300,8 +300,8 @@ const Slide = (lang: any) => {
               <h1 className="homepage__intro-section__title">
                 {lang.lang === "en" ? (
                   <span className="cool-name">
-                    Hey, I'm{" "}
-                    <span className="cool-name__name">
+                    <span className="cool-name-intro">Hey, I'm{" "}</span>
+                      <span className="cool-name__name">
                       <VaraText text="Vennila"  id="en-name"/>
                     </span>
                   </span>

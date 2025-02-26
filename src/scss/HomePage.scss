@@ -322,7 +322,6 @@
 }
 
 .cool-name {
-  display: block;
   text-align: center;
   position: relative;
   margin-left: 20px;
@@ -331,13 +330,14 @@
 .cool-name__name {
   width: auto;
   margin-left: 20px;
+  align-content: center;
 }
 
 /* Force SVG containment */
 .cool-name__name svg {
   display: block !important;
   margin: 0 auto;
-  max-width: 140px !important;
+  max-width: 135px !important;
 }
 
 
@@ -348,9 +348,17 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
-  display: flex;
-  flex-direction: row;
   animation: fadeInSlide 2s ease-out;
+  display: flex;
+
+  .large,
+  .medium &{
+    flex-direction: row;
+  }
+
+  .small &{
+    flex-direction: column;
+  }
 
   &__name{
     background-color: var(--selected-background-color);
