@@ -331,6 +331,10 @@
   width: auto;
   margin-left: 20px;
   align-content: center;
+
+  .small & {
+    margin-left: 0;
+  }
 }
 
 /* Force SVG containment */
