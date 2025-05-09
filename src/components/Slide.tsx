@@ -9,98 +9,41 @@ import getTranslation from "../getTranslation.ts";
 
 const Slide = (lang: any) => {
   const languages = [
-    {
-      name: "Typescript",
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png",
-    },
-    {
-      name: "Javascript",
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-    },
-    {
-      name: "Java",
-      image: "https://upload.wikimedia.org/wikipedia/fr/2/2e/Java_Logo.svg",
-    },
-    {
-      name: "Python",
-      image:
-        "https://cdn.freebiesupply.com/logos/large/2x/python-5-logo-png-transparent.png",
-    },
-    {
-      name: "C",
-      image: "https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png",
-    },
-    {
-      name: "SCSS",
-      image:
-        "https://cdn.freebiesupply.com/logos/large/2x/sass-1-logo-png-transparent.png",
-    },
-    {
-      name: "VB.NET",
-      image:
-        "https://e7.pngegg.com/pngimages/789/452/png-clipart-microsoft-visual-studio-express-visual-basic-visual-programming-language-microsoft-purple-blue.png",
-    },
-    {
-      name: "MySQL",
-      image: "https://pngimg.com/d/mysql_PNG29.png",
-    },
-    {
-      name: "PostgreSQL",
-      image:
-        "https://download.logo.wine/logo/PostgreSQL/PostgreSQL-Logo.wine.png",
-    },
-    {
-      name: "PHP",
-      image: "https://pngimg.com/uploads/php/php_PNG43.png",
-    },
+    { name: "JavaScript",   image: "https://skillicons.dev/icons?i=js" },
+    { name: "TypeScript",   image: "https://skillicons.dev/icons?i=ts" },
+    { name: "Python",       image: "https://skillicons.dev/icons?i=python" },
+    { name: "Java",         image: "https://skillicons.dev/icons?i=java" },
+    { name: "PHP",          image: "https://skillicons.dev/icons?i=php" },
+    { name: "HTML5",        image: "https://skillicons.dev/icons?i=html" },
+    { name: "CSS3",         image: "https://skillicons.dev/icons?i=css" },
+    { name: "Sass",         image: "https://skillicons.dev/icons?i=sass" },
+    { name: "LaTeX",        image: "https://skillicons.dev/icons?i=latex" },
+    { name: "MySQL",        image: "https://skillicons.dev/icons?i=mysql" },
+    { name: "PostgreSQL",   image: "https://skillicons.dev/icons?i=postgres" },
+    { name: "MongoDB",      image: "https://skillicons.dev/icons?i=mongodb" },
   ];
 
   const frameworks = [
-    {
-      name: "React",
-      image:
-        "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png",
-    },
-    {
-      name: "Vue3",
-      image:
-        "https://chatkitty.com/assets/images/feature-cbeb779dc53b732d404ab5c3d4c54940.png",
-    },
+    { name: "React",        image: "https://skillicons.dev/icons?i=react" },
+    { name: "Vue 3",        image: "https://skillicons.dev/icons?i=vue" },
+    { name: "Nuxt.js",      image: "https://skillicons.dev/icons?i=nuxtjs" },
+    { name: "Node.js",      image: "https://skillicons.dev/icons?i=nodejs" },
+    { name: "Express",      image: "https://skillicons.dev/icons?i=express" },
+    { name: "jQuery",       image: "https://skillicons.dev/icons?i=jquery" },
+    { name: "Redux",        image: "https://skillicons.dev/icons?i=redux" },
+    { name: "Tailwind", image: "https://skillicons.dev/icons?i=tailwind" },
+    { name: "Vite",         image: "https://skillicons.dev/icons?i=vite" },
   ];
 
   const tools = [
-    {
-      name: "Figma",
-      image:
-        "https://cdn.freebiesupply.com/logos/large/2x/figma-1-logo-png-transparent.png",
-    },
-    {
-      name: "Github",
-      image: "https://cdn-icons-png.flaticon.com/512/25/25231.png",
-    },
-    {
-      name: "Gitlab",
-      image:
-        "https://cdn.iconscout.com/icon/free/png-256/free-gitlab-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-vol-3-pack-logos-icons-2944892.png?f=webp&w=256",
-    },
-    {
-      name: "Jira",
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Jira_Logo.svg/2560px-Jira_Logo.svg.png",
-    },
-    {
-      name: "Bitbucket",
-      image:
-        "https://www.logo.wine/a/logo/Bitbucket/Bitbucket-Blue-Logo.wine.svg",
-    },
-    {
-      name: "Miro",
-      image:
-        "https://seeklogo.com/images/M/miro-logo-4F00416377-seeklogo.com.png",
-    },
+    { name: "Docker",       image: "https://skillicons.dev/icons?i=docker" },
+    { name: "Git",          image: "https://skillicons.dev/icons?i=git" },
+    { name: "Linux",        image: "https://skillicons.dev/icons?i=linux" },
+    { name: "VSCode",       image: "https://skillicons.dev/icons?i=vscode" },
+    { name: "Notion",       image: "https://skillicons.dev/icons?i=notion" },
+    { name: "Postman",      image: "https://skillicons.dev/icons?i=postman" },
   ];
+
 
   const internDescription = (
     <>

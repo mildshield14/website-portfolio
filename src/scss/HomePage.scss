@@ -130,13 +130,20 @@
   &__slide {
     display: flex;
     flex-direction: column;
+    .small & {
+      scale: 1.1;
+    }
     &__container {
       align-items: center;
+      align-content: center;
+      align-self: center;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       padding-bottom: 20px;
 
-      .small,
+      .small & {
+        grid-template-columns: repeat(6, 1fr);
+      }
       .medium & {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -147,11 +154,20 @@
       flex-direction: row;
       padding: 0 10px;
       align-items: center;
+      min-width: 10rem;
+      justify-content: center;
+
+     .small &{
+        width: 100%;
+      }
 
       &__title {
         font-size: 1.1rem;
         text-transform: uppercase;
-        text-decoration: underline;
+        font-weight: 600;
+        .small & {
+          scale: 0.9;
+        }
       }
 
       &__name {
@@ -173,7 +189,7 @@
         }
 
         .small & {
-          scale: 1.25;
+          scale: 1.1;
         }
       }
     }
@@ -331,10 +347,6 @@
   width: auto;
   margin-left: 20px;
   align-content: center;
-
-  .small & {
-    margin-left: 0;
-  }
 }
 
 /* Force SVG containment */
