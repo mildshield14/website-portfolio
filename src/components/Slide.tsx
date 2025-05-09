@@ -9,41 +9,40 @@ import getTranslation from "../getTranslation.ts";
 
 const Slide = (lang: any) => {
   const languages = [
-    { name: "JavaScript",   image: "https://skillicons.dev/icons?i=js" },
-    { name: "TypeScript",   image: "https://skillicons.dev/icons?i=ts" },
-    { name: "Python",       image: "https://skillicons.dev/icons?i=python" },
-    { name: "Java",         image: "https://skillicons.dev/icons?i=java" },
-    { name: "PHP",          image: "https://skillicons.dev/icons?i=php" },
-    { name: "HTML5",        image: "https://skillicons.dev/icons?i=html" },
-    { name: "CSS3",         image: "https://skillicons.dev/icons?i=css" },
-    { name: "Sass",         image: "https://skillicons.dev/icons?i=sass" },
-    { name: "LaTeX",        image: "https://skillicons.dev/icons?i=latex" },
-    { name: "MySQL",        image: "https://skillicons.dev/icons?i=mysql" },
-    { name: "PostgreSQL",   image: "https://skillicons.dev/icons?i=postgres" },
-    { name: "MongoDB",      image: "https://skillicons.dev/icons?i=mongodb" },
+    { name: "JavaScript", image: "https://skillicons.dev/icons?i=js" },
+    { name: "TypeScript", image: "https://skillicons.dev/icons?i=ts" },
+    { name: "Python", image: "https://skillicons.dev/icons?i=python" },
+    { name: "Java", image: "https://skillicons.dev/icons?i=java" },
+    { name: "PHP", image: "https://skillicons.dev/icons?i=php" },
+    { name: "HTML5", image: "https://skillicons.dev/icons?i=html" },
+    { name: "CSS3", image: "https://skillicons.dev/icons?i=css" },
+    { name: "Sass", image: "https://skillicons.dev/icons?i=sass" },
+    { name: "LaTeX", image: "https://skillicons.dev/icons?i=latex" },
+    { name: "MySQL", image: "https://skillicons.dev/icons?i=mysql" },
+    { name: "PostgreSQL", image: "https://skillicons.dev/icons?i=postgres" },
+    { name: "MongoDB", image: "https://skillicons.dev/icons?i=mongodb" },
   ];
 
   const frameworks = [
-    { name: "React",        image: "https://skillicons.dev/icons?i=react" },
-    { name: "Vue 3",        image: "https://skillicons.dev/icons?i=vue" },
-    { name: "Nuxt.js",      image: "https://skillicons.dev/icons?i=nuxtjs" },
-    { name: "Node.js",      image: "https://skillicons.dev/icons?i=nodejs" },
-    { name: "Express",      image: "https://skillicons.dev/icons?i=express" },
-    { name: "jQuery",       image: "https://skillicons.dev/icons?i=jquery" },
-    { name: "Redux",        image: "https://skillicons.dev/icons?i=redux" },
+    { name: "React", image: "https://skillicons.dev/icons?i=react" },
+    { name: "Vue 3", image: "https://skillicons.dev/icons?i=vue" },
+    { name: "Nuxt.js", image: "https://skillicons.dev/icons?i=nuxtjs" },
+    { name: "Node.js", image: "https://skillicons.dev/icons?i=nodejs" },
+    { name: "Express", image: "https://skillicons.dev/icons?i=express" },
+    { name: "jQuery", image: "https://skillicons.dev/icons?i=jquery" },
+    { name: "Redux", image: "https://skillicons.dev/icons?i=redux" },
     { name: "Tailwind", image: "https://skillicons.dev/icons?i=tailwind" },
-    { name: "Vite",         image: "https://skillicons.dev/icons?i=vite" },
+    { name: "Vite", image: "https://skillicons.dev/icons?i=vite" },
   ];
 
   const tools = [
-    { name: "Docker",       image: "https://skillicons.dev/icons?i=docker" },
-    { name: "Git",          image: "https://skillicons.dev/icons?i=git" },
-    { name: "Linux",        image: "https://skillicons.dev/icons?i=linux" },
-    { name: "VSCode",       image: "https://skillicons.dev/icons?i=vscode" },
-    { name: "Notion",       image: "https://skillicons.dev/icons?i=notion" },
-    { name: "Postman",      image: "https://skillicons.dev/icons?i=postman" },
+    { name: "Docker", image: "https://skillicons.dev/icons?i=docker" },
+    { name: "Git", image: "https://skillicons.dev/icons?i=git" },
+    { name: "Linux", image: "https://skillicons.dev/icons?i=linux" },
+    { name: "VSCode", image: "https://skillicons.dev/icons?i=vscode" },
+    { name: "Notion", image: "https://skillicons.dev/icons?i=notion" },
+    { name: "Postman", image: "https://skillicons.dev/icons?i=postman" },
   ];
-
 
   const internDescription = (
     <>
@@ -104,9 +103,7 @@ const Slide = (lang: any) => {
         </h2>
         <div className="slide__header">
           <h2>{getTranslation(lang.lang, "ta")}</h2>
-          <span>
-            Jan 2024 - Jan 2025
-          </span>
+          <span>Jan 2024 - Jan 2025</span>
         </div>
         <div className="slide__content">
           <p className="slide__content__para">
@@ -150,7 +147,7 @@ const Slide = (lang: any) => {
     </>
   );
 
-  const studentDescription = (
+  const bscStudentDescription = (
     <>
       <div className="slide">
         <h2 className={"homepage__title"}>
@@ -162,7 +159,7 @@ const Slide = (lang: any) => {
               ? `BSc in Computer Science`
               : `BSc en Informatique`}
           </h2>
-          <span>Sep 2022 -  Dec 2024</span>
+          <span>Sep 2022 - Dec 2024</span>
         </div>
         <div className="slide__content">
           <p className="slide__content__para">
@@ -194,6 +191,51 @@ const Slide = (lang: any) => {
           {/*    : `Projet crédité: Calque - Création de cartes multicouches qui offrent la possibilité de modéliser des étages ou d'abstraire des informations pour une visualisation plus complexe et organisée. `}*/}
           {/*  <br/>*/}
           {/*</p>*/}
+        </div>
+        <img
+          className="slide__logo slide__logos__udem"
+          src="https://www.umontreal.ca/public/www/images/millenium/logo-partenaires_UdeM.jpg"
+          alt="Université de Montréal Logo"
+        />
+      </div>
+    </>
+  );
+  const mscStudentDescription = (
+    <>
+      <div className="slide">
+        <h2 className={"homepage__title"}>
+          {getTranslation(lang.lang, "education")}
+        </h2>
+        <div className="slide__header">
+          <h2>
+            {lang.lang === "en"
+              ? `MSc in Computer Science`
+              : `B=MSc en Informatique`}
+          </h2>
+          <span>Sep 2025 - Now</span>
+        </div>
+        <div className="slide__content">
+          <p className="slide__content__para">
+            {lang.lang === "en" ? (
+              <span>
+                Focused on <strong>Software Engineering Practices</strong>,{" "}
+                <strong>Software Development</strong>,{" "}
+                <strong>Machine Learning</strong>
+              </span>
+            ) : (
+              <span>
+                Concentration sur les{" "}
+                <strong>pratiques d'ingénierie logicielle</strong>, le{" "}
+                <strong>développement logiciel</strong>, l'
+                <strong>apprentissage automatique</strong>
+              </span>
+            )}
+          </p>
+          <p className="slide__content__para">
+            {lang.lang === "en"
+              ? `Recipient of a scholarship based on school grades offered to international students.`
+              : `Reçu une bourse pour étudiants internationaux sur niveau scolaire.`}
+          </p>
         </div>
         <img
           className="slide__logo slide__logos__udem"
@@ -243,9 +285,9 @@ const Slide = (lang: any) => {
               <h1 className="homepage__intro-section__title">
                 {lang.lang === "en" ? (
                   <span className="cool-name">
-                    <span className="cool-name-intro">Hey, I'm{" "}</span>
-                      <span className="cool-name__name">
-                      <VaraText text="Vennila"  id="en-name"/>
+                    <span className="cool-name-intro">Hey, I'm </span>
+                    <span className="cool-name__name">
+                      <VaraText text="Vennila" id="en-name" />
                     </span>
                   </span>
                 ) : (
@@ -314,7 +356,10 @@ const Slide = (lang: any) => {
           </div>
         </div>
         <div className="homepage__container">
-          <div className="homepage__intro-section">{studentDescription}</div>
+          <div className="homepage__intro-section">{mscStudentDescription}</div>
+        </div>
+        <div className="homepage__container">
+          <div className="homepage__intro-section">{bscStudentDescription}</div>
         </div>
       </Slider>
     </div>
