@@ -144,7 +144,7 @@
       padding-bottom: 20px;
 
       .small & {
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(6, 2fr);
       }
       .medium & {
         grid-template-columns: repeat(3, 1fr);
@@ -156,11 +156,14 @@
       flex-direction: row;
       padding: 0 10px;
       align-items: center;
-      min-width: 10rem;
       justify-content: center;
 
       .small & {
         width: 100%;
+      }
+
+      .medium & {
+        min-width: 10rem;
       }
 
       &__title {
@@ -175,7 +178,7 @@
       &__name {
         padding: 5px;
         font-weight: 500;
-        font-size: 1rem;
+        font-size: clamp(0.8rem, 2vw, 1.2rem);
 
         .small & {
           display: none;
