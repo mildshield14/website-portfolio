@@ -210,7 +210,7 @@ const Slide = (lang: any) => {
           <h2>
             {lang.lang === "en"
               ? `MSc in Computer Science`
-              : `B=MSc en Informatique`}
+              : `MSc en Informatique`}
           </h2>
           <span>Sep 2025 - Now</span>
         </div>
