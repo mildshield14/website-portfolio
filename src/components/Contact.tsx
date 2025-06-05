@@ -3,13 +3,13 @@ import "../scss/Contact.scss";
 import getTranslation from "../getTranslation.ts";
 
 type ContactProps = {
-  size: any;
+  size: string;
   lang: string;
 };
 
 const Contact: React.FC<ContactProps> = ({ size, lang }) => {
   return (
-      <section className={size.size}>
+      <section className={size}>
           <h2 id="contact" className="page__title">
               {getTranslation(lang ? lang : "en", "contact")}
           </h2>

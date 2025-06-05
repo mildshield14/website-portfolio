@@ -10,7 +10,7 @@ import "react-magic-slider-dots/dist/magic-dots.css";
 import getTranslation from "../getTranslation.ts";
 
 type ProjectsProps = {
-  size: any;
+  size: string;
   lang: any;
 };
 
@@ -102,7 +102,7 @@ const Projects: React.FC<ProjectsProps> = ({ size, lang }) => {
   ) : null;
 
   return (
-    <section className={size.size}>
+    <section className={size}>
       <h2 id="projects" className="page__title">
         {getTranslation(lang ? lang : "en", "projects")}
       </h2>
