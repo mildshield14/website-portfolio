@@ -42,3 +42,71 @@
   }
 }
 
+// Styles for react-slick navigation
+.slick-slider {
+  position: relative;
+}
+
+.slick-prev,
+.slick-next {
+  width: 35px;
+  height: 35px;
+  z-index: 1;
+  background-color: var(--selected-button-color);
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.slick-prev {
+  left: -45px;
+}
+
+.slick-next {
+  right: -45px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: var(--selected-background-color);
+  font-size: 20px;
+  line-height: 1;
+}
+
+.slick-dots {
+  bottom: -30px;
+
+  li button:before {
+    font-size: 12px;
+    color: var(--selected-button-color);
+    opacity: 0.5;
+  }
+
+  li.slick-active button:before {
+    opacity: 1;
+    color: var(--selected-background-color);
+  }
+}
+
+@media (max-width: 768px) {
+  .slick-prev,
+  .slick-next {
+    width: 25px;
+    height: 25px;
+  }
+
+  .slick-prev {
+    left: -35px;
+  }
+
+  .slick-next {
+    right: -35px;
+  }
+
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 16px;
+  }
+}
+
