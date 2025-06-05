@@ -3,13 +3,13 @@ import "../scss/HomePage.scss";
 import Slide from "./Slide.tsx";
 
 type HomePageProps = {
-  size: any;
+  size: string;
   lang: any;
 };
 
 const HomePage: React.FC<HomePageProps> = ({ size, lang }) => {
   return (
-    <section className={size.size}>
+    <section className={size}>
       <Slide lang={lang} />
     </section>
   );
