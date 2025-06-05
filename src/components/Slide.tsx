@@ -259,8 +259,8 @@ const Slide = (lang: any) => {
     ));
   };
 
-  // TODO: need to adapt to use css on navbar
-  // TODO: basicall add css for points at th botto and the arrow left and right
+  // TODO: adapt navbar styling using CSS
+  // TODO: add CSS for dots at the bottom and for the left/right arrows
   const settings = {
     dots: true,
     arrows: true,
