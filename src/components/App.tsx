@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import useElementSize from "../hook/useElementSize.tsx";
 import Header from "./Header.tsx";
 import Projects from "./Projects.tsx";
 import "../scss/App.scss";
@@ -17,41 +18,7 @@ function App() {
     extra: { min: 1400, max: Infinity },
   };
 
-  const useElementSize = (ref: any, breakpoints: any) => {
-    const [size, setSize] = useState("medium"); // Default size based on your specifications
-
-    const calculateSize = useCallback(() => {
-      if (ref.current) {
-        const width = ref.current.offsetWidth;
-        for (const key in breakpoints) {
-          const { min, max } = breakpoints[key];
-          if (width >= min && width < max) {
-            setSize(key);
-            return;
-          }
-        }
-      }
-    }, [ref, breakpoints]);
-
-    useEffect(() => {
-      calculateSize();
-
-      // Set up a ResizeObserver to re-calculate when size changes
-      const resizeObserver = new ResizeObserver(calculateSize);
-      if (ref.current) {
-        resizeObserver.observe(ref.current);
-      }
-
-      // Cleanup function to disconnect observer
-      return () => {
-        resizeObserver.disconnect();
-      };
-    }, [ref, calculateSize]);
-
-    return size;
-  };
-
-  const size = useElementSize(ref, breakpoints);
+  const size = useElementSize(ref, breakpoints) || "medium";
   const videoRef = useRef(null);
   const [videoSrc, setVideoSrc] = useState(
       "https://videos.pexels.com/video-files/13936805/13936805-uhd_2560_1440_24fps.mp4",
