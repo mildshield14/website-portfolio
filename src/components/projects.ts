@@ -7,6 +7,8 @@ import concept from "../assets/concept.png";
 import chainon from "../assets/chainon.png";
 import calque from "../assets/calque.png";
 import internship from "../assets/internship.png";
+import uilibrary from "../assets/uilibrary.png";
+import sentient from "../assets/sentient.png";
 
 export type Project = {
   id: number;
@@ -24,6 +26,64 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: 1,
+    title: {
+      en: "Sentient UI (ongoing)",
+      fr: "Sentient UI (en cours)",
+    },
+    image: sentient,
+    technologies: ["React", "TypeScript", "Node.js", "TensorFlow.js"],
+    description: {
+      en: "AI‐powered frontend that adapts to user emotions in real time, with conversational widgets and personalized interactions.",
+      fr: "Frontend propulsé par IA s’adaptant aux émotions de l’utilisateur en temps réel, avec des widgets conversationnels et des interactions personnalisées.",
+    },
+    period: {
+      en: "February 2025 - ongoing",
+      fr: "Février 2025 – en cours",
+    },
+    details: {
+      en: [
+        "Implemented emotion‐aware UI animations using real‐time sentiment analysis (OpenAI & MediaPipe).",
+        "Built a conversational chatbot widget with React and integrated it via WebSockets for live feedback.",
+        "Developed backend memory layer in Node.js/TypeScript with MongoDB to track user interactions and adapt UI behavior.",
+        "Created AI agent interface in Three.js for immersive, personality‐rich user experiences.",
+      ],
+      fr: [
+        "Mise en œuvre d’animations d’interface sensibles aux émotions grâce à l’analyse de sentiment en temps réel (OpenAI & MediaPipe).",
+        "Création d’un widget chatbot conversationnel avec React et intégration via WebSockets pour un retour en direct.",
+        "Développement d’une couche mémoire backend en Node.js/TypeScript avec MongoDB pour suivre les interactions utilisateur et adapter le comportement de l’interface.",
+        "Conception d’une interface d’agent IA en Three.js pour une expérience utilisateur immersive et riche en personnalité.",
+      ],
+    },
+  },
+  {
+    id: 2,
+    title: {
+      en: "UI Component Library",
+      fr: "Bibliothèque de Composants UI",
+    },
+    image: uilibrary,
+    technologies: ["Vue.js", "TypeScript", "TailwindCSS"],
+    description: {
+      en: "As a Technical Assistant at UdeM, building and maintaining a shared library of reusable UI components for faculty and student projects.",
+      fr: "En tant qu'Assistant Technique à l'UdeM, création et maintenance d'une bibliothèque partagée de composants UI réutilisables pour les projets des enseignants et des étudiants.",
+    },
+    period: {
+      en: "Mai 2025 - ongoing",
+      fr: "Mai 2025 – en cours",
+    },
+    details: {
+      en: [
+        "Designed standardized UI patterns (buttons, modals, forms) with NuxtUI.",
+        "Implemented accessible components following WAI-ARIA guidelines to ensure inclusivity.",
+      ],
+      fr: [
+        "Conception de patterns UI standardisés (boutons, modales, formulaires) avec NuxtUI.",
+        "Implémentation de composants accessibles selon les spécifications WAI-ARIA pour garantir l'inclusivité.",
+      ],
+    },
+  },
+  {
+    id: 3,
     title: { en: "Internship Projects", fr: "Projets de Stage" },
     image: intern,
     technologies: ["Vue3", "TypeScript", "SCSS"],
@@ -46,7 +106,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: 2,
+    id: 4,
     title: { en: "Le Chainon", fr: "Le Chainon" },
     image: chainon,
     technologies: ["React", "Figma", "Lucidchart"],
@@ -67,32 +127,35 @@ export const projects: Project[] = [
     },
   },
   {
-    id: 3,
-    title: { "en": "Calque", "fr": "Calque" },
+    id: 5,
+    title: { en: "Calque", fr: "Calque" },
     image: calque,
     technologies: ["React", "TypeScript", "TailwindCSS", "MongoDB"],
     description: {
       en: "Frontend project to create a tool used to create an interactive map consisting of nodes and edges, done as part of the IFT3150 course at UdeM.",
-      fr: "Projet frontend pour créer un outil permettant de concevoir une carte interactive composée de nœuds et d’arêtes, réalisé dans le cadre du cours IFT3150 à l’UdeM."
+      fr: "Projet frontend pour créer un outil permettant de concevoir une carte interactive composée de nœuds et d’arêtes, réalisé dans le cadre du cours IFT3150 à l’UdeM.",
     },
-    period: { en: "September 2024 - December 2024", fr: "Septembre 2024 - Décembre 2024" },
+    period: {
+      en: "September 2024 - December 2024",
+      fr: "Septembre 2024 - Décembre 2024",
+    },
     details: {
       en: [
         "Developed an interactive map tool with layer management and import/export functionality.",
         "Implemented abstraction features using a right sidebar and rectangle selection.",
         "Conducted user testing and improved UI/UX based on feedback.",
-        "Worked with React and TypeScript to ensure scalability and maintainability."
+        "Worked with React and TypeScript to ensure scalability and maintainability.",
       ],
       fr: [
         "Développement d'un outil de carte interactive avec gestion des couches et fonctionnalités d’import/export.",
         "Implémentation des fonctionnalités d’abstraction via la barre latérale droite et la sélection par rectangle.",
         "Réalisation de tests utilisateurs et amélioration de l'interface utilisateur en fonction des retours.",
-        "Utilisation de React et TypeScript pour assurer l'évolutivité et la maintenabilité."
-      ]
-    }
+        "Utilisation de React et TypeScript pour assurer l'évolutivité et la maintenabilité.",
+      ],
+    },
   },
   {
-    id: 4,
+    id: 6,
     title: { en: "Robotix", fr: "Robotix" },
     image: robots,
     technologies: ["Java", "Swing"],
@@ -113,7 +176,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: 5,
+    id: 7,
     title: { en: "ConceptNet Explorer", fr: "Explorateur ConceptNet" },
     image: concept,
     technologies: ["PHP", "JavaScript", "MariaDB"],
@@ -136,7 +199,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: 6,
+    id: 8,
     title: {
       en: "Weather-Email Integration",
       fr: "Intégration Météo-Courriel",
@@ -160,7 +223,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: 7,
+    id: 9,
     title: {
       en: "Pantry Tracker System",
       fr: "Système de Suivi de Garde-Manger",
@@ -184,7 +247,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: 8,
+    id: 10,
     title: {
       en: "Educational Platform - Moodle 2.0",
       fr: "Plateforme Éducative - Moodle 2.0",
@@ -208,7 +271,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: 9,
+    id: 11,
     title: {
       en: "Internship Application Tracker",
       fr: "Suivi des Candidatures de Stage",

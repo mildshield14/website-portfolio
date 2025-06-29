@@ -5,6 +5,7 @@ import "../scss/App.scss";
 import HomePage from "./HomePage.tsx";
 import Contact from "./Contact.tsx";
 import Socials from "./Socials.tsx";
+import Calendar from "./Calendar.tsx";
 
 function App() {
   const ref = useRef(null);
@@ -54,7 +55,7 @@ function App() {
   const size = useElementSize(ref, breakpoints);
   const videoRef = useRef(null);
   const [videoSrc, setVideoSrc] = useState(
-      "https://videos.pexels.com/video-files/13936805/13936805-uhd_2560_1440_24fps.mp4",
+    "https://videos.pexels.com/video-files/13936805/13936805-uhd_2560_1440_24fps.mp4",
   );
 
   // Function to update the video source
@@ -87,16 +88,16 @@ function App() {
 
     useEffect(() => {
       const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                setIsVisible(true); // Trigger animation when entering
-              } else {
-                setIsVisible(false); // Reset when leaving viewport
-              }
-            });
-          },
-          { threshold: 0.2 }
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setIsVisible(true); // Trigger animation when entering
+            } else {
+              setIsVisible(false); // Reset when leaving viewport
+            }
+          });
+        },
+        { threshold: 0.2 },
       );
 
       if (sectionRef.current) {
@@ -111,50 +112,53 @@ function App() {
     }, []);
 
     return (
-        <div
-            ref={sectionRef}
-            className={`slide-in ${isVisible ? "visible" : ""}`}
-        >
-          {children}
-        </div>
+      <div
+        ref={sectionRef}
+        className={`slide-in ${isVisible ? "visible" : ""}`}
+      >
+        {children}
+      </div>
     );
   };
 
   return (
-      <div className={size} ref={ref}>
-        <video
-            id="background-video"
-            ref={videoRef}
-            autoPlay
-            loop
-            muted
-            onError={(e) => console.log("Video Error:", e)}
-        >
-          <source src={videoSrc} type="video/mp4" />
-        </video>
-        <Header
-            size={size}
-            changeSource={changeVideoSource}
-            changeLang={changeLang}
-        />
-        <Section>
-          <HomePage size={size} lang={lang} />
-        </Section>
-        <Section>
-          <Projects size={size} lang={lang} />
-        </Section>
-        <Section>
-          <Socials size={size} lang={lang} />
-        </Section>
-        <Section>
-          <Contact size={size} lang={lang} />
-        </Section>
+    <div className={size} ref={ref}>
+      <video
+        id="background-video"
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        onError={(e) => console.log("Video Error:", e)}
+      >
+        <source src={videoSrc} type="video/mp4" />
+      </video>
+      <Header
+        size={size}
+        changeSource={changeVideoSource}
+        changeLang={changeLang}
+      />
+      <Section>
+        <HomePage size={size} lang={lang} />
+      </Section>
+      <Section>
+        <Projects size={size} lang={lang} />
+      </Section>
+      <Section>
+        <Socials size={size} lang={lang} />
+      </Section>
+      <Section>
+        <Calendar size={size} lang={lang} />
+      </Section>
+      <Section>
+        <Contact size={size} lang={lang} />
+      </Section>
 
-        <footer>
-          <div>Vennila Sooben &copy;2024</div>
-          <div>Made with React, Typescript, SCSS</div>
-        </footer>
-      </div>
+      <footer>
+        <div>Vennila Sooben &copy;2024</div>
+        <div>Made with React, Typescript, SCSS</div>
+      </footer>
+    </div>
   );
 }
 

@@ -122,20 +122,20 @@ const Slide = (lang: any) => {
             ) : (
               <span>
                 Enseignement de <strong>HTML</strong>, <strong>CSS</strong>,{" "}
-                <strong>JavaScript</strong>, et plus, améliorant la
-                compréhension des technologies web par les étudiants.
+                <strong>JavaScript</strong>, améliorant la compréhension des
+                technologies web.
               </span>
             )}
           </p>
           <p className="slide__content__para">
             {lang.lang === "en"
               ? "Conducted live demonstrations and helped students set up their development environments."
-              : "Réalisation de démonstrations en direct et aide aux étudiants à configurer leurs environnements de développement."}
+              : "Démonstrations en direct et aide aux étudiants à configurer leurs environnements de dév."}
           </p>
           <p className="slide__content__para">
             {lang.lang === "en"
               ? "Graded assignments, provided feedback, and responded to student inquiries via email and Discord."
-              : "Correction des devoirs avec des retours constructifs, et réponse aux questions des étudiants par courriel et Discord."}
+              : "Correction des devoirs avec des retours constructifs, et réponse aux questions par courriel et Discord."}
           </p>
         </div>
         <img
@@ -210,7 +210,7 @@ const Slide = (lang: any) => {
           <h2>
             {lang.lang === "en"
               ? `MSc in Computer Science`
-              : `B=MSc en Informatique`}
+              : `MSc en Informatique`}
           </h2>
           <span>Sep 2025 - Now</span>
         </div>
@@ -308,8 +308,14 @@ const Slide = (lang: any) => {
 
               <p className="homepage__intro-section__content fade-slide-in delay-1">
                 {lang.lang === "en"
-                  ? `I'm currently looking for new grad opportunities for 2025.`
-                  : `Je suis actuellement à la recherche d'opportunités pour nouveaux diplômés 2025.`}
+                  ? `I'm currently pursuing my masters in computer science at UdeM.`
+                  : `Je suis actuellement à la maîtrise en informatique à l'UdeM.`}
+              </p>
+
+              <p className="homepage__intro-section__content fade-slide-in delay-1">
+                {lang.lang === "en"
+                  ? `I'm also working part time as a technical assistant in frontend dev.`
+                  : `Je travaille à temps partiel comme assistante technique en frontend.`}
               </p>
 
               <a href="#contact" className="homepage__cta-button">
