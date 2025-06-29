@@ -353,10 +353,12 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
         <div className="calendar__main">
           <DatePicker
             selected={selectedDate}
-            onChange={(date: Date) => {
-              setSelectedDate(date);
-              setShowCalendar(true);
-              checkAvailability(date);
+            onChange={(date: Date | null) => {
+              if (date) {
+                setSelectedDate(date);
+                setShowCalendar(true);
+                checkAvailability(date);
+              }
             }}
             inline
             minDate={new Date()}
