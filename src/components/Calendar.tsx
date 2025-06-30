@@ -43,7 +43,7 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
           end.setHours(23, 59, 59);
 
           const response = await fetch(
-            `https://portfolio-backend-npr19civg-vennila-soobens-projects.vercel.app/api/busy?start=${start.toISOString()}&end=${end.toISOString()}`,
+            `https://portfolio-backend-596eyhze9-vennila-soobens-projects.vercel.app/api/busy?start=${start.toISOString()}&end=${end.toISOString()}`,
           );
           const busyPeriods = await response.json();
           setBusy(busyPeriods);
@@ -101,7 +101,7 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
       end.setHours(23, 59, 59);
 
       const response = await fetch(
-        `https://portfolio-backend-npr19civg-vennila-soobens-projects.vercel.app/api/busy?start=${start.toISOString()}&end=${end.toISOString()}`,
+        `https://portfolio-backend-596eyhze9-vennila-soobens-projects.vercel.app/api/busy?start=${start.toISOString()}&end=${end.toISOString()}`,
       );
       const data = await response.json();
       setBusy(data);
@@ -269,7 +269,7 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
       );
 
       // 1. Book in calendar API
-      const calendarResponse = await fetch("https://portfolio-backend-npr19civg-vennila-soobens-projects.vercel.app/api/book", {
+      const calendarResponse = await fetch("https://portfolio-backend-596eyhze9-vennila-soobens-projects.vercel.app/api/book", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
