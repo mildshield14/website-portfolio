@@ -14,9 +14,11 @@ type CalendarProps = {
 };
 
 type TimeSlot = {
-  start: Date;
-  end: Date;
+  start: Date; // UTC time for booking
+  end: Date; // UTC time for booking
   available: boolean;
+  displayStart?: Date; // Local time for display
+  displayEnd?: Date; // Local time for display
 };
 
 const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
@@ -27,9 +29,34 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
   const [email, setEmail] = useState("");
   const [reason, setReason] = useState("");
   const [message, setMessage] = useState("");
-  const [, setBusy] = useState<any[]>([]);
+  const [busyPeriods, setBusyPeriods] = useState<any[]>([]);
   const [showCalendar, setShowCalendar] = useState(true);
   const [isBooking, setIsBooking] = useState(false);
+
+  // helper
+  function isoUtcMidnight(date: Date, hour: 0 | 24) {
+    const y = date.getUTCFullYear();
+    const m = date.getUTCMonth();
+    const d = date.getUTCDate();
+    return new Date(Date.UTC(y, m, d + (hour === 24 ? 1 : 0))).toISOString();
+  }
+
+  // Helper function to check if two time periods overlap
+  const doPeriodsOverlap = (
+    start1: Date,
+    end1: Date,
+    start2: Date,
+    end2: Date,
+  ): boolean => {
+    // Convert all dates to UTC timestamps for consistent comparison
+    const start1UTC = start1.getTime();
+    const end1UTC = end1.getTime();
+    const start2UTC = start2.getTime();
+    const end2UTC = end2.getTime();
+
+    // Two periods overlap if one starts before the other ends
+    return start1UTC < end2UTC && start2UTC < end1UTC;
+  };
 
   // Generate time slots for the selected date
   useEffect(() => {
@@ -37,53 +64,97 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
       if (selectedDate) {
         try {
           // Check availability first
-          const start = new Date(selectedDate);
-          start.setHours(0, 0, 0);
-          const end = new Date(selectedDate);
-          end.setHours(23, 59, 59);
+          const startISO = isoUtcMidnight(selectedDate, 0); // 00:00 Z of that day
+          const endISO = isoUtcMidnight(selectedDate, 24); // 00:00 Z next day
+
+          console.log(`Fetching busy periods from ${startISO} to ${endISO}`);
 
           const response = await fetch(
-            `https://portfolio-backend-596eyhze9-vennila-soobens-projects.vercel.app/api/busy?start=${start.toISOString()}&end=${end.toISOString()}`,
+            `https://portfolio-backend-6lw8lcmnp-vennila-soobens-projects.vercel.app/api/busy?start=${startISO}&end=${endISO}`,
           );
-          const busyPeriods = await response.json();
-          setBusy(busyPeriods);
+          const busyPeriodsData = await response.json();
+          setBusyPeriods(busyPeriodsData);
+
+          console.log("Received busy periods:", busyPeriodsData);
 
           const dayOfWeek = selectedDate.getDay();
           if (dayOfWeek === 0 || dayOfWeek === 6) {
-            // 0 is Sunday, 6 is Saturday
             setTimeSlots([]);
             return;
           }
 
-          // Generate available slots
+          // FIXED: Generate slots in LOCAL timezone, then convert to UTC for comparison
           const slots: TimeSlot[] = [];
-          const startHour = 9; // 9 AM
-          const endHour = 17; // 5 PM
+          const startHour = 9; // 9 AM LOCAL TIME
+          const endHour = 17; // 5 PM LOCAL TIME
+
+// Fixed slot generation logic - replace the slot generation part in your useEffect
 
           for (let hour = startHour; hour < endHour; hour++) {
             for (let minute = 0; minute < 60; minute += 30) {
-              const slotStart = new Date(selectedDate);
-              slotStart.setHours(hour, minute, 0);
-              const slotEnd = new Date(slotStart);
-              slotEnd.setMinutes(slotEnd.getMinutes() + 30);
+              // Create slot in LOCAL timezone for display
+              const slotStartLocal = new Date(selectedDate);
+              slotStartLocal.setHours(hour, minute, 0, 0);
 
-              const isAvailable = !busyPeriods.some(
-                (busySlot: {
-                  start: string | number | Date;
-                  end: string | number | Date;
-                }) =>
-                  new Date(busySlot.start) < slotEnd &&
-                  new Date(busySlot.end) > slotStart,
+              const slotEndLocal = new Date(slotStartLocal);
+              slotEndLocal.setMinutes(slotEndLocal.getMinutes() + 30);
+
+              // FIXED: Properly convert to UTC for comparison with backend data
+              const slotStartUTC = new Date(slotStartLocal.toISOString());
+              const slotEndUTC = new Date(slotEndLocal.toISOString());
+
+              console.log(
+                  `Checking slot: ${slotStartLocal.toLocaleString()} LOCAL -> ${slotStartUTC.toISOString()} UTC`,
               );
 
+              // Check if this slot overlaps with any busy period
+              const isAvailable = !busyPeriodsData.some((busyPeriod: any) => {
+                const busyStart = new Date(busyPeriod.start);
+                const busyEnd = new Date(busyPeriod.end);
+
+                const overlaps = slotStartUTC <= busyEnd && busyStart <= slotEndUTC;   // inclusive bounds
+
+                if (overlaps) {
+                  console.log(
+                      `❌ Slot ${slotStartLocal.toLocaleTimeString()} CONFLICTS with: ${busyPeriod.title}`,
+                      `\n   Slot UTC: ${slotStartUTC.toISOString()} - ${slotEndUTC.toISOString()}`,
+                      `\n   Busy UTC: ${busyStart.toISOString()} - ${busyEnd.toISOString()}`
+                  );
+                }
+
+                return overlaps;
+              });
+
               if (isAvailable) {
-                slots.push({ start: slotStart, end: slotEnd, available: true });
+                console.log(
+                    `✅ Slot ${slotStartLocal.toLocaleTimeString()} is AVAILABLE`,
+                );
+                slots.push({
+                  start: slotStartUTC, // UTC for booking API
+                  end: slotEndUTC,     // UTC for booking API
+                  available: true,
+                  displayStart: slotStartLocal, // Local for display
+                  displayEnd: slotEndLocal,     // Local for display
+                });
               }
             }
           }
+          console.log(
+            `Generated ${slots.length} available slots for ${selectedDate.toDateString()}`,
+          );
           setTimeSlots(slots);
           setMessage("");
+
+          const relevantEvents = debugBackendResponse(
+            busyPeriodsData,
+            selectedDate,
+          );
+          console.log(
+            `Relevant events for ${selectedDate.toDateString()}:`,
+            relevantEvents,
+          );
         } catch (error) {
+          console.error("Error fetching busy periods:", error);
           setMessage(getTranslation(lang, "errorChecking"));
           setTimeSlots([]);
         }
@@ -95,16 +166,14 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
 
   const checkAvailability = async (date: Date) => {
     try {
-      const start = new Date(date);
-      start.setHours(0, 0, 0);
-      const end = new Date(date);
-      end.setHours(23, 59, 59);
+      const startISO = isoUtcMidnight(date, 0); // 00:00 Z of that day
+      const endISO = isoUtcMidnight(date, 24); // 00:00 Z next day
 
       const response = await fetch(
-        `https://portfolio-backend-596eyhze9-vennila-soobens-projects.vercel.app/api/busy?start=${start.toISOString()}&end=${end.toISOString()}`,
+        `https://portfolio-backend-6lw8lcmnp-vennila-soobens-projects.vercel.app/api/busy?start=${startISO}&end=${endISO}`,
       );
       const data = await response.json();
-      setBusy(data);
+      setBusyPeriods(data);
       setMessage("");
     } catch (error) {
       setMessage(getTranslation(lang, "errorChecking"));
@@ -177,17 +246,17 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
     }
 
     const templateParams = {
-      to_email: attendeeEmail, // This should match your EmailJS template variable
+      to_email: attendeeEmail,
       to_name: attendeeName,
-      user_email: attendeeEmail, // Backup - some templates use this
+      user_email: attendeeEmail,
       meeting_date: slot.start.toLocaleDateString(),
-      meeting_time: `${slot.start.toLocaleTimeString()} – ${slot.end.toLocaleTimeString()}`,
+      meeting_time: `${(slot.displayStart || slot.start).toLocaleTimeString()} – ${(slot.displayEnd || slot.end).toLocaleTimeString()}`,
       meeting_reason:
         reason || (lang === "fr" ? "Non spécifié" : "Not specified"),
       confirmation_message:
         lang === "fr"
-          ? "Je vous enverrai un lien Zoom dans les 24h qui suivent. En cas d'annulation, veuillez me contacter."
-          : "I'll send you a Zoom link in the next 24h. In case of cancellation, please contact me.",
+          ? "Je vous enverrai un lien Zoom dans les 24h qui suivent si votre demande a l'air d'être authentique. En cas d'annulation, veuillez me contacter."
+          : "I'll send you a Zoom link in the next 24h if your demand looks legit. In case of cancellation, please contact me.",
       from_name: "Vennila Sooben",
       from_email: "vennilasooben1401@gmail.com",
     };
@@ -215,38 +284,6 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
     }
   };
 
-  // const sendOwnerNotification = async (
-  //     attendeeName: string,
-  //     attendeeEmail: string,
-  //     slot: TimeSlot,
-  //     reason: string
-  // ) => {
-  //     const ownerFormData = new FormData();
-  //     ownerFormData.append('attendee_name', attendeeName);
-  //     ownerFormData.append('attendee_email', attendeeEmail);
-  //     ownerFormData.append('meeting_reason', reason || 'Not specified');
-  //     ownerFormData.append('meeting_date', slot.start.toLocaleDateString());
-  //     ownerFormData.append('meeting_time', `${slot.start.toLocaleTimeString()} - ${slot.end.toLocaleTimeString()}`);
-  //     ownerFormData.append('_subject', `New Meeting Booking - ${attendeeName} on ${slot.start.toLocaleDateString()}`);
-  //     ownerFormData.append('message',
-  //         `New meeting booking details:\n\n` +
-  //         `Attendee: ${attendeeName}\n` +
-  //         `Email: ${attendeeEmail}\n` +
-  //         `Date: ${slot.start.toLocaleDateString()}\n` +
-  //         `Time: ${slot.start.toLocaleTimeString()} - ${slot.end.toLocaleTimeString()}\n` +
-  //         `Reason: ${reason || 'Not specified'}\n\n` +
-  //         `This booking was made through your portfolio calendar.`
-  //     );
-  //
-  //     return fetch(`https://formspree.io/f/${import.meta.env.VITE_APP_FORM_KEY}`, {
-  //         method: 'POST',
-  //         body: ownerFormData,
-  //         headers: {
-  //             'Accept': 'application/json'
-  //         }
-  //     });
-  // };
-
   const bookAppointment = async () => {
     if (!selectedSlot || !name || !email) {
       setMessage(getTranslation(lang, "fillRequired"));
@@ -269,18 +306,21 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
       );
 
       // 1. Book in calendar API
-      const calendarResponse = await fetch("https://portfolio-backend-596eyhze9-vennila-soobens-projects.vercel.app/api/book", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const calendarResponse = await fetch(
+        "https://portfolio-backend-6lw8lcmnp-vennila-soobens-projects.vercel.app/api/book",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            start: selectedSlot.start,
+            end: selectedSlot.end,
+            title: `Meeting with ${name}`,
+            attendee: email,
+          }),
         },
-        body: JSON.stringify({
-          start: selectedSlot.start,
-          end: selectedSlot.end,
-          title: `Meeting with ${name}`,
-          attendee: email,
-        }),
-      });
+      );
 
       if (!calendarResponse.ok) {
         throw new Error("Failed to book calendar slot");
@@ -344,6 +384,37 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
     }
   };
 
+  const debugBackendResponse = (busyPeriodsData: any[], selectedDate: Date) => {
+    console.log("=== BACKEND RESPONSE DEBUG ===");
+    console.log("Selected date:", selectedDate.toDateString());
+    console.log(
+      "Timezone offset:",
+      selectedDate.getTimezoneOffset(),
+      "minutes",
+    );
+
+    const relevantEvents = busyPeriodsData.filter((event) => {
+      const eventStart = new Date(event.start);
+      const eventDate = eventStart.toDateString();
+      const selectedDateStr = selectedDate.toDateString();
+      return eventDate === selectedDateStr;
+    });
+
+    console.log(
+      `Found ${relevantEvents.length} events for ${selectedDate.toDateString()}:`,
+    );
+    relevantEvents.forEach((event) => {
+      const start = new Date(event.start);
+      const end = new Date(event.end);
+      console.log(
+        `- ${event.title}: ${start.toLocaleString()} - ${end.toLocaleString()}`,
+      );
+      console.log(`  UTC: ${start.toISOString()} - ${end.toISOString()}`);
+    });
+
+    return relevantEvents;
+  };
+
   return (
     <section className={size}>
       <h2 id="calendar" className="page__title">
@@ -389,23 +460,27 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
                     )}
                   </h3>
                   <div className="calendar__slots-grid">
-                    {timeSlots.map((slot, index) => (
-                      <button
-                        key={index}
-                        className={`calendar__slot ${
-                          selectedSlot === slot
-                            ? "calendar__slot--selected"
-                            : ""
-                        }`}
-                        onClick={() => setSelectedSlot(slot)}
-                        disabled={isBooking}
-                      >
-                        {slot.start.toLocaleTimeString([], {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                        })}
-                      </button>
-                    ))}
+                    {timeSlots.map((slot, index) => {
+                      // Convert UTC back to local for display
+                      const displayTime = new Date(slot.start.getTime());
+                      return (
+                        <button
+                          key={index}
+                          className={`calendar__slot ${
+                            selectedSlot === slot
+                              ? "calendar__slot--selected"
+                              : ""
+                          }`}
+                          onClick={() => setSelectedSlot(slot)}
+                          disabled={isBooking}
+                        >
+                          {displayTime.toLocaleTimeString([], {
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })}
+                        </button>
+                      );
+                    })}
                   </div>
                 </>
               )}
