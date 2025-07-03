@@ -53,7 +53,7 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
           console.log(`Fetching busy periods from ${startISO} to ${endISO}`);
 
           const response = await fetch(
-            `https://portfolio-backend-74djnu4na-vennila-soobens-projects.vercel.app/api/busy?start=${startISO}&end=${endISO}`,
+            `https://portfolio-backend-two-beta.vercel.app/api/busy?start=${startISO}&end=${endISO}`,
           );
           const busyPeriodsData = await response.json();
           setBusyPeriods(busyPeriodsData);
@@ -153,7 +153,7 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
       const endISO = isoUtcMidnight(date, 24); // 00:00 Z next day
 
       const response = await fetch(
-         `https://portfolio-backend-74djnu4na-vennila-soobens-projects.vercel.app/api/busy?start=${startISO}&end=${endISO}`,
+         `https://portfolio-backend-two-beta.vercel.app/api/busy?start=${startISO}&end=${endISO}`,
       );
       const data = await response.json();
       setBusyPeriods(data);
@@ -290,7 +290,7 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
 
       // 1. Book in calendar API
       const calendarResponse = await fetch(
-        "https://portfolio-backend-74djnu4na-vennila-soobens-projects.vercel.app/api/book",
+        "https://portfolio-backend-two-beta.vercel.app/api/book",
         {
           method: "POST",
           headers: {
