@@ -290,7 +290,7 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
 
       // 1. Book in calendar API
       const calendarResponse = await fetch(
-        "https://portfolio-backend-6lw8lcmnp-vennila-soobens-projects.vercel.app/api/book",
+        "https://portfolio-backend-74djnu4na-vennila-soobens-projects.vercel.app/api/book",
         {
           method: "POST",
           headers: {
