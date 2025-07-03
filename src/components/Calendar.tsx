@@ -29,7 +29,7 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
   const [email, setEmail] = useState("");
   const [reason, setReason] = useState("");
   const [message, setMessage] = useState("");
-  const [busyPeriods, setBusyPeriods] = useState<any[]>([]);
+  const [_,setBusyPeriods] = useState<any[]>([]);
   const [showCalendar, setShowCalendar] = useState(true);
   const [isBooking, setIsBooking] = useState(false);
 
@@ -40,23 +40,6 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
     const d = date.getUTCDate();
     return new Date(Date.UTC(y, m, d + (hour === 24 ? 1 : 0))).toISOString();
   }
-
-  // Helper function to check if two time periods overlap
-  const doPeriodsOverlap = (
-    start1: Date,
-    end1: Date,
-    start2: Date,
-    end2: Date,
-  ): boolean => {
-    // Convert all dates to UTC timestamps for consistent comparison
-    const start1UTC = start1.getTime();
-    const end1UTC = end1.getTime();
-    const start2UTC = start2.getTime();
-    const end2UTC = end2.getTime();
-
-    // Two periods overlap if one starts before the other ends
-    return start1UTC < end2UTC && start2UTC < end1UTC;
-  };
 
   // Generate time slots for the selected date
   useEffect(() => {
