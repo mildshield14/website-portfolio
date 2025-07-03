@@ -1,5 +1,5 @@
 // src/components/Calendar.tsx
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../scss/Calendar.scss";
 import getTranslation from "../getTranslation";
 import DatePicker from "react-datepicker";
@@ -29,7 +29,7 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
   const [email, setEmail] = useState("");
   const [reason, setReason] = useState("");
   const [message, setMessage] = useState("");
-  const [_,setBusyPeriods] = useState<any[]>([]);
+  const [_, setBusyPeriods] = useState<any[]>([]);
   const [showCalendar, setShowCalendar] = useState(true);
   const [isBooking, setIsBooking] = useState(false);
 
@@ -49,16 +49,11 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
           // Check availability first
           const startISO = isoUtcMidnight(selectedDate, 0); // 00:00 Z of that day
           const endISO = isoUtcMidnight(selectedDate, 24); // 00:00 Z next day
-
-          console.log(`Fetching busy periods from ${startISO} to ${endISO}`);
-
           const response = await fetch(
             `https://portfolio-backend-two-beta.vercel.app/api/busy?start=${startISO}&end=${endISO}`,
           );
           const busyPeriodsData = await response.json();
           setBusyPeriods(busyPeriodsData);
-
-          console.log("Received busy periods:", busyPeriodsData);
 
           const dayOfWeek = selectedDate.getDay();
           if (dayOfWeek === 0 || dayOfWeek === 6) {
@@ -71,7 +66,7 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
           const startHour = 9; // 9 AM LOCAL TIME
           const endHour = 17; // 5 PM LOCAL TIME
 
-// Fixed slot generation logic - replace the slot generation part in your useEffect
+          // Fixed slot generation logic - replace the slot generation part in your useEffect
 
           for (let hour = startHour; hour < endHour; hour++) {
             for (let minute = 0; minute < 60; minute += 30) {
@@ -82,60 +77,36 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
               const slotEndLocal = new Date(slotStartLocal);
               slotEndLocal.setMinutes(slotEndLocal.getMinutes() + 30);
 
-              // FIXED: Properly convert to UTC for comparison with backend data
               const slotStartUTC = new Date(slotStartLocal.toISOString());
               const slotEndUTC = new Date(slotEndLocal.toISOString());
-
-              console.log(
-                  `Checking slot: ${slotStartLocal.toLocaleString()} LOCAL -> ${slotStartUTC.toISOString()} UTC`,
-              );
 
               // Check if this slot overlaps with any busy period
               const isAvailable = !busyPeriodsData.some((busyPeriod: any) => {
                 const busyStart = new Date(busyPeriod.start);
                 const busyEnd = new Date(busyPeriod.end);
 
-                const overlaps = slotStartUTC <= busyEnd && busyStart <= slotEndUTC;   // inclusive bounds
-
-                if (overlaps) {
-                  console.log(
-                      `❌ Slot ${slotStartLocal.toLocaleTimeString()} CONFLICTS with: ${busyPeriod.title}`,
-                      `\n   Slot UTC: ${slotStartUTC.toISOString()} - ${slotEndUTC.toISOString()}`,
-                      `\n   Busy UTC: ${busyStart.toISOString()} - ${busyEnd.toISOString()}`
-                  );
-                }
-
-                return overlaps;
+                // inclusive bounds
+                return slotStartUTC <= busyEnd && busyStart <= slotEndUTC;
               });
 
               if (isAvailable) {
-                console.log(
-                    `✅ Slot ${slotStartLocal.toLocaleTimeString()} is AVAILABLE`,
-                );
                 slots.push({
                   start: slotStartUTC, // UTC for booking API
-                  end: slotEndUTC,     // UTC for booking API
+                  end: slotEndUTC, // UTC for booking API
                   available: true,
                   displayStart: slotStartLocal, // Local for display
-                  displayEnd: slotEndLocal,     // Local for display
+                  displayEnd: slotEndLocal, // Local for display
                 });
               }
             }
           }
-          console.log(
-            `Generated ${slots.length} available slots for ${selectedDate.toDateString()}`,
-          );
           setTimeSlots(slots);
           setMessage("");
 
-          const relevantEvents = debugBackendResponse(
-            busyPeriodsData,
-            selectedDate,
-          );
-          console.log(
-            `Relevant events for ${selectedDate.toDateString()}:`,
-            relevantEvents,
-          );
+          // const relevantEvents = debugBackendResponse(
+          //   busyPeriodsData,
+          //   selectedDate,
+          // );
         } catch (error) {
           console.error("Error fetching busy periods:", error);
           setMessage(getTranslation(lang, "errorChecking"));
@@ -153,7 +124,7 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
       const endISO = isoUtcMidnight(date, 24); // 00:00 Z next day
 
       const response = await fetch(
-         `https://portfolio-backend-two-beta.vercel.app/api/busy?start=${startISO}&end=${endISO}`,
+        `https://portfolio-backend-two-beta.vercel.app/api/busy?start=${startISO}&end=${endISO}`,
       );
       const data = await response.json();
       setBusyPeriods(data);
@@ -244,9 +215,6 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
       from_email: "vennilasooben1401@gmail.com",
     };
 
-    console.log("Sending email to:", attendeeEmail);
-    console.log("Template params:", templateParams);
-
     try {
       const result = await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -254,7 +222,6 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
         templateParams,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       );
-      console.log("✅ Email sent successfully:", result);
       return result;
     } catch (error: any) {
       console.error("❌ EmailJS error:", error);
@@ -300,7 +267,9 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
             start: selectedSlot.start,
             end: selectedSlot.end,
             title: `Meeting with ${name}`,
+            reason: reason,
             attendee: email,
+            attendeeName: name,
           }),
         },
       );
@@ -336,12 +305,6 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
           lang === "fr"
             ? " Email de confirmation envoyé."
             : " Confirmation email sent.";
-      } else {
-        console.warn("Attendee email failed:", attendeeEmailResult.reason);
-        successMessage +=
-          lang === "fr"
-            ? " (Problème avec l'email de confirmation)"
-            : " (Issue with confirmation email)";
       }
 
       if (ownerNotificationResult.status === "rejected") {
@@ -367,36 +330,16 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
     }
   };
 
-  const debugBackendResponse = (busyPeriodsData: any[], selectedDate: Date) => {
-    console.log("=== BACKEND RESPONSE DEBUG ===");
-    console.log("Selected date:", selectedDate.toDateString());
-    console.log(
-      "Timezone offset:",
-      selectedDate.getTimezoneOffset(),
-      "minutes",
-    );
-
-    const relevantEvents = busyPeriodsData.filter((event) => {
-      const eventStart = new Date(event.start);
-      const eventDate = eventStart.toDateString();
-      const selectedDateStr = selectedDate.toDateString();
-      return eventDate === selectedDateStr;
-    });
-
-    console.log(
-      `Found ${relevantEvents.length} events for ${selectedDate.toDateString()}:`,
-    );
-    relevantEvents.forEach((event) => {
-      const start = new Date(event.start);
-      const end = new Date(event.end);
-      console.log(
-        `- ${event.title}: ${start.toLocaleString()} - ${end.toLocaleString()}`,
-      );
-      console.log(`  UTC: ${start.toISOString()} - ${end.toISOString()}`);
-    });
-
-    return relevantEvents;
-  };
+  // const debugBackendResponse = (busyPeriodsData: any[], selectedDate: Date) => {
+  //   const relevantEvents = busyPeriodsData.filter((event) => {
+  //     const eventStart = new Date(event.start);
+  //     const eventDate = eventStart.toDateString();
+  //     const selectedDateStr = selectedDate.toDateString();
+  //     return eventDate === selectedDateStr;
+  //   });
+  //
+  //   return relevantEvents;
+  // };
 
   return (
     <section className={size}>
