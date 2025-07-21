@@ -5,7 +5,7 @@ import linkedin from "../assets/linkedin.png";
 import getTranslation from "../getTranslation.ts";
 
 type SocialsProps = {
-  size: any;
+  size: string;
   lang: string;
 };
 
@@ -30,7 +30,7 @@ export const socials: Socials[] = [
 
 const Socials: React.FC<SocialsProps> = ({ size, lang }) => {
   return (
-    <section className={size.size}>
+    <section className={size}>
       <h2 id="socials" className="page__title">
         {" "}
         {getTranslation(lang ? lang : "en", "socials")}
