@@ -1,6 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "../scss/Slider.scss";
 // @ts-ignore
 import VaraText from "./VaraText.tsx";
 import MagicSliderDots from "react-magic-slider-dots";
@@ -259,8 +260,7 @@ const Slide = (lang: any) => {
     ));
   };
 
-  // TODO: need to adapt to use css on navbar
-  // TODO: basicall add css for points at th botto and the arrow left and right
+  // Navigation elements are styled via SCSS (see Slider.scss)
   const settings = {
     dots: true,
     arrows: true,
