@@ -15,19 +15,6 @@ type ProjectsProps = {
 };
 
 const Projects: React.FC<ProjectsProps> = ({ size, lang }) => {
-  const settings = {
-    dots: true,
-    arrows: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow:
-      size === "small" ? 2 : size === "medium" ? 4 : size === "large" ? 6 : 8,
-    slidesToScroll: size === "small" ? 1 : 3,
-    appendDots: (dots: any) => {
-      return <MagicSliderDots dots={dots} numDotsToShow={4} dotWidth={30} />;
-    },
-  };
-
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const showProjectDetails = (project: Project) => {
@@ -38,90 +25,171 @@ const Projects: React.FC<ProjectsProps> = ({ size, lang }) => {
     setSelectedProject(null);
   };
 
+  // Use grid layout for larger screens, slider for mobile
+  const shouldUseSlider = size === "small";
+  
+  const settings = {
+    dots: true,
+    arrows: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    appendDots: (dots: any) => {
+      return <MagicSliderDots dots={dots} numDotsToShow={4} dotWidth={30} />;
+    },
+  };
+
   const overlay = selectedProject ? (
-    <div
-      className={"project-detail-overlay" + " " + size}
-      onClick={hideProjectDetails}
-    >
+    <div className="project-detail-overlay" onClick={hideProjectDetails}>
       <div
         className="project-detail-content"
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="close-button" onClick={hideProjectDetails}>
-          ×
-        </button>
-        <h2 className="project-detail-content__items project-detail-content__items-title">
-          {selectedProject.title[lang]}
-        </h2>
+        <div className="project-detail-content__header">
+          <h2 className="project-detail-content__title">
+            {selectedProject.title[lang]}
+          </h2>
+          <button className="close-button" onClick={hideProjectDetails}>
+            ×
+          </button>
+        </div>
+        
         <img
-          className="projects__items__images"
+          className="project-detail-content__image"
           src={selectedProject.image}
           alt={selectedProject.title[lang]}
         />
-        <p className="project-detail-content__items">
+        
+        <p className="project-detail-content__description">
           {selectedProject.description[lang]}
         </p>
-        <p className="project-detail-content__items">
-          <strong>{getTranslation(lang, "technologies")}</strong>:{" "}
-          {selectedProject.technologies.join(", ")}
-        </p>
-        <p className="project-detail-content__items">
-          <strong>{getTranslation(lang, "period")}</strong>:{" "}
-          {selectedProject.period[lang]}
-        </p>
-        {selectedProject.pdf && (
-          <a
-            href={selectedProject.pdf}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View PDF
-          </a>
-        )}
-        {selectedProject.video && (
-          <video src={selectedProject.video} controls />
-        )}
-        {selectedProject.url && (
-          <a
-            href={selectedProject.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Visit Website
-          </a>
-        )}
-        <div className="project-detail-content__items project-detail-content__items-para">
-          {selectedProject.details[lang].map((detail: any, index: any) => (
-            <p className={"project-detail-para"} key={index}>
-              {detail}
-            </p>
-          ))}
+        
+        <div className="project-detail-content__meta">
+          <div className="project-detail-content__meta__item">
+            <div className="project-detail-content__meta__item__label">
+              {getTranslation(lang, "technologies")}
+            </div>
+            <div className="project-detail-content__tech">
+              {selectedProject.technologies.map((tech, index) => (
+                <span key={index} className="project-detail-content__tech__tag">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="project-detail-content__meta__item">
+            <div className="project-detail-content__meta__item__label">
+              {getTranslation(lang, "period")}
+            </div>
+            <div className="project-detail-content__meta__item__value">
+              {selectedProject.period[lang]}
+            </div>
+          </div>
         </div>
+        
+        <div className="project-detail-content__details">
+          <h3 className="project-detail-content__details__title">
+            {lang === "en" ? "Key Features" : "Fonctionnalités clés"}
+          </h3>
+          <ul className="project-detail-content__details__list">
+            {selectedProject.details[lang].map((detail: any, index: any) => (
+              <li key={index} className="project-detail-content__details__list__item">
+                {detail}
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        {selectedProject.pdf && (
+          <div className="project-detail-content__links">
+            {selectedProject.pdf && (
+              <a
+                href={selectedProject.pdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-detail-content__links__link"
+              >
+                {lang === "en" ? "View PDF" : "Voir PDF"}
+              </a>
+            )}
+            {selectedProject.url && (
+              <a
+                href={selectedProject.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-detail-content__links__link"
+              >
+                {lang === "en" ? "Visit Website" : "Visiter le site"}
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </div>
   ) : null;
 
-  return (
-    <section className={size.size}>
-      <h2 id="projects" className="page__title">
-        {getTranslation(lang ? lang : "en", "projects")}
-      </h2>
-      <Slider {...settings}>
-        {projects.map((project: any) => (
-          <div
-            key={project.id}
-            className="projects__items"
-            onClick={() => showProjectDetails(project)}
-          >
-            <img
-              className="projects__items__images"
-              src={project.image}
-              alt={project.title[lang]}
-            />
-            <h3 className="projects__items__titles">{project.title[lang]}</h3>
+  const ProjectCard = ({ project }: { project: any }) => (
+    <div className="projects__card" onClick={() => showProjectDetails(project)}>
+      <div className="projects__card__overlay">
+        <div className="projects__card__overlay__text">
+          {lang === "en" ? "View Details" : "Voir les détails"}
+        </div>
+      </div>
+      <img
+        className="projects__card__image"
+        src={project.image}
+        alt={project.title[lang]}
+      />
+      <div className="projects__card__content">
+        <h3 className="projects__card__title">{project.title[lang]}</h3>
+        <p className="projects__card__description">
+          {project.description[lang]}
+        </p>
+        <div className="projects__card__meta">
+          <div className="projects__card__tech">
+            {project.technologies.slice(0, 3).map((tech: string, index: number) => (
+              <span key={index} className="projects__card__tech__tag">
+                {tech}
+              </span>
+            ))}
+            {project.technologies.length > 3 && (
+              <span className="projects__card__tech__tag">
+                +{project.technologies.length - 3}
+              </span>
+            )}
           </div>
-        ))}
-      </Slider>
+          <div className="projects__card__period">
+            {project.period[lang]}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <section id="projects" className={`projects ${size}`}>
+      <div className="projects__container">
+        <h2 className="page__title">
+          {getTranslation(lang ? lang : "en", "projects")}
+        </h2>
+        
+        {shouldUseSlider ? (
+          <Slider {...settings}>
+            {projects.map((project: any) => (
+              <div key={project.id}>
+                <ProjectCard project={project} />
+              </div>
+            ))}
+          </Slider>
+        ) : (
+          <div className="projects__grid">
+            {projects.map((project: any) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+        )}
+      </div>
 
       {/* Render the overlay in a portal, outside the regular component tree */}
       {selectedProject && ReactDOM.createPortal(overlay, document.body)}

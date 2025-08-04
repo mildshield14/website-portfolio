@@ -12,25 +12,50 @@ type HeaderProps = {
 const Header: React.FC<HeaderProps> = ({ size, changeSource, changeLang }) => {
   const [isCheckedMode, setIsCheckedMode] = useState(true); // Default checked state
   const [lang, setLanguage] = useState("en");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleToggle = () => {
     setIsCheckedMode(!isCheckedMode);
     if (isCheckedMode) {
       document.documentElement.style.setProperty(
         "--selected-background-color",
-        "var(--light--background-color)",
+        "var(--light-background-color)",
       );
       document.documentElement.style.setProperty(
-        "--selected-text-color",
-        "var(--light--text-color)",
+        "--selected-text-primary",
+        "var(--light-text-primary)",
       );
       document.documentElement.style.setProperty(
-        "--selected-secondary-color",
-        "var(--light--secondary-color)",
+        "--selected-text-secondary",
+        "var(--light-text-secondary)",
       );
       document.documentElement.style.setProperty(
-        "--selected-button-color",
-        "var(--light--button-color)",
+        "--selected-text-muted",
+        "var(--light-text-muted)",
+      );
+      document.documentElement.style.setProperty(
+        "--selected-surface-color",
+        "var(--light-surface-color)",
+      );
+      document.documentElement.style.setProperty(
+        "--selected-surface-elevated",
+        "var(--light-surface-elevated)",
+      );
+      document.documentElement.style.setProperty(
+        "--selected-border-color",
+        "var(--light-border-color)",
+      );
+      document.documentElement.style.setProperty(
+        "--selected-border-subtle",
+        "var(--light-border-subtle)",
+      );
+      document.documentElement.style.setProperty(
+        "--selected-accent-color",
+        "var(--light-accent-color)",
+      );
+      document.documentElement.style.setProperty(
+        "--selected-accent-hover",
+        "var(--light-accent-hover)",
       );
       if (changeSource) {
         changeSource(
@@ -43,16 +68,40 @@ const Header: React.FC<HeaderProps> = ({ size, changeSource, changeLang }) => {
         "var(--background-color)",
       );
       document.documentElement.style.setProperty(
-        "--selected-text-color",
-        "var(--text-color)",
+        "--selected-text-primary",
+        "var(--text-primary)",
       );
       document.documentElement.style.setProperty(
-        "--selected-secondary-color",
-        "var(--secondary-color)",
+        "--selected-text-secondary",
+        "var(--text-secondary)",
       );
       document.documentElement.style.setProperty(
-        "--selected-button-color",
-        "var(--button-color)",
+        "--selected-text-muted",
+        "var(--text-muted)",
+      );
+      document.documentElement.style.setProperty(
+        "--selected-surface-color",
+        "var(--surface-color)",
+      );
+      document.documentElement.style.setProperty(
+        "--selected-surface-elevated",
+        "var(--surface-elevated)",
+      );
+      document.documentElement.style.setProperty(
+        "--selected-border-color",
+        "var(--border-color)",
+      );
+      document.documentElement.style.setProperty(
+        "--selected-border-subtle",
+        "var(--border-subtle)",
+      );
+      document.documentElement.style.setProperty(
+        "--selected-accent-color",
+        "var(--accent-color)",
+      );
+      document.documentElement.style.setProperty(
+        "--selected-accent-hover",
+        "var(--accent-hover)",
       );
       if (changeSource) {
         changeSource(
@@ -68,23 +117,23 @@ const Header: React.FC<HeaderProps> = ({ size, changeSource, changeLang }) => {
     changeLang(lang === "en" ? "fr" : "en");
   };
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <header className={size}>
-      <div className="hamburger" onClick={toggleMenu}>
+    <header className={`header ${size}`}>
+      <div className={`hamburger ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <nav>
-        <ul
-          className={`header__container ${isMenuOpen && size === "small" ? "open" : size === "small" ? "close" : ""}`}
-        >
+      <div className={`header__container ${isMenuOpen && size === "small" ? "open" : size === "small" ? "close" : ""}`}>
+        <a href="#home" className="header__logo">
+          VS
+        </a>
+        
+        <nav className="header__nav">
           <li className="header__items">
             <a className="header__items__link" href="#home">
               {getTranslation(lang, "home")}
@@ -101,19 +150,19 @@ const Header: React.FC<HeaderProps> = ({ size, changeSource, changeLang }) => {
             </a>
           </li>
           <li className="header__items">
+            <a className="header__items__link" href="#calendar">
+              {getTranslation(lang, "calendar")}
+            </a>
+          </li>
+          <li className="header__items">
             <a className="header__items__link" href="#contact">
               {getTranslation(lang, "contact")}
             </a>
           </li>
-          <li className="header__items">
-            <a className="header__items__link" href="#resume">
-              {getTranslation(lang, "resume")}
-            </a>
-          </li>
+          
           <div className="header__items__mode__group">
             <li className="header__items header__items__mode">
               <span className="header__items__label">
-                {" "}
                 {isCheckedMode
                   ? getTranslation(lang, "dark")
                   : getTranslation(lang, "light")}
@@ -128,11 +177,9 @@ const Header: React.FC<HeaderProps> = ({ size, changeSource, changeLang }) => {
                 <span className="header__items__toggle__slider"></span>
               </label>
             </li>
-            <li
-              className={`header__items header__items__mode ${isCheckedMode ? "lang-dark" : "lang"}`}
-            >
+            <li className="header__items header__items__mode">
               <span className="header__items__label">
-                {lang === "en" ? "EN" : "FR"}{" "}
+                {lang === "en" ? "EN" : "FR"}
               </span>
               <label className="header__items__toggle">
                 <input
@@ -145,8 +192,8 @@ const Header: React.FC<HeaderProps> = ({ size, changeSource, changeLang }) => {
               </label>
             </li>
           </div>
-        </ul>
-      </nav>
+        </nav>
+      </div>
     </header>
   );
 };

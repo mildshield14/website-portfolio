@@ -1,57 +1,246 @@
 @import "App.scss";
 
-.contact__form {
-  font-family: var(--font-family-headers), sans-serif;
-  color: var(--selected-text-color);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.contact {
+  padding: var(--space-24) 0;
 
-  :not(:first-of-type) {
-    margin-top: 10px;
-  }
+  &__container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
 
-  &__label {
-    margin-bottom: 10px;
-    width: calc(100% / 2);
-  }
-
-  &__input {
-    width: calc(100% / 2);
-    height: 100%;
-    &:not(:nth-child(6)) {
-      height: 50px;
+    @media (max-width: 768px) {
+      padding: 0 var(--space-4);
     }
   }
 
-  &__send {
-    cursor: pointer;
-    margin-top: 20px;
-    width: 10%;
-    align-self: center;
-    border: 0px;
-    border-radius: 20px;
-    background: var(--selected-background-color);
-    color: white;
-    .small & {
-      width: 50%;
+  &__form {
+    @extend .card;
+    max-width: 600px;
+    margin: 0 auto var(--space-16);
+    padding: var(--space-8);
+
+    @media (max-width: 768px) {
+      padding: var(--space-6);
     }
 
-    .medium & {
-      width: 30%;
+    &__title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--selected-text-primary);
+      text-align: center;
+      margin-bottom: var(--space-8);
     }
 
-    &:hover {
-      background: var(--selected-button-color);
-      color: black;
+    &__grid {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    &__group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    &__label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--selected-text-primary);
+      margin-bottom: var(--space-2);
+    }
+
+    &__input,
+    &__textarea {
+      width: 100%;
+      padding: var(--space-4);
+      background: var(--selected-surface-color);
+      border: 1px solid var(--selected-border-color);
+      border-radius: var(--radius-lg);
+      color: var(--selected-text-primary);
+      font-size: 1rem;
+      transition: all var(--transition-normal);
+      resize: vertical;
+
+      &::placeholder {
+        color: var(--selected-text-muted);
+      }
+
+      &:focus {
+        outline: none;
+        border-color: var(--selected-accent-color);
+        box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+      }
+
+      &:hover {
+        border-color: var(--selected-text-muted);
+      }
+    }
+
+    &__textarea {
+      min-height: 120px;
+      font-family: inherit;
+    }
+
+    &__submit {
+      @extend .btn;
+      @extend .btn--primary;
+      width: 100%;
+      padding: var(--space-4) var(--space-6);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: var(--space-4);
+      justify-self: center;
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+    }
+
+    &__status {
+      margin-top: var(--space-4);
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      font-weight: 500;
+
+      &--success {
+        background: rgba(34, 197, 94, 0.1);
+        color: #22c55e;
+        border: 1px solid rgba(34, 197, 94, 0.2);
+      }
+
+      &--error {
+        background: rgba(239, 68, 68, 0.1);
+        color: #ef4444;
+        border: 1px solid rgba(239, 68, 68, 0.2);
+      }
     }
   }
 
   &__resume {
-    margin-top: -10px;
-    margin-bottom: 30px;
-    width: 100%;
-    scale: 0.85;
+    &__title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--selected-text-primary);
+      text-align: center;
+      margin-bottom: var(--space-8);
+    }
+
+    &__container {
+      @extend .card;
+      padding: var(--space-8);
+      text-align: center;
+
+      @media (max-width: 768px) {
+        padding: var(--space-6);
+      }
+    }
+
+    &__iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: var(--radius-lg);
+      background: var(--selected-surface-color);
+
+      @media (max-width: 768px) {
+        height: 400px;
+      }
+    }
+
+    &__download {
+      @extend .btn;
+      @extend .btn--secondary;
+      margin-top: var(--space-6);
+      text-decoration: none;
+    }
+  }
+
+  // Contact info cards
+  &__info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-6);
+    margin-bottom: var(--space-16);
+
+    &__card {
+      @extend .card;
+      text-align: center;
+      padding: var(--space-6);
+
+      &__icon {
+        width: 3rem;
+        height: 3rem;
+        background: var(--accent-gradient);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto var(--space-4);
+        color: white;
+        font-size: 1.25rem;
+      }
+
+      &__title {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--selected-text-primary);
+        margin-bottom: var(--space-2);
+      }
+
+      &__value {
+        color: var(--selected-text-secondary);
+        font-size: 0.875rem;
+      }
+
+      &__link {
+        color: var(--selected-accent-color);
+        text-decoration: none;
+        transition: all var(--transition-normal);
+
+        &:hover {
+          color: var(--selected-accent-hover);
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// Form animations
+.contact__form__group {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: calc(var(--index) * 0.1s);
+}
+
+// Floating label effect
+.contact__form__group {
+  position: relative;
+
+  &--floating {
+    .contact__form__label {
+      position: absolute;
+      top: var(--space-4);
+      left: var(--space-4);
+      background: var(--selected-surface-color);
+      padding: 0 var(--space-2);
+      transition: all var(--transition-normal);
+      pointer-events: none;
+      color: var(--selected-text-muted);
+    }
+
+    .contact__form__input:focus + .contact__form__label,
+    .contact__form__input:not(:placeholder-shown) + .contact__form__label,
+    .contact__form__textarea:focus + .contact__form__label,
+    .contact__form__textarea:not(:placeholder-shown) + .contact__form__label {
+      top: -0.5rem;
+      left: var(--space-3);
+      font-size: 0.75rem;
+      color: var(--selected-accent-color);
+      font-weight: 600;
+    }
   }
 }

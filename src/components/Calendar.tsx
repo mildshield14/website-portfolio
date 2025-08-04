@@ -342,39 +342,37 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
   // };
 
   return (
-    <section className={size}>
-      <h2 id="calendar" className="page__title">
-        {getTranslation(lang, "calendar")}
-      </h2>
+    <section id="calendar" className={`calendar ${size}`}>
       <div className="calendar__container">
+        <h2 className="page__title">
+          {getTranslation(lang, "calendar")}
+        </h2>
+        
         <div className="calendar__main">
-          <DatePicker
-            selected={selectedDate}
-            onChange={(date: Date | null) => {
-              if (date) {
-                setSelectedDate(date);
-                setShowCalendar(true);
-                checkAvailability(date);
-              }
-            }}
-            inline
-            minDate={new Date()}
-            dateFormat="MMMM d, yyyy"
-          />
+          <div className="calendar__datepicker">
+            <DatePicker
+              selected={selectedDate}
+              onChange={(date: Date | null) => {
+                if (date) {
+                  setSelectedDate(date);
+                  setShowCalendar(true);
+                  checkAvailability(date);
+                }
+              }}
+              inline
+              minDate={new Date()}
+              dateFormat="MMMM d, yyyy"
+            />
+          </div>
 
           {selectedDate && timeSlots.length > 0 && (
             <div className="calendar__slots">
               {showCalendar && (
                 <>
-                  <button
-                    className="calendar__close-button"
-                    onClick={() =>
-                      setShowCalendar((showCalendar) => !showCalendar)
-                    }
-                  >
-                    ×
-                  </button>
-                  <h3>
+                  <h3 className="calendar__slots__title">
+                    {getTranslation(lang, "selectTime")}
+                  </h3>
+                  <div className="calendar__slots__date">
                     {selectedDate.toLocaleDateString(
                       lang === "fr" ? "fr-FR" : "en-US",
                       {
@@ -384,7 +382,8 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
                         day: "numeric",
                       },
                     )}
-                  </h3>
+                  </div>
+                  
                   <div className="calendar__slots-grid">
                     {timeSlots.map((slot, index) => {
                       // Convert UTC back to local for display
@@ -414,65 +413,92 @@ const Calendar: React.FC<CalendarProps> = ({ size, lang }) => {
           )}
 
           {selectedDate && timeSlots.length === 0 && (
-            <div className="calendar__no-slots">
+            <div className="calendar__slots">
+              <h3 className="calendar__slots__title">{getTranslation(lang, "selectTime")}</h3>
+              <div className="calendar__slots__empty">
               {getTranslation(lang, "noAvailableSlots")}
+              </div>
+            </div>
+          )}
+
+          {selectedSlot && (
+            <div className="calendar__form">
+              <h3 className="calendar__form__title">
+                {getTranslation(lang, "bookingDetails")}
+              </h3>
+              
+              <div className="calendar__form__group">
+                <label className="calendar__form__label" htmlFor="booking-name">
+                  {getTranslation(lang, "name")}
+                </label>
+                <input
+                  type="text"
+                  id="booking-name"
+                  placeholder={getTranslation(lang, "name")}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="calendar__form__input"
+                  disabled={isBooking}
+                />
+              </div>
+              
+              <div className="calendar__form__group">
+                <label className="calendar__form__label" htmlFor="booking-email">
+                  {getTranslation(lang, "email")}
+                </label>
+                <input
+                  type="email"
+                  id="booking-email"
+                  placeholder={getTranslation(lang, "email")}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="calendar__form__input"
+                  disabled={isBooking}
+                />
+              </div>
+              
+              <div className="calendar__form__group">
+                <label className="calendar__form__label" htmlFor="booking-reason">
+                  {getTranslation(lang, "reasons")}
+                </label>
+                <input
+                  type="text"
+                  id="booking-reason"
+                  placeholder={getTranslation(lang, "reasons")}
+                  value={reason}
+                  onChange={(e) => setReason(e.target.value)}
+                  className="calendar__form__input"
+                  disabled={isBooking}
+                />
+              </div>
+              
+              <button
+                onClick={bookAppointment}
+                className="calendar__form__button"
+                disabled={isBooking}
+              >
+                {isBooking
+                  ? lang === "fr"
+                    ? "Réservation..."
+                    : "Booking..."
+                  : getTranslation(lang, "book")}
+              </button>
             </div>
           )}
         </div>
 
-        {selectedSlot && (
-          <div className="calendar__form">
-            <h3>{getTranslation(lang, "bookingDetails")}</h3>
-            <input
-              type="text"
-              placeholder={getTranslation(lang, "name")}
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="calendar__input"
-              disabled={isBooking}
-            />
-            <input
-              type="email"
-              placeholder={getTranslation(lang, "email")}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="calendar__input"
-              disabled={isBooking}
-            />
-            <input
-              type="text"
-              placeholder={getTranslation(lang, "reasons")}
-              value={reason}
-              onChange={(e) => setReason(e.target.value)}
-              className="calendar__input"
-              disabled={isBooking}
-            />
-            <button
-              onClick={bookAppointment}
-              className="calendar__button"
-              disabled={isBooking}
-            >
-              {isBooking
-                ? lang === "fr"
-                  ? "Réservation..."
-                  : "Booking..."
-                : getTranslation(lang, "book")}
-            </button>
-          </div>
-        )}
-
         {message && (
-          <div
-            className={`calendar__message ${
-              message.includes("error") ||
-              message.includes("Problem") ||
-              message.includes("Issue") ||
-              message.includes("Invalid") ||
-              message.includes("invalide")
-                ? "calendar__message--error"
-                : ""
-            }`}
-          >
+          <div className={`calendar__message ${
+            message.includes("error") ||
+            message.includes("Problem") ||
+            message.includes("Issue") ||
+            message.includes("Invalid") ||
+            message.includes("invalide")
+              ? "calendar__message--error"
+              : message.includes("successful") || message.includes("réussie")
+              ? "calendar__message--success"
+              : "calendar__message--info"
+          }`}>
             {message}
           </div>
         )}
