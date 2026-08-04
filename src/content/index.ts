@@ -3,7 +3,7 @@ import type { Content } from '../types'
 const en: Content = {
   meta: {
     name: 'Vennila Sooben',
-    role: 'Software Developer & AI Systems Researcher',
+    role: 'Software Developer · AI & Workflow Automation',
     uni: 'M.Sc. Computer Science, Université de Montréal',
   },
 
@@ -33,12 +33,12 @@ const en: Content = {
   },
 
   hero: {
-    eyebrow: 'Software Developer & AI Systems Researcher',
+    eyebrow: 'Software Developer · AI & Workflow Automation',
     name: 'Vennila Sooben',
-    positioning: 'I build software tools around AI, automation, and interfaces.',
-    bio: "I'm a master's student in computer science at Université de Montréal. My current work moves between prompt engineering research, internal tools, process automation, and frontend systems.",
+    positioning: 'I build AI-assisted applications and workflow automation with TypeScript, Python, Vue 3, and Microsoft Power Platform.',
+    bio: "I'm an M.Sc. Computer Science student at Université de Montréal with industry experience in frontend development and Microsoft Power Platform-based process automation. My research examines reusable prompt patterns through large-scale prompt analysis, taxonomy design, and specification. My academic experience also includes LLM application development with RAG, LangChain, and CrewAI.",
     currently_label: 'Currently',
-    currently_prose: 'Researching prompt engineering at D&G / MITACS, working on process automation at iA, and building academic tools at UdeM.',
+    currently_prose: 'Using Microsoft Power Platform for strategic process analysis and automation at iA, researching prompt engineering at D&G / MITACS, and building academic tools at UdeM.',
     artifact: `promptspec Catalog {\n  patterns: Persona, Recipe, SchemaSpecs\n  output: graph + api\n}`,
     cta_work: 'Selected work',
     cta_research: 'Research',
@@ -188,8 +188,8 @@ const en: Content = {
         loc: 'Montréal, QC',
         current: true,
         summary:
-          'Starting in May 2026.',
-        tags: ['Process Analysis', 'Automation', 'Financial Services'],
+          'Using Microsoft Power Platform to support strategic process analysis and automation in financial services.',
+        tags: ['Microsoft Power Platform', 'Process Analysis', 'Workflow Automation'],
       },
       {
         company: 'Draft & Goal / MITACS',
@@ -258,11 +258,11 @@ const en: Content = {
     heading: 'Capabilities',
     clusters: [
       { label: 'Languages', skills: ['TypeScript', 'Python', 'JavaScript', 'HTML & CSS', 'SCSS'] },
-      { label: 'Frontend', skills: ['Vue 3', 'Nuxt', 'React', 'Tailwind CSS', 'Accessibility'] },
+      { label: 'Frontend & Design Systems', skills: ['Vue 3', 'Nuxt', 'React', 'Tailwind CSS', 'Accessibility', 'Figma & Design Systems'] },
       { label: 'Backend & Tooling', skills: ['Node.js', 'REST APIs', 'Vite', 'Git', 'CI/CD'] },
-      { label: 'AI & Research', skills: ['Prompt Engineering', 'DSL Design', 'LLM Workflows', 'NLP', 'OpenAI API'] },
-      { label: 'Design & Systems', skills: ['Figma', 'UI Component Libraries', 'Design Systems', 'Responsive Design'] },
-      { label: 'Process & Soft Skills', skills: ['Workflow Automation', 'Process Mapping', 'Technical Writing', 'Cross-team Collaboration', 'Problem Structuring'] },
+      { label: 'AI Applications', skills: ['Prompt Engineering', 'RAG', 'LangChain', 'CrewAI', 'LLM Workflows'] },
+      { label: 'Microsoft Power Platform', skills: ['Power Apps', 'Power Automate', 'Dataverse', 'Power BI', 'Copilot Studio'] },
+      { label: 'Process & Delivery', skills: ['Workflow Automation', 'Process Mapping', 'Low-Code / No-Code', 'Technical Writing', 'Cross-team Collaboration'] },
     ],
   },
 
@@ -445,7 +445,7 @@ const en: Content = {
   contact: {
     eyebrow: 'Contact',
     heading: "Let's talk",
-    sub: 'Research collaboration, engineering roles, or a good conversation about AI tools.',
+    sub: 'Software development, AI application development, and workflow automation opportunities in Montréal, across Canada, or remote.',
     email: 'vennila.sooben@umontreal.ca',
     github: 'github.com/mildshield14',
     linkedin: 'linkedin.com/in/vennilasooben',
@@ -462,7 +462,7 @@ const en: Content = {
 const fr: Content = {
   meta: {
     name: 'Vennila Sooben',
-    role: 'Développeuse logicielle & chercheuse en systèmes IA',
+    role: 'Développeuse logicielle · IA et automatisation des processus',
     uni: 'M.Sc. Informatique, Université de Montréal',
   },
 
@@ -492,12 +492,12 @@ const fr: Content = {
   },
 
   hero: {
-    eyebrow: 'Développeuse logicielle & chercheuse en systèmes IA',
+    eyebrow: 'Développeuse logicielle · IA et automatisation des processus',
     name: 'Vennila Sooben',
-    positioning: "Je développe des outils logiciels autour de l'IA, de l'automatisation et des interfaces.",
-    bio: "Je suis étudiante à la maîtrise en informatique à l'Université de Montréal. En ce moment, mon travail touche à l'ingénierie de prompts, aux outils internes, à l'automatisation de processus et aux systèmes front-end.",
+    positioning: "Je développe des applications assistées par l'IA et des automatisations avec TypeScript, Python, Vue 3 et Microsoft Power Platform.",
+    bio: "Je suis étudiante à la maîtrise en informatique à l'Université de Montréal, avec une expérience en développement front-end et en automatisation de processus avec Microsoft Power Platform. Ma recherche porte sur l'analyse de prompts réels, leur taxonomie et leur spécification. Mon expérience académique comprend aussi le développement d'applications LLM avec RAG, LangChain et CrewAI.",
     currently_label: 'En ce moment',
-    currently_prose: "Recherche en ingénierie de prompts chez D&G / MITACS, automatisation de processus chez iA Groupe Financier, et outils académiques à l'UdeM.",
+    currently_prose: "Utilisation de Microsoft Power Platform pour l'analyse stratégique de processus et l'automatisation chez iA Groupe Financier, recherche en ingénierie de prompts chez D&G / MITACS et développement d'outils académiques à l'UdeM.",
     artifact: `promptspec Catalog {\n  patterns: Persona, Recipe, SchemaSpecs\n  output: graph + api\n}`,
     cta_work: 'Réalisations',
     cta_research: 'Recherche',
@@ -647,8 +647,8 @@ const fr: Content = {
         loc: 'Montréal, QC',
         current: true,
         summary:
-          'Prise de poste en mai 2026.',
-        tags: ['Analyse de processus', 'Automatisation', 'Services financiers'],
+          'Utilisation de Microsoft Power Platform pour soutenir l’analyse stratégique de processus et l’automatisation dans les services financiers.',
+        tags: ['Microsoft Power Platform', 'Analyse de processus', 'Automatisation'],
       },
       {
         company: 'Draft & Goal / MITACS',
@@ -717,11 +717,11 @@ const fr: Content = {
     heading: 'Capacités',
     clusters: [
       { label: 'Langages', skills: ['TypeScript', 'Python', 'JavaScript', 'HTML & CSS', 'SCSS'] },
-      { label: 'Frontend', skills: ['Vue 3', 'Nuxt', 'React', 'Tailwind CSS', 'Accessibilité'] },
+      { label: 'Frontend & Systèmes de design', skills: ['Vue 3', 'Nuxt', 'React', 'Tailwind CSS', 'Accessibilité', 'Figma & Systèmes de design'] },
       { label: 'Backend & Outillage', skills: ['Node.js', 'REST APIs', 'Vite', 'Git', 'CI/CD'] },
-      { label: 'IA & Recherche', skills: ['Ingénierie des prompts', 'DSL', 'Flux LLM', 'TALN', 'OpenAI API'] },
-      { label: 'Design & Systèmes', skills: ['Figma', 'Bibliothèques de composants', 'Systèmes de design', 'Design responsive'] },
-      { label: 'Processus & compétences transversales', skills: ['Automatisation des flux', 'Cartographie de processus', 'Rédaction technique', 'Collaboration interéquipes', 'Structuration de problèmes'] },
+      { label: 'Applications IA', skills: ['Ingénierie des prompts', 'RAG', 'LangChain', 'CrewAI', 'Flux LLM'] },
+      { label: 'Microsoft Power Platform', skills: ['Power Apps', 'Power Automate', 'Dataverse', 'Power BI', 'Copilot Studio'] },
+      { label: 'Processus & Livraison', skills: ['Automatisation des flux', 'Cartographie de processus', 'Low-code / No-code', 'Rédaction technique', 'Collaboration interéquipes'] },
     ],
   },
 
@@ -904,7 +904,7 @@ const fr: Content = {
   contact: {
     eyebrow: 'Contact',
     heading: 'Discutons',
-    sub: 'Collaboration de recherche, postes en ingénierie, ou une bonne conversation sur les outils IA.',
+    sub: 'Opportunités en développement logiciel, applications IA et automatisation à Montréal, au Canada ou à distance.',
     email: 'vennila.sooben@umontreal.ca',
     github: 'github.com/mildshield14',
     linkedin: 'linkedin.com/in/vennilasooben',
