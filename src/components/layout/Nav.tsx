@@ -7,6 +7,7 @@ import { triggerHaptic } from '../../utils/haptics'
 const navLinks = [
   { href: '#work',       key: 'work'       },
   { href: '#research',   key: 'research'   },
+  { href: '#publications', key: 'publications' },
   { href: '#experience', key: 'experience' },
   { href: '#education',  key: 'education'  },
   { href: '#skills',     key: 'skills'     },

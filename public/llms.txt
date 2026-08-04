@@ -8,12 +8,13 @@ Canonical profile: https://vennilasooben.dev/
 
 - Software development with TypeScript, Python, JavaScript, Vue 3, Nuxt, and React
 - Workflow automation with Microsoft Power Apps, Power Automate, Dataverse, Power BI, and Copilot Studio
-- Academic LLM application development using prompt engineering, retrieval-augmented generation (RAG), LangChain, and CrewAI
+- Power Apps automation catalog for executive assistants at iA Financial Group
+- UdeM Technical Assistant experience developing LLM applications with retrieval-augmented generation (RAG), LangChain, and CrewAI
 - Process analysis, accessible frontend systems, design systems, and technical delivery
 
 ## Current context
 
-Vennila is an M.Sc. Computer Science student at Université de Montréal. At iA Financial Group, she uses Microsoft Power Platform for strategic process analysis and automation. Her industry experience also includes frontend development, while her academic work includes software tools and LLM applications. Her research examines reusable prompt patterns through large-scale prompt analysis, taxonomy design, and specification.
+Vennila is an M.Sc. Computer Science student at Université de Montréal. At iA Financial Group, she designed and built a Power Apps catalog where executive assistants could discover and launch reusable Power Platform automations. As a Technical Assistant at Université de Montréal, she develops LLM applications using RAG, LangChain, and CrewAI. Her research separately examines reusable prompt patterns through large-scale prompt analysis, taxonomy design, and specification.
 
 ## Primary sources
 
@@ -21,6 +22,7 @@ Vennila is an M.Sc. Computer Science student at Université de Montréal. At iA 
 - GitHub: https://github.com/mildshield14
 - LinkedIn: https://www.linkedin.com/in/vennilasooben
 - Research paper: https://arxiv.org/abs/2607.00043
+- Interactive prompt-pattern taxonomy: https://geodes.iro.umontreal.ca/promptspec-catalog/
 - Research group: https://geodes.iro.umontreal.ca/people
 
 ## Contact

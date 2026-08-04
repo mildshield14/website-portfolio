@@ -6,7 +6,8 @@ Personal portfolio for [Vennila Sooben](https://vennilasooben.dev), a Montréal-
 
 - TypeScript, Python, JavaScript, Vue 3, Nuxt, and React
 - Power Apps, Power Automate, Dataverse, Power BI, and Copilot Studio
-- Academic LLM application development with prompt engineering, RAG, LangChain, and CrewAI
+- Power Apps automation catalog for executive assistants at iA Financial Group
+- UdeM Technical Assistant experience developing LLM applications with RAG, LangChain, and CrewAI
 - Accessible interfaces, design systems, process analysis, and automation
 - Industry experience using Microsoft Power Platform for strategic process analysis and automation at iA Financial Group
 
@@ -36,3 +37,4 @@ npm run build
 - [LinkedIn](https://www.linkedin.com/in/vennilasooben)
 - [GitHub](https://github.com/mildshield14)
 - [Prompt engineering research](https://arxiv.org/abs/2607.00043)
+- [Interactive prompt-pattern taxonomy](https://geodes.iro.umontreal.ca/promptspec-catalog/)

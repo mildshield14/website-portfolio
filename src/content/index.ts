@@ -10,6 +10,7 @@ const en: Content = {
   nav: {
     work: 'Work',
     research: 'Research',
+    publications: 'Publications',
     experience: 'Experience',
     education: 'Education',
     skills: 'Skills',
@@ -36,7 +37,7 @@ const en: Content = {
     eyebrow: 'Software Developer · AI & Workflow Automation',
     name: 'Vennila Sooben',
     positioning: 'I build AI-assisted applications and workflow automation with TypeScript, Python, Vue 3, and Microsoft Power Platform.',
-    bio: "I'm an M.Sc. Computer Science student at Université de Montréal with industry experience in frontend development and Microsoft Power Platform-based process automation. My research examines reusable prompt patterns through large-scale prompt analysis, taxonomy design, and specification. My academic experience also includes LLM application development with RAG, LangChain, and CrewAI.",
+    bio: "I'm an M.Sc. Computer Science student at Université de Montréal with industry experience in frontend development and Microsoft Power Platform-based process automation. My research examines reusable prompt patterns through large-scale prompt analysis, taxonomy design, and specification. As a Technical Assistant at Université de Montréal, I develop LLM applications using RAG, LangChain, and CrewAI.",
     currently_label: 'Currently',
     currently_prose: 'Using Microsoft Power Platform for strategic process analysis and automation at iA, researching prompt engineering at D&G / MITACS, and building academic tools at UdeM.',
     artifact: `promptspec Catalog {\n  patterns: Persona, Recipe, SchemaSpecs\n  output: graph + api\n}`,
@@ -49,7 +50,7 @@ const en: Content = {
   work: {
     eyebrow: 'Selected Work',
     heading: 'Case studies',
-    sub: 'A few projects from research, software work, and design systems.',
+    sub: 'A few projects from software delivery, automation, research, and design systems.',
     challenge: 'Challenge',
     approach: 'Approach',
     outcome: 'Outcome',
@@ -75,6 +76,22 @@ const en: Content = {
         tags: ['Prompt Engineering', 'DSL Design', 'NLP', 'Python', 'Research'],
       },
       {
+        id: 'ia-automation-catalog',
+        type: 'Low-Code · Workflow Automation',
+        year: '2026',
+        featured: false,
+        role: 'Performance analyst',
+        title: 'Power Platform Automation Catalog, iA',
+        sub: 'A centralized Power Apps catalog for executive assistants to discover and launch reusable automations.',
+        challenge:
+          'The project called for a clear, central entry point where executive assistants could find available automation workflows.',
+        approach:
+          'Designed and built a Power Apps catalog that organized reusable Power Platform automations as scannable cards with concise descriptions and launch actions.',
+        outcome:
+          'Created a single catalog experience for discovering and initiating automation workflows. Internal process and implementation details are intentionally omitted.',
+        tags: ['Power Apps', 'Power Platform', 'Workflow Automation', 'UX', 'Process Analysis'],
+      },
+      {
         id: 'mitacs',
         type: 'Research · Large-Scale Analysis',
         year: '2026 to present',
@@ -97,14 +114,14 @@ const en: Content = {
         featured: false,
         role: 'Technical assistant',
         title: 'UdeM AI-Assisted Academic Tooling',
-        sub: 'AI-assisted features and dashboards for academic research and course management.',
+        sub: 'LLM-assisted academic tooling using RAG, LangChain, and CrewAI for course and faculty applications.',
         challenge:
           'Academic tools weren\'t designed for AI-assisted workflows. UI patterns were inconsistent across faculty applications.',
         approach:
-          'Building Nuxt, Vue, TypeScript components and interactive dashboards for course management tools. Focused on accessible UI patterns aligned with WCAG guidelines.',
+          'Developing LLM-assisted tools with RAG, LangChain, and CrewAI alongside Nuxt, Vue, TypeScript components and interactive dashboards. Focused on accessible UI patterns aligned with WCAG guidelines.',
         outcome:
           'Contributed to tools used across multiple faculty projects. Reduced interface inconsistency and improved accessibility.',
-        tags: ['Vue 3', 'Nuxt', 'TypeScript', 'Tailwind', 'Accessibility'],
+        tags: ['RAG', 'LangChain', 'CrewAI', 'Vue 3', 'TypeScript'],
       },
       {
         id: 'fas',
@@ -175,6 +192,35 @@ const en: Content = {
     methods:
       'Analyzing real-world prompts at scale to find repeated structures. Using ideas from programming languages, HCI, and software engineering, then testing what is useful in PromptSpec.',
     keywords: ['Prompt Engineering', 'DSL Design', 'LLM Evaluation', 'Software Specification', 'HCI', 'AI Tools'],
+    catalog_label: 'Explore the interactive prompt-pattern taxonomy',
+    catalog_url: 'https://geodes.iro.umontreal.ca/promptspec-catalog/',
+  },
+
+  publications: {
+    eyebrow: 'Publications',
+    heading: 'Published work',
+    sub: 'Research outputs and the public resources built around them.',
+    items: [
+      {
+        status: 'arXiv preprint · 2026',
+        title: 'A Taxonomy of Single-Turn Textual Prompt Patterns',
+        authors: 'Vennila Sooben · Eugene Syriani',
+        meta: 'arXiv:2607.00043 [cs.SE] · 25 pages',
+        description:
+          'A reproducible taxonomy of 30 canonical prompt patterns for single-turn, text-based interactions, organized along two dimensions.',
+        links: [
+          { label: 'Read on arXiv', href: 'https://arxiv.org/abs/2607.00043' },
+          { label: 'Explore the taxonomy catalog', href: 'https://geodes.iro.umontreal.ca/promptspec-catalog/' },
+        ],
+      },
+      {
+        status: 'Paper in progress',
+        title: 'Second paper in progress',
+        description: 'A second paper is currently in development. Its title and details will be added when the work is ready to be shared publicly.',
+        links: [],
+        forthcoming: true,
+      },
+    ],
   },
 
   experience: {
@@ -188,8 +234,8 @@ const en: Content = {
         loc: 'Montréal, QC',
         current: true,
         summary:
-          'Using Microsoft Power Platform to support strategic process analysis and automation in financial services.',
-        tags: ['Microsoft Power Platform', 'Process Analysis', 'Workflow Automation'],
+          'Designed and built a Power Apps catalog that gave executive assistants a central place to discover and launch reusable Power Platform automations, while supporting strategic process analysis and workflow automation.',
+        tags: ['Power Apps', 'Microsoft Power Platform', 'Process Analysis', 'Workflow Automation'],
       },
       {
         company: 'Draft & Goal / MITACS',
@@ -208,8 +254,8 @@ const en: Content = {
         loc: 'Montréal, QC',
         current: true,
         summary:
-          'Contributing to Nuxt/Vue/TypeScript tools, AI-assisted features, and accessible UI components, including the FAS Component Library, for course management applications.',
-        tags: ['Vue 3', 'TypeScript', 'AI Tools', 'Full-Stack'],
+          'Developing LLM-assisted academic tools with RAG, LangChain, and CrewAI, alongside Nuxt/Vue/TypeScript applications and accessible UI components including the FAS Component Library.',
+        tags: ['RAG', 'LangChain', 'CrewAI', 'Vue 3', 'TypeScript'],
       },
       {
         company: 'Université de Montréal',
@@ -242,7 +288,7 @@ const en: Content = {
         degree: 'M.Sc. Computer Science',
         institution: 'Université de Montréal',
         period: '2025 to 2027 (expected)',
-        detail: 'Research focus: prompt engineering, DSL design, and AI tools. MITACS-affiliated research internship.',
+        detail: 'Research focus: prompt analysis, prompt-pattern taxonomy, and specification. MITACS-affiliated research internship.',
       },
       {
         degree: 'B.Sc. Computer Science',
@@ -469,6 +515,7 @@ const fr: Content = {
   nav: {
     work: 'Réalisations',
     research: 'Recherche',
+    publications: 'Publications',
     experience: 'Expérience',
     education: 'Formation',
     skills: 'Compétences',
@@ -495,7 +542,7 @@ const fr: Content = {
     eyebrow: 'Développeuse logicielle · IA et automatisation des processus',
     name: 'Vennila Sooben',
     positioning: "Je développe des applications assistées par l'IA et des automatisations avec TypeScript, Python, Vue 3 et Microsoft Power Platform.",
-    bio: "Je suis étudiante à la maîtrise en informatique à l'Université de Montréal, avec une expérience en développement front-end et en automatisation de processus avec Microsoft Power Platform. Ma recherche porte sur l'analyse de prompts réels, leur taxonomie et leur spécification. Mon expérience académique comprend aussi le développement d'applications LLM avec RAG, LangChain et CrewAI.",
+    bio: "Je suis étudiante à la maîtrise en informatique à l'Université de Montréal, avec une expérience en développement front-end et en automatisation de processus avec Microsoft Power Platform. Ma recherche porte sur l'analyse de prompts réels, leur taxonomie et leur spécification. Comme assistante technique à l'Université de Montréal, je développe des applications LLM avec RAG, LangChain et CrewAI.",
     currently_label: 'En ce moment',
     currently_prose: "Utilisation de Microsoft Power Platform pour l'analyse stratégique de processus et l'automatisation chez iA Groupe Financier, recherche en ingénierie de prompts chez D&G / MITACS et développement d'outils académiques à l'UdeM.",
     artifact: `promptspec Catalog {\n  patterns: Persona, Recipe, SchemaSpecs\n  output: graph + api\n}`,
@@ -508,7 +555,7 @@ const fr: Content = {
   work: {
     eyebrow: 'Travaux sélectionnés',
     heading: 'Études de cas',
-    sub: 'Quelques projets de recherche, de développement logiciel et de systèmes UI.',
+    sub: 'Quelques projets de développement logiciel, d’automatisation, de recherche et de systèmes UI.',
     challenge: 'Défi',
     approach: 'Démarche',
     outcome: 'Résultat',
@@ -534,6 +581,22 @@ const fr: Content = {
         tags: ['Ingénierie prompts', 'DSL', 'TALN', 'Python', 'Recherche'],
       },
       {
+        id: 'ia-automation-catalog',
+        type: 'Low-code · Automatisation des processus',
+        year: '2026',
+        featured: false,
+        role: 'Analyste de performance',
+        title: 'Catalogue d’automatisations Power Platform, iA',
+        sub: 'Un catalogue Power Apps centralisé permettant aux adjointes et adjoints de direction de découvrir et lancer des automatisations réutilisables.',
+        challenge:
+          'Le projet demandait un point d’accès central et clair où les adjointes et adjoints de direction pouvaient trouver les flux d’automatisation disponibles.',
+        approach:
+          'Conception et développement d’un catalogue Power Apps organisant les automatisations Power Platform sous forme de cartes lisibles avec une courte description et une action de lancement.',
+        outcome:
+          'Création d’une expérience unique pour découvrir et lancer des flux d’automatisation. Les processus internes et les détails d’implémentation sont volontairement omis.',
+        tags: ['Power Apps', 'Power Platform', 'Automatisation', 'UX', 'Analyse de processus'],
+      },
+      {
         id: 'mitacs',
         type: 'Recherche · Analyse à grande échelle',
         year: '2026 à présent',
@@ -556,14 +619,14 @@ const fr: Content = {
         featured: false,
         role: 'Assistante technique',
         title: 'Outils académiques IA, UdeM',
-        sub: 'Fonctionnalités IA et tableaux de bord pour la gestion de la recherche et des cours à l\'Université de Montréal.',
+        sub: 'Outillage académique basé sur les LLM avec RAG, LangChain et CrewAI pour des applications de cours et facultaires.',
         challenge:
           'Les outils académiques existants n\'étaient pas conçus pour les flux assistés par IA, et les interfaces étaient incohérentes entre les applications facultaires.',
         approach:
-          'Contribution au développement de composants Nuxt/Vue/TypeScript et tableaux de bord pour les outils de gestion de cours. Aide à l\'élaboration de motifs UI accessibles conformes aux lignes directrices WCAG.',
+          'Développement d\'outils basés sur les LLM avec RAG, LangChain et CrewAI, ainsi que de composants Nuxt/Vue/TypeScript et de tableaux de bord. Contribution à des motifs UI accessibles conformes aux lignes directrices WCAG.',
         outcome:
           'Contribution à des outils utilisés dans plusieurs projets facultaires. Aide à la réduction des incohérences d\'interface et à l\'amélioration de la couverture d\'accessibilité.',
-        tags: ['Vue 3', 'Nuxt', 'TypeScript', 'Tailwind', 'Accessibilité'],
+        tags: ['RAG', 'LangChain', 'CrewAI', 'Vue 3', 'TypeScript'],
       },
       {
         id: 'fas',
@@ -634,6 +697,35 @@ const fr: Content = {
     methods:
       'Analyser des prompts réels à grande échelle pour trouver des structures répétées. Utiliser des idées des langages de programmation, de l\'IHM et du génie logiciel, puis tester ce qui est utile dans PromptSpec.',
     keywords: ['Ingénierie prompts', 'DSL', 'Évaluation LLM', 'Spécification logicielle', 'IHM', 'Outils IA'],
+    catalog_label: 'Explorer la taxonomie interactive des patrons de prompts',
+    catalog_url: 'https://geodes.iro.umontreal.ca/promptspec-catalog/',
+  },
+
+  publications: {
+    eyebrow: 'Publications',
+    heading: 'Travaux publiés',
+    sub: 'Publications de recherche et ressources publiques qui les accompagnent.',
+    items: [
+      {
+        status: 'Prépublication arXiv · 2026',
+        title: 'A Taxonomy of Single-Turn Textual Prompt Patterns',
+        authors: 'Vennila Sooben · Eugene Syriani',
+        meta: 'arXiv:2607.00043 [cs.SE] · 25 pages',
+        description:
+          'Une taxonomie reproductible de 30 patrons canoniques pour les interactions textuelles en un seul tour, organisés selon deux dimensions.',
+        links: [
+          { label: 'Lire sur arXiv', href: 'https://arxiv.org/abs/2607.00043' },
+          { label: 'Explorer le catalogue de la taxonomie', href: 'https://geodes.iro.umontreal.ca/promptspec-catalog/' },
+        ],
+      },
+      {
+        status: 'Article en cours',
+        title: 'Deuxième article en préparation',
+        description: 'Un deuxième article est en cours de développement. Son titre et ses détails seront ajoutés lorsque le travail pourra être partagé publiquement.',
+        links: [],
+        forthcoming: true,
+      },
+    ],
   },
 
   experience: {
@@ -647,8 +739,8 @@ const fr: Content = {
         loc: 'Montréal, QC',
         current: true,
         summary:
-          'Utilisation de Microsoft Power Platform pour soutenir l’analyse stratégique de processus et l’automatisation dans les services financiers.',
-        tags: ['Microsoft Power Platform', 'Analyse de processus', 'Automatisation'],
+          'Conception et développement d’un catalogue Power Apps offrant aux adjointes et adjoints de direction un point central pour découvrir et lancer des automatisations Power Platform réutilisables, en soutien à l’analyse stratégique de processus et à l’automatisation.',
+        tags: ['Power Apps', 'Microsoft Power Platform', 'Analyse de processus', 'Automatisation'],
       },
       {
         company: 'Draft & Goal / MITACS',
@@ -667,8 +759,8 @@ const fr: Content = {
         loc: 'Montréal, QC',
         current: true,
         summary:
-          'Contribution au développement d\'outils Nuxt/Vue/TypeScript, de fonctionnalités IA et de composants UI accessibles, dont la bibliothèque de composants FAS, pour les applications de gestion de cours.',
-        tags: ['Vue 3', 'TypeScript', 'Outils IA', 'Full-Stack'],
+          'Développement d\'outils académiques basés sur les LLM avec RAG, LangChain et CrewAI, ainsi que d\'applications Nuxt/Vue/TypeScript et de composants UI accessibles, dont la bibliothèque de composants FAS.',
+        tags: ['RAG', 'LangChain', 'CrewAI', 'Vue 3', 'TypeScript'],
       },
       {
         company: 'Université de Montréal',
@@ -701,7 +793,7 @@ const fr: Content = {
         degree: 'M.Sc. Informatique',
         institution: 'Université de Montréal',
         period: '2025 à 2027 (prévu)',
-        detail: 'Axe de recherche : ingénierie des prompts, conception de DSL et outils IA. Stage de recherche affilié MITACS.',
+        detail: 'Axe de recherche : analyse de prompts, taxonomie de patrons et spécification. Stage de recherche affilié MITACS.',
       },
       {
         degree: 'B.Sc. Informatique',
