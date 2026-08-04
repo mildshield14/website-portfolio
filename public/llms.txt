@@ -13,7 +13,7 @@ Canonical profile: https://vennilasooben.dev/
 
 ## Current context
 
-Vennila is an M.Sc. Computer Science student at Université de Montréal. Her industry work spans process analysis, Microsoft Power Platform automation, frontend development, and academic software tools. Her research examines reusable prompt patterns through large-scale prompt analysis, taxonomy design, and specification.
+Vennila is an M.Sc. Computer Science student at Université de Montréal. At iA Financial Group, she uses Microsoft Power Platform for strategic process analysis and automation. Her industry experience also includes frontend development, while her academic work includes software tools and LLM applications. Her research examines reusable prompt patterns through large-scale prompt analysis, taxonomy design, and specification.
 
 ## Primary sources
 

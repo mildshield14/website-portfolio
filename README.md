@@ -8,6 +8,7 @@ Personal portfolio for [Vennila Sooben](https://vennilasooben.dev), a Montréal-
 - Power Apps, Power Automate, Dataverse, Power BI, and Copilot Studio
 - Academic LLM application development with prompt engineering, RAG, LangChain, and CrewAI
 - Accessible interfaces, design systems, process analysis, and automation
+- Industry experience using Microsoft Power Platform for strategic process analysis and automation at iA Financial Group
 
 ## Local development
 
