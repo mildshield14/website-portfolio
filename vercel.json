@@ -1,7 +1,14 @@
 {
+  "redirects": [
+    {
+      "source": "/kitchen",
+      "destination": "/beyond",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/beyond",
       "destination": "/index.html"
     }
   ]

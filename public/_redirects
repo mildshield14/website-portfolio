@@ -1,1 +1,3 @@
-/*    /index.html   200
+/kitchen    /beyond      301
+/beyond     /index.html  200
+/*          /404.html    404
