@@ -293,6 +293,90 @@ section[id] { scroll-margin-top: 70px; }
   .research-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
 }
 
+/* ── Publications ──────────────────────────────────────── */
+.publications-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.75fr);
+  gap: 14px;
+}
+
+.publication-card {
+  position: relative;
+  min-height: 290px;
+  padding: 28px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surf);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.publication-card h3 {
+  max-width: 680px;
+  margin: 0 0 12px;
+  color: var(--c-text);
+  font-size: clamp(20px, 2.2vw, 29px);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+}
+
+.publication-authors,
+.publication-meta,
+.publication-description { color: var(--c-text2); }
+
+.publication-authors { font-size: 13px; margin-bottom: 4px; }
+.publication-meta { font-family: var(--ff-mono); font-size: 10.5px; margin-bottom: 24px; }
+.publication-description { max-width: 650px; font-size: 13.5px; line-height: 1.7; }
+
+.publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin-top: auto;
+  padding-top: 28px;
+}
+
+.publication-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--c-text);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid var(--c-border2);
+  padding-bottom: 2px;
+}
+
+.publication-links a:hover { color: var(--c-accent); }
+
+.publication-card-forthcoming {
+  border-style: dashed;
+  background: color-mix(in srgb, var(--c-bg2) 75%, var(--c-surf));
+  justify-content: flex-end;
+}
+
+.publication-card-forthcoming h3 { font-size: clamp(18px, 2vw, 24px); }
+
+.publication-placeholder-icon {
+  position: absolute;
+  top: 26px;
+  right: 26px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px dashed var(--c-border2);
+  border-radius: 50%;
+  color: var(--c-text2);
+}
+
+@media (max-width: 760px) {
+  .publications-grid { grid-template-columns: 1fr; }
+  .publication-card { min-height: 260px; padding: 24px; }
+}
+
 /* ── Education rows ────────────────────────────────────── */
 @media (max-width: 560px) {
   .education-row { grid-template-columns: 1fr !important; gap: 8px !important; }

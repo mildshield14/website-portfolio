@@ -34,6 +34,15 @@ export function Research() {
               <p style={{ fontSize: '12px', color: 'var(--c-text2)', fontWeight: 450, lineHeight: 1.6 }}>
                 {r.keywords.join(' · ')}
               </p>
+              <a
+                href={r.catalog_url}
+                target="_blank"
+                rel="noreferrer"
+                className="link-quiet"
+                style={{ display: 'inline-flex', marginTop: '18px', fontSize: '12px' }}
+              >
+                {r.catalog_label} ↗
+              </a>
             </div>
           </div>
 

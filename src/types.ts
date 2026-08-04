@@ -56,6 +56,7 @@ export interface SkillCluster {
 export interface NavContent {
   work: string
   research: string
+  publications: string
   experience: string
   education: string
   skills: string
@@ -101,6 +102,25 @@ export interface ResearchContent {
   methods_label: string
   methods: string
   keywords: string[]
+  catalog_label: string
+  catalog_url: string
+}
+
+export interface PublicationItem {
+  status: string
+  title: string
+  authors?: string
+  meta?: string
+  description: string
+  links: { label: string; href: string }[]
+  forthcoming?: boolean
+}
+
+export interface PublicationsContent {
+  eyebrow: string
+  heading: string
+  sub: string
+  items: PublicationItem[]
 }
 
 export interface ExperienceContent {
@@ -209,6 +229,7 @@ export interface Content {
   hero: HeroContent
   work: WorkContent
   research: ResearchContent
+  publications: PublicationsContent
   experience: ExperienceContent
   education: EducationContent
   skills: SkillsContent

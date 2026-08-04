@@ -5,6 +5,7 @@ import { Hero } from './components/sections/Hero'
 import { WorkPreview } from './components/sections/WorkPreview'
 import { Work } from './components/sections/Work'
 import { Research } from './components/sections/Research'
+import { Publications } from './components/sections/Publications'
 import { Experience } from './components/sections/Experience'
 import { Education } from './components/sections/Education'
 import { Skills } from './components/sections/Skills'
@@ -29,13 +30,14 @@ export function App() {
           <Reveal delay={0.08}><WorkPreview /></Reveal>
           <Reveal delay={0.12}><Work /></Reveal>
           <Reveal delay={0.16}><Research /></Reveal>
-          <Reveal delay={0.2}><Experience /></Reveal>
-          <Reveal delay={0.24}><Education /></Reveal>
-          <Reveal delay={0.28}><Skills /></Reveal>
-          <Reveal delay={0.32}><Community /></Reveal>
-          <Reveal delay={0.36}><About /></Reveal>
-          <Reveal delay={0.4}><Beyond /></Reveal>
-          <Reveal delay={0.44}><Contact /></Reveal>
+          <Reveal delay={0.2}><Publications /></Reveal>
+          <Reveal delay={0.24}><Experience /></Reveal>
+          <Reveal delay={0.28}><Education /></Reveal>
+          <Reveal delay={0.32}><Skills /></Reveal>
+          <Reveal delay={0.36}><Community /></Reveal>
+          <Reveal delay={0.4}><About /></Reveal>
+          <Reveal delay={0.44}><Beyond /></Reveal>
+          <Reveal delay={0.48}><Contact /></Reveal>
         </main>
       )}
       <Footer />
